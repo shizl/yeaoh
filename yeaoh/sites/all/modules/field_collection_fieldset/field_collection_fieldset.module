@@ -1,0 +1,177 @@
+<?php
+
+/**
+ * @file
+ * Module implementing a field-collection fieldset formatter.
+ */
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function field_collection_fieldset_field_formatter_info() {
+  return array(
+    'field_collection_fieldset_view' => array(
+      'label' => t('Fieldset of field collection items'),
+      'field types' => array('field_collection'),
+      'settings' => array(
+        'edit' => t('Edit'),
+        'delete' => t('Delete'),
+        'add' => t('Add'),
+        'description' => TRUE,
+        'view_mode' => 'full',
+        'legend' => '',
+        'collapsible' => TRUE,
+        'collapsed' => FALSE,
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_settings_form().
+ */
+function field_collection_fieldset_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+  $element = field_collection_field_formatter_settings_form($field, $instance, $view_mode, $form, $form_state);
+
+  if ($display['type'] == 'field_collection_fieldset_view') {
+    $fields_info = field_info_instances('field_collection_item', $field['field_name']);
+    $options = array(t('None'));
+    foreach ($fields_info as $field_info) {
+      $options[$field_info['field_name']] = $field_info['label'];
+    }
+
+    $element['legend'] = array(
+      '#type' => 'select',
+      '#title' => t('Legend'),
+      '#options' => $options,
+      '#default_value' => $settings['legend'],
+    );
+
+    $element['collapsible'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Collapsible'),
+      '#default_value' => $settings['collapsible'],
+    );
+
+    $element['collapsed'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Collapsed'),
+      '#default_value' => $settings['collapsed'],
+      '#states' => array(
+        'enabled' => array(
+          ':input[name="fields[' . $field['field_name'] . '][settings_edit_form][settings][collapsible]"]' => array(
+            'checked' => TRUE,
+          ),
+        ),
+      ),
+    );
+  }
+
+  return $element;
+}
+
+/**
+ * Implements hook_field_formatter_settings_summary().
+ */
+function field_collection_fieldset_field_formatter_settings_summary($field, $instance, $view_mode) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+  $output = field_collection_field_formatter_settings_summary($field, $instance, $view_mode);
+
+  if ($display['type'] == 'field_collection_fieldset_view') {
+    $output .= '<br />';
+    $output .= $settings['description'] ? t('Show the field description beside the add link: Yes') : t('Show the field description beside the add link: No');
+    $output .= '<br />';
+    $output .= t('Legend: @field', array('@field' => $settings['legend']));
+    $output .= '<br />';
+    $output .= $settings['collapsible'] ? t('Collapsible: Yes') : t('Collapsible: No');
+    $output .= '<br />';
+    $output .= $settings['collapsed'] ? t('Collapsed: Yes') : t('Collapsed: No');
+  }
+
+  return $output;
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function field_collection_fieldset_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+  $settings = $display['settings'];
+
+  switch ($display['type']) {
+    case 'field_collection_fieldset_view':
+      $view_mode = !empty($display['settings']['view_mode']) ? $display['settings']['view_mode'] : 'full';
+      foreach ($items as $delta => $item) {
+        if ($field_collection = field_collection_field_get_entity($item)) {
+          $view = $field_collection->view($view_mode);
+          $content = $view['field_collection_item'][$field_collection->identifier()];
+
+          // Classes array used for fieldset.
+          $class = array();
+          if ($settings['legend'] && !empty($content[$settings['legend']])) {
+            if ($settings['collapsible']) {
+              $class[] = 'collapsible';
+              $class[] = $settings['collapsed'] ? 'collapsed' : '';
+            }
+
+            // Hide the field, which is used as a legend.
+            $view['field_collection_item'][$field_collection->identifier()][$settings['legend']]['#access'] = FALSE;
+          }
+
+          $element[$delta]['#theme_wrappers'] = array('field_collection_view');
+          $element[$delta]['#attributes']['class'][] = 'field-collection-view';
+          $element[$delta]['#attributes']['class'][] = 'clearfix';
+
+          $element[$delta]['entity'] = array(
+            '#theme' => 'fieldset',
+            '#title' => $settings['legend'] ? render($content[$settings['legend']]) : '',
+            '#value' => render($view),
+            '#collapsible' => $settings['collapsible'],
+            '#collapsed' => $settings['collapsed'],
+            '#attributes' => array(
+              'class' => $class,
+            ),
+          );
+
+          $links = array('#theme' => 'links__field_collection_view');
+          $links['#attributes']['class'][] = 'field-collection-view-links';
+          foreach (array('edit', 'delete') as $op) {
+            if ($settings[$op] && field_collection_item_access($op == 'edit' ? 'update' : $op, $field_collection)) {
+              $links['#links'][$op] = array(
+                'title' => entity_i18n_string("field:{$field['field_name']}:{$instance['bundle']}:setting_$op", $settings[$op]),
+                'href' => $field_collection->path() . '/' . $op,
+                'query' => drupal_get_destination(),
+              );
+            }
+          }
+          $element[$delta]['links'] = $links;
+        }
+      }
+
+      // Attach the js to work fieldset and css for fix legend's arrow.
+      if (!empty($element) && $settings['collapsible'] && $settings['legend']) {
+        $element['#attached'] = array(
+          'css' => array(
+            drupal_get_path('module', 'field_collection_fieldset') . '/css/field-collection-fieldset.css',
+          ),
+          'library' => array(
+            array('system', 'drupal.form'),
+            array('system', 'drupal.collapse'),
+          ),
+        );
+      }
+
+      // Attach a css for styling op links.
+      if (!empty($links['#links'])) {
+        $element['#attached']['css'][] = drupal_get_path('module', 'field_collection') . '/field_collection.theme.css';
+      }
+      field_collection_field_formatter_links($element, $entity_type, $entity, $field, $instance, $langcode, $items, $display);
+
+      break;
+  }
+
+  return $element;
+}

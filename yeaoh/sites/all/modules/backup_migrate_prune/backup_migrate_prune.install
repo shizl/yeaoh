@@ -1,0 +1,109 @@
+<?php
+
+
+/**
+ * @file
+ * Install hooks for Backup and Migrate.
+ */
+
+
+/**
+ * Implementation of hook_requirements().
+ */
+function backup_migrate_prune_requirements($phase) {
+  $requirements = array();
+  return $requirements;
+}
+
+/**
+ * Implementation of hook_schema().
+ */
+function backup_migrate_prune_schema() {
+  $schema['backup_migrate_gardener'] = array(
+    'fields' => array(
+      'gardener_id' => array(
+        'type' => 'serial',
+        'description' => 'The primary identifier for a gardener.',
+      ),
+      'name' => array(
+        'description' => 'The name of the gardener.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE
+      ),
+      'settings' => array(
+        'description' => 'Settings for the gardener.',
+        'type' => 'text',
+        'not null' => TRUE,
+        'serialize' => TRUE,
+        'serialized default' => 'a:0:{}',
+     ),
+      'created' => array(
+        'description' => 'Creation timestamp.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'serialized default' => 'a:0:{}',
+		    'default' => 0,
+     ),
+  	 'destination_id' => array(
+  	    'type' => 'varchar',
+  	    'length' => 32,
+  	    'not null' => TRUE,
+  	    'default' => '0',
+  	    'description' => 'The primary identifier for a profile.',
+  	  ),
+    ),
+    'primary key' => array('gardener_id'),
+  );
+
+  return $schema;
+}
+
+/**
+ * Updates Sunday from code 0 to code 7.
+ */
+function backup_migrate_prune_update_7100(&$sandbox) {
+  // Find all gardeners that had a 0 for the keep day and change them to a 7
+  $records = db_select('backup_migrate_gardener', 'bmg')
+    ->fields('bmg', array('settings', 'gardener_id'))
+    ->execute();
+  foreach ($records as $record) {
+    $settings = unserialize($record->settings);
+    if ($settings['day']['keep'] == 0) {
+      // Modify the settings
+      $settings['day']['keep'] = 7;
+      // Save the record
+      $record = array(
+        'settings' => $settings,
+        'gardener_id' => $record->gardener_id
+      );
+      drupal_write_record('backup_migrate_gardener', $record, 'gardener_id');
+    }
+  }
+}
+
+/**
+ * Clarifies time slots
+ */
+function backup_migrate_prune_update_7101(&$sandbox) {
+  // Find all gardeners that had a 0 for the keep day and change them to a 7
+  $records = db_select('backup_migrate_gardener', 'bmg')
+    ->fields('bmg', array('settings', 'gardener_id'))
+    ->execute();
+  foreach ($records as $record) {
+    $settings = unserialize($record->settings);
+    // Modify the settings
+    $new_settings = array(
+      'thisweek_slot' => $settings['lessthanday'],
+      'thismonth_slot' => $settings['day'],
+      'thisyear_slot' => $settings['week'],
+      'pastyears_slot' => $settings['month'],
+    );
+    // Save the record
+    $record = array(
+      'settings' => $new_settings,
+      'gardener_id' => $record->gardener_id
+    );
+    drupal_write_record('backup_migrate_gardener', $record, 'gardener_id');
+  }
+}
