@@ -1,8 +1,10 @@
 #specific task
 _cset(:app_shared_files)  {
   abort "Please specify an array of shared files to be symlinked, set :app_shared_files"
-}
 
+_cset(:app_symlinks) {
+  abort "Please specify an array of symlinks to shared resources, set :app_symlinks, ['/media', ./. '/staging']"
+}
 namespace :drupal do
   desc <<-DESC
     Prepares one or more servers for deployment of Magento. Before you can use any \
@@ -27,21 +29,19 @@ namespace :drupal do
   DESC
   task :settings_update, :roles => [:web, :app], :except => { :no_release => true } do    
     run "chmod -R g+w #{latest_release}" if fetch(:group_writable, true)
-
-    if app_symlinks
+    
+     if app_symlinks
       # Remove the contents of the shared directories if they were deployed from SCM
       app_symlinks.each { |link| run "#{try_sudo} rm -rf #{latest_release}#{link}" }
       # Add symlinks the directoris in the shared location
       app_symlinks.each { |link| run "ln -nfs #{shared_path}#{link} #{latest_release}#{link}" }
-    end
-
-
-   # if app_shared_files
+    end   
+    if app_shared_files
       # Remove the contents of the shared directories if they were deployed from SCM
-      #app_shared_files.each { |link| run "#{try_sudo} rm -rf #{latest_release}#{link}" }
+      app_shared_files.each { |link| run "#{try_sudo} rm -rf #{latest_release}#{link}" }
       # Add symlinks the directoris in the shared location
-      #app_shared_files.each { |link| run "ln -s #{shared_path}#{link} #{latest_release}#{link}" }
-    #end
+      app_shared_files.each { |link| run "ln -s #{shared_path}#{link} #{latest_release}#{link}" }
+    end
   end
   
 end
