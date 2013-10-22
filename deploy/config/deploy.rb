@@ -7,7 +7,7 @@ set :repository,  "https://yeaoh:yeaoh1@bitbucket.org/yeaoh/yeaoh.comenglish.git
 
 set  :keep_releases,  3
 #set :app_symlinks, ["/public/media", "/public/var", "/public/sitemaps", "/public/staging"]
-#set :app_shared_dirs, ["/public/app/etc", "/public/sitemaps", "/public/media", "/public/var", "/public/staging"]
+set :app_shared_dirs, ["/yeaoh/sites/default", "/public/sitemaps", "/public/media", "/public/var", "/public/staging"]
 set :app_shared_files, ["/yeaoh/sites/default/settings.php", "/yeaoh/.htaccess"]
 #set :app_root_dir, "#{current_path}/public"
 
