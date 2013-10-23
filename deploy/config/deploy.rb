@@ -6,7 +6,7 @@ set :repository,  "https://yeaoh:yeaoh1@bitbucket.org/yeaoh/yeaoh.comen.git"
 
 
 set  :keep_releases,  3
-set :app_symlinks, ["/yeaoh/sites/default , /yeaoh/tmp"]
+set :app_symlinks, ["/yeaoh/sites/default" , "/yeaoh/tmp"]
 #set :app_shared_dirs, ["/yeaoh/sites/default"]
 set :app_shared_files, ["/yeaoh/.htaccess"]
 #set :app_root_dir, "#{current_path}/public"
