@@ -1,0 +1,31 @@
+<?php
+// $Id: spritesheets.install,v 1.1 2011/01/11 17:41:21 tomfriedhof Exp $
+
+/**
+ * @file
+ *
+ * Install file to implement and uninstall hook
+ *
+ */
+
+
+/**
+ * Implements hook_uninstall().
+ */
+
+function spritesheets_uninstall() {
+  variable_del('spritesheets_enabled');
+  variable_del('spritesheets_paths');
+  variable_del('spritesheets_images');
+  variable_del('spritesheets_debug');
+  variable_del('spritesheets_optimize');
+  unlink(spritesheets_spritesheet_path());
+  unlink(spritesheets_spritesheet_path('css'));
+  if ( !array_diff(scandir($folder = spritesheets_spritesheet_path('folder')), array('.', '..')) ) {
+    rmdir($folder);
+  }
+  else {
+    drupal_set_message(t("Spritesheets file directory \"@folder\" has files spritesheets did not put there. You will have to remove this directory manually.", array('@folder' => $folder)));
+  }
+}
+

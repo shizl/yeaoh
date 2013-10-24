@@ -1,0 +1,58 @@
+// $Id: README,v 1.1 2011/01/11 17:41:21 tomfriedhof Exp $
+
+-- SUMMARY --
+
+The spritesheets module provides an easy means of image aggregation to cut down 
+on http requests and decrease page load times.
+
+
+-- REQUIREMENTS --
+
+None.
+
+
+-- INSTALL --
+
+* Normal Drupal module install
+
+* pngcrush can be used to optimize the spritesheet, and can be obtained from 
+  http://pmt.sourceforge.net/pngcrush/ and placed in sites/all/libraries/pngcrush
+
+
+-- CONFIGURATION --
+
+* Configure Spritesheets settings at admin/config/spritesheets 
+
+
+-- USE --
+
+Spritesheets relies heavily on how the css it is given is written. By following 
+a few rules, you can help prevent strange things from happening to your sprites.
+
+ - Inheritance is used to fill in missing information regarding background 
+   images:
+
+    .parentclass { background-image: ... }
+    .parentclass.childclass { background-position: -32px 0 }
+    .parentclass.childclass.childclasstwo { background-image: ... }
+
+   parentclass will use its background image at 0, 0
+   childclass will use parentclass' background image at -32px, 0
+   childclasstwo will use its own background image at -32px, 0
+
+ - Spritesheets can incorporate other spritesheets easily, but it needs to be 
+   written in a certain logical manner:
+   
+    a.link { background-image: url(image.png); }
+    a:hover { background-position: -32px 0; }
+   
+   This may work in a browser, but as far Spritesheets is concerned they are 
+   irrelevant to each other. To have this a:hover work for a.link specifically, 
+   be sure to share selectors up until the end:
+
+    a.link:hover { ... }
+
+ - Large images and photographs are highly recommended to keep out of the
+   spritesheet, as this dramatically increases the file size of the sheet, and 
+   defeats the purpose of making faster page loads.
+
