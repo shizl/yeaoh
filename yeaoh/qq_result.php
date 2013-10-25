@@ -28,7 +28,7 @@ function rand_create()
         imagestring($im, 5, 10, 3, $randval, $black); 
     } 
     //加入干扰象素    
-    for($i=0;$i<200;$i++){ 
+    for($i=0;$i<400;$i++){ 
         $randcolor = ImageColorallocate($im,rand(0,255),rand(0,255),rand(0,255)); 
         imagesetpixel($im, rand()%70 , rand()%30 , $randcolor); 
     } 
