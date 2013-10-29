@@ -98,10 +98,38 @@
 <script type="text/javascript">
 jQuery(document).ready(function(){
       href_Of_Page=window.location.href;  
-      var len=href_Of_Page.length;
-      var ss=href_Of_Page.substring(len-9,len-4);
-      if("term/"==ss){
-      var tnid=parseInt(href_Of_Page.substring(len-2,len));
+
+       queryString  = href_Of_Page.substring(href_Of_Page.indexOf('service'));
+       
+      
+      if(queryString!="" || queryString !=null){
+     
+            if(queryString=="service/optimization-services/Google-SEO"){
+              tnid=12;
+            }else if(queryString=="service/web-development/Magento-Store"){
+              tnid =13;
+            }else if(queryString=="service/web-development/Drupal-Website"){
+              tnid =32;
+            }else if(queryString=="service/web-development/Website-Design"){
+              tnid =22;
+            }else if(queryString=="service/optimization-services/Facebook-SEM"){
+              tnid =25;
+            }else if(queryString=="service/optimization-services/Sina-Weibo-SEM"){
+              tnid =11;
+            }else if(queryString=="service/mobile-solutions/Website-Mobile-Version"){
+              tnid =37;
+            }else if(queryString=="service/mobile-solutions/IOS-Development"){
+              tnid =36;
+            }else if(queryString=="service/mobile-solutions/Android-Application"){
+              tnid=21;
+            }else if(queryString=="service/other-services/Business-Consulting"){
+              tnid =23;
+            }else if(queryString=="service/other-services/Hosting-Solutions"){
+              tnid =34;
+            }else if(queryString=="service/other-services/Content-Authoring"){
+              tnid =35;
+            }
+      
       jQuery('.view-taxonomy-term .view-content .views-field-nid').each(function(){
 	  var  bnid = parseInt(jQuery(this).text());
 	 	 if(tnid==bnid){
@@ -195,12 +223,3 @@ jQuery(document).ready(function(){
      
  });
 </script>
-
-
-
-
-
-
-
-
-

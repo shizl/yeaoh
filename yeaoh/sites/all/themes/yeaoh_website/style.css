@@ -221,3 +221,195 @@ position:absolute;top:-10px;height:50px;width:200px;background:url("images/langu
 .qq_form .button_holder button{background:none repeat scroll 0 0 #FFA132;border:medium none;color:#FFFFFF;font-size:14px;margin:0;padding:5px 15px;border-radius:10px;text-align:center;}
 #block-block-4 img{width:144px;height:32px;}
 .quick_quote_header1 img{width:374px;height:50px;}
+
+#block-block-12{
+ width:480px;
+ float:right;
+
+}
+
+
+#my-sina-wrapper {
+
+    float: right;
+    height: 260px;
+    width: 480px;
+}
+#my-sina-wrapper .title {
+
+    font-family: arial;
+    font-size: 14px;
+    font-weight: bold;
+    height: 32px;
+    line-height: 32px;
+    padding-left: 15px;
+}
+#my-sina-wrapper .content {
+    padding: 0 5px;
+}
+#my-sina-wrapper .head {
+
+    height: 100px;
+}
+#my-sina-wrapper .head-img {
+    float: left;
+    height: 40px;
+    padding: 10px;
+    width: 45px;
+}
+#my-sina-wrapper .head-text {
+    float: left;
+    font-size: 24px;
+    height: 40px;
+    padding: 40px 10px 10px 50px;
+}
+#my-sina-wrapper .head img {
+    width: 75px;
+}
+#my-sina-wrapper .my-name {
+    color: #3B5998;
+    font-weight: bold;
+}
+#my-sina-wrapper .attention {
+    padding-top: 10px;
+}
+#my-sina-wrapper .body {
+    padding: 5px;
+}
+#my-sina-wrapper .body-text {
+    padding-top: 10px;
+}
+#my-sina-wrapper .body-text img {
+    padding-right: 0;
+    width: 53px;
+}
+#my-sina-wrapper .title2 {
+    font-size: 18px;
+    padding-bottom: 5px;
+}
+
+#block-block-13{
+width:280px;
+float:right;
+}
+
+.region-left{
+width:280px;
+float:right;
+}
+#block-block-14{
+width:270px;
+margin-left:8px;
+}
+#block-block-14 h2{
+ color: #FFA132;
+    font-family: 'Fjalla One',sans-serif;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 30px;
+}
+
+
+#block-block-14 ul{
+  border-top: 1px solid #ECEFF2;
+    font-size: 14px;
+    line-height: 19px;
+    list-style: none outside none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0 0 18px;
+    
+}
+#block-block-14 ul li{
+-moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #ECEFF2;
+    border-image: none;
+    border-style: solid;
+    border-width: 0 0 1px;
+    padding: 2px 0;
+    vertical-align: top;
+    
+}
+#block-block-14 ul li a{
+  border-color: #DAE0E5;
+    border-style: solid;
+    border-width: 0 4px 0 0;
+    color: #555555;
+    display: block;
+    padding: 3px 5px 3px 10px;
+
+}
+#block-block-14 ul li  a:hover ,#block-block-14 ul li.active a{
+
+color:#ffa123;
+border-color:#ffa123;
+}
+
+#block-block-14 ul ul{
+ border-top: 1px solid #ECEFF2;
+    list-style: none outside none;
+    margin: 2px 0 0;
+    overflow: hidden;
+    padding: 8px 0 8px 12px;
+}
+#block-block-14 ul li li{
+font-size:13px;
+line-height: 17px;
+    padding: 3px 0;
+}
+#block-block-14 ul li li  a , #block-block-14 ul li.active li a{
+ color: #555555;
+background: url("images/sidenav.png") no-repeat scroll 0 7px transparent;
+    border-width: 0;
+    padding-left: 13px;
+}
+#block-block-14 ul li li  a:hover ,#block-block-14 ul li li.active a {
+color:#0f70bb;
+background-position:-273px  7px;
+
+}
+#block-block-15 {
+width:480px;
+float:right;
+overflow:hidden;
+}
+#block-block-15 h2{
+   background: url("images/Quick link.png") no-repeat scroll 0 0 transparent;
+    height: 46px;
+    margin: 0;
+    text-indent: -9999px;
+
+}
+
+#block-block-15 .clo{
+float:left;
+}
+#block-block-15 .clo{
+margin-left:20px;
+margin-top:10px;
+}
+#block-block-15 .menu_title{
+font-size:15px;
+font-weight:bold;
+}
+
+.clo ul, .clo li{
+list-style:none;
+list-style-type:none;
+list-style-image:none;
+padding:0;
+margin:0;
+}
+.clo ul{
+margin-top:20px;
+}
+.clo li a{
+line-height:25px;
+color:#000;
+}
+.clo li a:hover{
+color:#ffa132;
+}

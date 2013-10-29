@@ -31,7 +31,7 @@
 							foreach($rootmenu as $menu){ 
 								
 									if($lid>=2){
-										$menus.='<li><a href="'.($menu->link_path=='<front>' ? '':$menu->link_path).'"> '.($lid > 2 ? '>> ':'').$menu->link_title.'</a>'.($lid == 2 ? '<hr />':'').show_menu($menu->mlid,$lid,'child_menu').'</li>';
+										$menus.='<li><a href="'.($menu->link_path=='<front>' ? '':drupal_get_path_alias($menu->link_path)).'"> '.($lid > 2 ? '>> ':'').$menu->link_title.'</a>'.($lid == 2 ? '<hr />':'').show_menu($menu->mlid,$lid,'child_menu').'</li>';
 									}else{
 										$root_menu.='<li class="'.($aggmentq == $menu->link_path || ($aggmentq=='node' && $menu->link_path=="<front>") ? 'active':'').'"><a href="javascript:show_box('.$m.')"> '.$menu->link_title.'</a></li>';
 										$menus.=show_menu($menu->mlid,$lid,'child_menu');
