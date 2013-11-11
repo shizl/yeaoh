@@ -52,8 +52,9 @@
 	   <!-- start centermain -->
 	   <div id="centermain">
 			 <div id="big_bg_image"><!-- start big_bg_image -->
-			        <div class="bg_img_shadow"></div>
+			    
 		  		<div class="banner_content"><?php print render($page['home_banner']) ;?></div>
+		  	 <div class="banner_nav"></div>	
 				<div class="float_qq"><?php print render($page['float_qq']);?></div>
 			 </div><!-- end big_bg_image -->
 			  <div class="aboutus_developer">
@@ -199,4 +200,4 @@ if(start_num>0)
 }
 jQuery(".zh-hans a").attr("href","/?language=zh-hans");*/
 -->
-</script>	
+</script>
