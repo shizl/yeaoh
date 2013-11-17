@@ -38,7 +38,7 @@
 									       if(strstr($menu->link_path,'http://')){
 									        $url =$menu->link_path;
 									       }else{
-									         $url = '/'.$menu->link_path;
+									    $url = '/'.drupal_get_path_alias($menu->link_path);
 									       }
 									    } 
 									

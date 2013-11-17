@@ -3,6 +3,7 @@
 	  
 	   <div id="page_top"><!-- start page_top -->
 			<div class="header">
+                                 <div class="float_qq"><?php print render($page['float_qq']);?></div>
 				<div id="toplink"><!-- stat toplink-->
 				   <?php if($page['top_link']): ?>
 					  <?php  print render ($page['top_link']) ;?>
@@ -18,9 +19,8 @@
 				<?php endif; ?>
 
 				<div id="main-menu"><!-- start main_menu -->
-                                  	<?php if ($main_menu ): ?>
-						<?php 
-						 $value_menu_simple=3;
+				<?php if ($main_menu ): ?>
+<?php 
 						function show_menu($mlid=0,$lid=0,$mname='root_menu'){
 							$rootmenu=db_query("SELECT `mlid`,`link_path`,`link_title`,'options' FROM `menu_links` WHERE `menu_name`='main-menu' AND `plid` ='$mlid' AND `language`='".(!empty($_REQUEST['language'])?$_REQUEST['language']:'en')."' ORDER BY `weight` ASC");
 							$menus='';
@@ -31,7 +31,18 @@
 							foreach($rootmenu as $menu){ 
 								
 									if($lid>=2){
-										$menus.='<li><a href="'.($menu->link_path=='<front>' ? '':drupal_get_path_alias($menu->link_path)).'"> '.($lid > 2 ? '>> ':'').$menu->link_title.'</a>'.($lid == 2 ? '<hr />':'').show_menu($menu->mlid,$lid,'child_menu').'</li>';
+									   
+									    if($menu->link_path=='<front>'){
+									        $url = '/';
+									    }else{
+									       if(strstr($menu->link_path,'http://')){
+									        $url =$menu->link_path;
+									       }else{
+									         $url = '/'.drupal_get_path_alias($menu->link_path);
+									       }
+									    } 
+									
+									 $menus.='<li><a href="'.drupal_get_path_alias($url).'"> '.($lid > 2 ? '>> ':'').$menu->link_title.'</a>'.($lid == 2 ? '<hr />':'').show_menu($menu->mlid,$lid,'child_menu').'</li>';
 									}else{
 										$root_menu.='<li class="'.($aggmentq == $menu->link_path || ($aggmentq=='node' && $menu->link_path=="<front>") ? 'active':'').'"><a href="javascript:show_box('.$m.')"> '.$menu->link_title.'</a></li>';
 										$menus.=show_menu($menu->mlid,$lid,'child_menu');
@@ -50,28 +61,10 @@
 			</div>
 			<div class="head_bottom_bg"></div> </div> <!-- page top end-->
 	   <!-- start centermain -->
-	   <div id="centermain">
-			 <div id="big_bg_image"><!-- start big_bg_image -->
-			    
-		  		<div class="banner_content"><?php print render($page['home_banner']) ;?></div>
-		  	 <div class="banner_nav"></div>	
-				<div class="float_qq"><?php print render($page['float_qq']);?></div>
-			 </div><!-- end big_bg_image -->
-			  <div class="aboutus_developer">
-                <?php  if($page['home_column1']):  ?>
-		           <div class="col_cotnent"> <?php  print render($page['home_column1']) ;?></div>
-	             <?php  endif ; ?>	
+                        <div id="main_content">
+			  <div class="404" style="text-align:center;"> <img src="/sites/all/themes/yeaoh_website/images/404.png" /> </div>			
 			</div>
-			<div class="service">
-			   <?php if($page['home_column2']): ?>
-			     <div class="ser_content"><?php print render($page['home_column2']) ;?></div>
-			   <?php endif ; ?> 
-			</div>		
-			<div class="protfolio">
-			   <?php if($page['home_column3']): ?>
-			     <div class="pro_content"><?php print render($page['home_column3']) ;?></div>
-			   <?php endif ; ?> 	   
-			</div>	
+
 			<div class="footer_main">
 			  <?php if($page['foot_main']): ?>
 				<div class="foot_content">  <?php  print render ($page['foot_main']) ;?> </div>
@@ -153,7 +146,7 @@ jQuery("#edit-submitted-you-full-name").blur(function(){
 if(jQuery(this).val() == "") {jQuery(this).val("Your full name");jQuery(this).css("color","#999");}
 });
 jQuery("#edit-submitted-you-email").blur(function(){
-if(jQuery(this).val() == "") {jQuery(this).val("name@example.com");jQuery(this).css("color","#999");}
+if(jQuery(this).val() == "") {jQuery(this).val("name@example.com");jQuery(this).css("color","#999 !imp");}
 });
 jQuery("#edit-submitted-body").blur(function(){
 if(jQuery(this).val() == ""){ jQuery(this).val("Your question");jQuery(this).css("color","#999");}
@@ -179,7 +172,6 @@ if(!chvarchar.test(fbody) || fbody=="Your question" ){
 alert("Please input your question.");
 return false;
 }
-
 });
 jQuery("#block-locale-language .content").append('<div id="language_arrow"><a><img src="sites/all/themes/yeaoh_website/images/flag_english.png"/><span>English</span></a></div>');
 jQuery("#language_arrow").click(function(){
@@ -191,13 +183,33 @@ jQuery(document).click(function(){
         jQuery(".language-switcher-locale-session").animate({height:"0"},500);
      }
 })
-/*var str_url=window.location.href;
+var str_url=window.location.href;
 var start_num=str_url.indexOf("?language=zh-hans");
 if(start_num>0)
 {
    jQuery("#language_arrow img").attr("src","sites/all/themes/yeaoh_website/images/zh-hans.png");
    jQuery("#language_arrow span").html("中文简体");
 }
-jQuery(".zh-hans a").attr("href","/?language=zh-hans");*/
+jQuery(".zh-hans a").attr("href","/?language=zh-hans");
 -->
 </script>
+<script>
+
+//fancybox 
+
+jQuery('.fancybox').html('View Screenshot');
+
+jQuery('.view-example .view-grouping-content').mouseover(function(){
+
+ jQuery(this).css({'opacity':'100'});
+ jQuery(this).parent().css({'box-shadow':'0 0 3px #555555'});
+
+});
+jQuery('.view-example .view-grouping-content').mouseout(function(){
+
+ jQuery(this).css({'opacity':'0'});
+ jQuery(this).parent().css({'box-shadow':'none'});
+
+});
+
+</script>	
