@@ -478,3 +478,114 @@ background-color:#666;
     width: 35px;
     margin-right:100px;
 }
+/*----------------------the style for contact us,by woogle,start.----------------------------------*/
+#contact_infomation,
+#contact_form{
+  width: 100%;
+  border: none;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
+  height: auto;
+}
+#contact_form{
+  padding-left: 30px;
+}
+#edit-copy,
+#contact-site-form .grippie,
+#contact_form label,
+#contact_middle{
+  display: none;
+}
+#contact_infomation h2, #contact_form h2{
+  font-size: 16px;
+  padding-bottom: 10px;
+  color: #ffa132;
+}
+.contact-form input{
+  border: 1px solid #d4d4d4;
+}
+#edit-message:focus,
+#contact_form .form-type-textfield input:focus{
+  border: 1px solid #6ec7e7;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  outline: none;
+}
+#contact_form .form-type-textfield input{
+  border: 1px solid #d4d4d4;
+  height: 50px;
+  width: 465px;
+  margin: 0 0 0 0;
+  font-size: 18px;
+  background: #FFF;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -moz-box-shadow: inset 0 0 3px #EEF5F7;
+  -webkit-box-shadow: inset 0 0 3px #EEF5F7;
+  padding-left: 13px;
+  padding-right: 13px;
+  color: #3e3e3e;
+  font-family: 'Open Sans',Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;
+  -webkit-transition: .2s ease-in-out;
+  -moz-transition: .2s ease-in-out;
+  -o-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+  color: #3e3e3e;
+}
+#edit-message{
+  width: 492px;
+  height: 240px;
+  display: block;
+  overflow: auto;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -moz-box-shadow: inset 0 0 3px #EEF5F7;
+  -webkit-box-shadow: inset 0 0 3px #EEF5F7;
+  background: #FFF;
+  padding-left: 13px;
+  padding-right: 13px;
+  font-size: 18px;
+  padding-top: 13px;
+  font-family: 'Open Sans',Helvetica Neue,Helvetica,Arial,Lucida Grande,sans-serif;
+  -webkit-transition: .2s ease-in-out;
+  -moz-transition: .2s ease-in-out;
+  -o-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+  color: #3e3e3e;
+}
+#contact_form .form-item textarea{
+  background: none;
+}
+
+#contact_form #edit-submit{
+  float: left;
+  width: 492px;
+  height: 85px;
+  background: url(images/send.png) top no-repeat;
+  cursor: pointer;
+  color: #FFF;
+  border: none;
+  text-indent: -9999px;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+  border-radius: 0;
+  background-size: 492px 170px;
+}
+#contact_form #edit-submit:hover{
+  background: url(images/send.png) bottom no-repeat;
+  color: #FFF;
+  cursor: pointer;
+  border: none;
+  text-indent: -9999px;
+  background-size: 492px 170px;
+}
+#contact_form .form-item input.error, 
+#contact_form .form-item textarea.error#edit-message, 
+#contact_form .form-item select.error{
+  border: 2px solid red;
+}
+
+/*----------------------the style for contact us,by woogle,end.----------------------------------*/

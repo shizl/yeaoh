@@ -82,9 +82,21 @@
 	 </div>
 	 <div id="contact_middle" >&nbsp;</div>
 	 <div id="contact_form">
-	 
+	
 	    <h2>Send a quick note</h2>
-		<?php print render($page['content']) ;?>
+		<?php 
+		  $tem_contact = $page['content'];
+		  $tem_contact['system_main']['name']['#value'] = '';
+		  $tem_contact['system_main']['mail']['#value'] = '';
+		  //print render($tem_contact);
+		  $end_contact = render($tem_contact);
+		  $end_contact = str_replace('id="edit-name"','id="edit-name" placeholder="Name"',$end_contact);
+		  $end_contact = str_replace('id="edit-mail"','id="edit-mail" placeholder="Email"',$end_contact);
+		  $end_contact = str_replace('id="edit-subject"','id="edit-subject" placeholder="Subject"',$end_contact);
+		  $end_contact = str_replace('id="edit-message"','id="edit-message" placeholder="Hello noe..."',$end_contact);
+		  print $end_contact;
+		  
+		?>
 	 </div>
 				
 				
