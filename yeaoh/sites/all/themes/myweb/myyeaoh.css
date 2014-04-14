@@ -1,0 +1,153 @@
+div.view-banner img{
+	width: 960px;
+	height: 480px;
+}
+div.view-banner div.views-content-counter{
+	width: 30px;
+	height: 1px;
+	padding-top: 9px;
+	margin: 10px 10px;
+	overflow: hidden;
+	background: none repeat scroll 0% 0% #DADADA;
+}
+div.view-banner .views_slideshow_pager_field_item{
+	display: inline-block;
+}
+div.view-banner .active div.views-content-counter{
+	background: none repeat scroll 0% 0% #70AC00;
+}
+div.view-banner div.views-slideshow-controls-bottom{
+	margin: 0;
+	padding: 0;
+	width:	inherit;
+	text-align: center;
+}
+#big_bg_image{
+	width: 960px;
+	margin: 0 auto
+}
+div.ser_content div.views-row{
+	text-align: center;
+}
+div.ser_content div.views-row div span a{
+
+background: none repeat scroll 0% 0% #FF8400;
+border-bottom: 3px solid #F06D00;
+border-width: 0px 0px 3px;
+border-style: none none solid;
+border-color: -moz-use-text-color -moz-use-text-color #888;
+-moz-border-top-colors: none;
+-moz-border-right-colors: none;
+-moz-border-bottom-colors: none;
+-moz-border-left-colors: none;
+border-image: none;
+color: #FFF;
+cursor: pointer;
+display: inline-block;
+font-size: 22px;
+line-height: 14px;
+padding: 13px 35px 11px;
+text-align: center;
+text-decoration: none;
+}
+div.ser_content div.views-row span a:hover{
+	background: none repeat scroll 0% 0% #FFA133;
+border-color: #FF7E12;
+font-size: 22px;
+}
+.view-service-category .views-row .views-field-name {
+font-size: 35px;
+line-height: 35px;
+}
+div.ser_content .view-content{
+	text-align: center;
+}
+div.ser_content .view-content .views-row{
+	width: 280px;
+	margin: 20px 0px;
+	display: inline-block;
+	background: none repeat scroll 0% 0% #EDEDED;
+	padding: 10px;
+}
+div.ser_content .view-content .views-row-first{
+	float: left;
+}	
+div.ser_content .view-content .views-row-last{
+	float: right;
+}
+div.ser_content .view-content .views-row .views-field{
+	margin: 20px 0px;
+}
+div.ser_content .view-content .views-row .views-field p{
+	line-height: 1.8;
+}
+.pro_content #block-views-happycustomer-block-1{
+	width: 400px;
+	float: left;
+}
+div.content div.front_blog_block{
+	width: 550px;
+	border: solid 1px #CCC;
+	float: right;
+}
+div.content div.front_blog_block .front_blog_time,
+div.content div.front_blog_block .front_blog_more a{
+	background: none repeat scroll 0% 0% #FF8400;
+}
+div.content div.front_blog_block .front_blog_more a{
+	padding: 10px 15px;
+}
+div.content div.front_blog_block .front_blog_time{
+	text-align: center;
+	width: 50px;
+	height: 40px;
+	padding-top: 10px;
+	float: left;
+}
+div.content div.front_blog_block .front_blog_time div,
+div.content div.front_blog_block .front_blog_more a{
+	color: #FFF;
+	font-weight: bold;
+}
+div.content div.front_blog_block .front_blog_title{
+	background: #D3D3D3;
+}
+div.content div.front_blog_block .front_blog_title span{
+	padding-left: 20px;
+	margin-left: 5px;
+	line-height: 50px;
+
+}
+div.content div.front_blog_block .content{
+	padding: 20px;
+}
+div.content div.front_blog_block .front_blog_more{
+	float: right;
+}
+div.content div.front_blog_block .front_blog_body hr{
+	height: 0;
+}
+div.content div.front_blog_block .front_blog_body{
+	margin-bottom: 20px;
+}
+#block-views-happycustomer-block-1 .views-field-body {
+background: url(images/happy_bg.png) no-repeat 0 0;
+width: 260px;
+height: 140px;
+padding: 10px;
+float: right;
+}
+#block-views-happycustomer-block-1 .views-field-title {
+float: right;
+margin-right: 90px;
+}
+#block-views-happycustomer-block-1 .views-field-field-company-name {
+float: right;
+clear: both;
+margin-right: 90px;
+}
+#block-views-happycustomer-block-1 .views-field-field-user-image {
+margin-top: -35px;
+float: right;
+padding-left: 190px;
+}
