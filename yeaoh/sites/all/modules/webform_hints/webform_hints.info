@@ -1,0 +1,14 @@
+name = Webform Hints
+description = Turns field labels into placeholder hints on Webform textareas, textfields, and email fields.
+package = Webform
+core = 7.x
+dependencies[] = webform
+dependencies[] = libraries (>=2.x)
+configure = admin/config/content/webform-hints
+
+; Information added by drupal.org packaging script on 2013-10-22
+version = "7.x-1.3"
+core = "7.x"
+project = "webform_hints"
+datestamp = "1382467266"
+

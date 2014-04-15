@@ -85,7 +85,7 @@ div.ser_content .view-content .views-row .views-field p{
 	width: 400px;
 	float: left;
 }
-div.content div.front_blog_block{
+#block-views-front-blog-block{
 	width: 550px;
 	border: solid 1px #CCC;
 	float: right;
