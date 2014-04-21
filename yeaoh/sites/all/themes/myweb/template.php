@@ -154,3 +154,146 @@ function myweb_field__taxonomy_term_reference($variables) {
 
   return $output;
 }
+
+/**
+ * Implement theme_getdirections_show().
+ */
+function myweb_getdirections_show($variables) {
+  $form = $variables['form'];
+  $width = $variables['width'];
+  $height = $variables['height'];
+  $nid = $variables['nid'];
+  $type =  $variables['type'];
+  $output = '';
+  $getdirections_returnlink_default = array(
+    'page_enable' => 0,
+    'page_link' => t('Return to page'),
+    'user_enable' => 0,
+    'user_link' => t('Return to page'),
+    'term_enable' => 0,
+    'term_link' => t('Return to page'),
+    'comment_enable' => 0,
+    'comment_link' => t('Return to page'),
+  );
+  $getdirections_returnlink = variable_get('getdirections_returnlink', $getdirections_returnlink_default);
+  $returnlink = FALSE;
+  if (isset($getdirections_returnlink['page_enable']) && $getdirections_returnlink['page_enable'] && $nid > 0 && $type == 'node') {
+    $node = node_load($nid);
+    if ($node) {
+      $linktext = $getdirections_returnlink['page_link'];
+      if ( preg_match("/%t/", $linktext)) {
+        $linktext = preg_replace("/%t/", $node->title, $linktext);
+      }
+      $l = l($linktext, 'node/' . $node->nid);
+      $returnlink = '<div class="getdirections_returnlink">' . $l . '</div>';
+    }
+  }
+  elseif (isset($getdirections_returnlink['user_enable']) && $getdirections_returnlink['user_enable'] && $nid > 0 && $type == 'user') {
+    // $nid is actually uid
+    $account = user_load($nid);
+    if ($account) {
+      $linktext = $getdirections_returnlink['user_link'];
+      if ( preg_match("/%n/", $linktext)) {
+        $linktext = preg_replace("/%n/", $account->name, $linktext);
+      }
+      $l = l($linktext, 'user/' . $account->uid);
+      $returnlink = '<div class="getdirections_returnlink">' . $l . '</div>';
+    }
+  }
+  elseif (isset($getdirections_returnlink['page_enable']) && $getdirections_returnlink['page_enable'] && $nid > 0 && $type == 'location') {
+    // $nid is actually lid
+    $id = getdirections_get_nid_from_lid($nid);
+    if ($id) {
+      $node = node_load($id);
+      $linktext = $getdirections_returnlink['page_link'];
+      if ( preg_match("/%t/", $linktext)) {
+        $linktext = preg_replace("/%t/", $node->title, $linktext);
+      }
+      $l = l($linktext, 'node/' . $node->nid);
+      $returnlink = '<div class="getdirections_returnlink">' . $l . '</div>';
+    }
+  }
+  elseif (isset($getdirections_returnlink['term_enable']) && $getdirections_returnlink['term_enable'] && $nid > 0 && $type == 'term') {
+    // $nid is actually tid
+    $term = taxonomy_term_load($nid);
+    if ($term) {
+      $linktext = $getdirections_returnlink['term_link'];
+      if ( preg_match("/%n/", $linktext)) {
+        $linktext = preg_replace("/%n/", $term->name, $linktext);
+      }
+      $l = l($linktext, 'taxonomy/term/' . $term->tid);
+      $returnlink = '<div class="getdirections_returnlink">' . $l . '</div>';
+    }
+  }
+  elseif (isset($getdirections_returnlink['comment_enable']) && $getdirections_returnlink['comment_enable'] && $nid > 0 && $type == 'comment') {
+    // $nid is actually cid
+    $comment = comment_load($nid);
+    if ($comment) {
+      $linktext = $getdirections_returnlink['comment_link'];
+      if ( preg_match("/%n/", $linktext)) {
+        $linktext = preg_replace("/%n/", $comment->subject, $linktext);
+      }
+      $l = l($linktext, 'comment/' . $comment->cid);
+      $returnlink = '<div class="getdirections_returnlink">' . $l . '</div>';
+    }
+  }
+
+  if ($returnlink) {
+    $output .= $returnlink;
+  }
+
+
+
+  $getdirections_defaults = getdirections_defaults();
+  $getdirections_misc = getdirections_misc_defaults();
+
+  if ($getdirections_misc['show_distance']) {
+    $output .= '<div id="getdirections_show_distance"></div>';
+  }
+  if ($getdirections_misc['show_duration']) {
+    $output .= '<div id="getdirections_show_duration"></div>';
+  }
+  $help = '';
+  if (getdirections_is_advanced()) {
+    if ($getdirections_defaults['waypoints'] > 0 && ! $getdirections_defaults['advanced_alternate'] ) {
+      $help = t('Drag <img src="http://labs.google.com/ridefinder/images/mm_20_!c.png"> to activate a waypoint', array('!c' => $getdirections_defaults['waypoint_color']));
+      if ($getdirections_defaults['advanced_autocomplete'] && $getdirections_defaults['advanced_autocomplete_via'] ) {
+        $help .= ' ' . t('or use the Autocomplete boxes');
+      }
+    }
+    elseif ($getdirections_defaults['advanced_alternate']) {
+      $help = t('You can drag the route to change it');
+    }
+  }
+  $output .= '<div id="getdirections_help">' . $help . '</div>';
+  $header = array();
+  $rows1[] = array(
+    array(
+      'data' => '<div id="getdirections_map_canvas" style="width: ' . $width . '; height: ' . $height . '" ></div>',
+      'valign' => 'top',
+      'align' => 'center',
+      'class' => 'getdirections-map',
+    ),
+    /*
+    array(
+      'data' => (getdirections_is_advanced() && $getdirections_defaults['advanced_alternate'] ? '<button id="getdirections-undo" onclick="Drupal.getdirectionsundo()">' . t('Undo') . '</button>' : '') . '<div id="getdirections_directions"></div>',
+      'valign' => 'top' ,
+      'align' => 'left',
+      'class' => 'getdirections-list',
+    ),*/
+  );
+  $output .= '<div class="getdirections">' . theme('table', array('header' => $header, 'rows' => $rows1)) . '</div>';
+  $rows2[] = array(
+    array(
+      'data' => (getdirections_is_advanced() && $getdirections_defaults['advanced_alternate'] ? '<button id="getdirections-undo" onclick="Drupal.getdirectionsundo()">' . t('Undo') . '</button>' : '') . '<div id="getdirections_directions"></div>',
+      'valign' => 'top' ,
+      'align' => 'center',
+      'class' => 'getdirections-list clearfix',
+    ),
+  );
+  $output .= '<div class="getdirections">' . theme('table', array('header' => $header, 'rows' => $rows2)) . '</div>';
+  $output .= $form;
+
+  return $output;
+}
+

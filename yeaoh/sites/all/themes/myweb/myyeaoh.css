@@ -1,6 +1,7 @@
+
 div.view-banner img{
-	width: 960px;
-	height: 480px;
+	width: auto;
+	height: 450px;
 }
 div.view-banner div.views-content-counter{
 	width: 30px;
@@ -22,10 +23,14 @@ div.view-banner div.views-slideshow-controls-bottom{
 	width:	inherit;
 	text-align: center;
 }
+#views_slideshow_cycle_teaser_section_banner-block{
+  margin: 0 auto;
+}
 #big_bg_image{
-	width: 960px;
+	width: 100%;
 	margin: 0 auto
 }
+
 div.ser_content div.views-row{
 	text-align: center;
 }
@@ -90,45 +95,42 @@ div.ser_content .view-content .views-row .views-field p{
 	border: solid 1px #CCC;
 	float: right;
 }
-div.content div.front_blog_block .front_blog_time,
-div.content div.front_blog_block .front_blog_more a{
+#block-views-front-blog-block .views-field-changed-1,
+#block-views-front-blog-block .views-field-title-1 a{
+
 	background: none repeat scroll 0% 0% #FF8400;
 }
-div.content div.front_blog_block .front_blog_more a{
+#block-views-front-blog-block .views-field-title-1 a{
 	padding: 10px 15px;
 }
-div.content div.front_blog_block .front_blog_time{
+
+#block-views-front-blog-block .views-field-changed-1{
 	text-align: center;
 	width: 50px;
 	height: 40px;
 	padding-top: 10px;
 	float: left;
 }
-div.content div.front_blog_block .front_blog_time div,
-div.content div.front_blog_block .front_blog_more a{
+#block-views-front-blog-block .views-field-changed-1 span,
+#block-views-front-blog-block .views-field-title-1 a{
 	color: #FFF;
 	font-weight: bold;
 }
-div.content div.front_blog_block .front_blog_title{
+#block-views-front-blog-block .views-field-title{
 	background: #D3D3D3;
 }
-div.content div.front_blog_block .front_blog_title span{
-	padding-left: 20px;
-	margin-left: 5px;
+#block-views-front-blog-block .views-field-title{
+	padding-left:70px;
 	line-height: 50px;
 
 }
-div.content div.front_blog_block .content{
+#block-views-front-blog-block .views-field-body{
 	padding: 20px;
 }
-div.content div.front_blog_block .front_blog_more{
+#block-views-front-blog-block .views-field-title-1 a{
 	float: right;
-}
-div.content div.front_blog_block .front_blog_body hr{
-	height: 0;
-}
-div.content div.front_blog_block .front_blog_body{
-	margin-bottom: 20px;
+  margin-bottom:20px;
+  margin-right:20px;
 }
 #block-views-happycustomer-block-1 .views-field-body {
 background: url(images/happy_bg.png) no-repeat 0 0;
@@ -137,6 +139,7 @@ height: 140px;
 padding: 10px;
 float: right;
 }
+
 #block-views-happycustomer-block-1 .views-field-title {
 float: right;
 margin-right: 90px;
@@ -153,11 +156,99 @@ padding-left: 190px;
 }
 #block-block-11{
 	float: left;
+  width:200px;
 }
-#block-webform-client-block-145,
-#block-webform-client-block-145 input{
-	width: 400px;
+#block-webform-client-block-145{
+	width: 230px;
+  float:right;
+}
+
+.getdirections_form input.form-text,
+#block-webform-client-block-145 input.form-text{
+  width:218px;
+}
+#block-webform-client-block-145 #edit-actions{
+  float:right;
 }
 .s-cotnent .block{
 	float: left;
+}
+
+#getdirections-direction-form{
+width: 230px;
+position: absolute;
+margin-left: 200px;
+}
+
+#getdirections_directions div.adp{
+//position: absolute;
+height:200px;
+overflow:auto;
+width:670px;
+background:#FFF;
+//margin-top:30px;
+}
+#getdirections_directions {
+width: 669px;
+padding:0;
+}
+.form-item input{
+padding: 0.5em 1em;
+border: 1px solid rgb(229, 229, 229) !important;
+//margin-bottom: 1.5em;
+border-radius: initial;
+box-shadow: initial; 
+padding: 5px;
+font-size: 13px;
+color: #555;
+ background: #f3f4f5; 
+border: 1px solid #ccc;
+}
+#edit-actions input,
+#getdirections_btn input{
+background-color: #FF6D40;
+text-transform: uppercase;
+font-weight: 600;
+border: 1px solid rgba(0, 0, 0, 0.25);
+border-radius: 0px;
+color: rgb(255, 255, 255) !important;
+text-align: center;
+text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
+box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.2) inset;
+padding: 0.8em 1.5em;
+}
+.getdirections_form input{
+  width:100%;
+}
+#block-block-20{
+float:none;
+background:#FFA132;
+padding:10px 0;
+padding-left:15px;
+margin-bottom:-8px;
+border: solid 1px #FFA132;
+color:#FFF;
+}
+#block-block-20 p{
+margin:0;
+}
+#block-block-11 ul{
+  list-style-type:none;
+  padding:0;
+}
+
+#block-block-11 span.visit{
+  background:url(images/visit.png) no-repeat;
+}
+#block-block-11 span.call{
+  background:url(images/call.png) no-repeat;
+}
+#block-block-11 span.email{
+  background:url(images/email.png) no-repeat;
+}
+#block-block-11 span.visit,
+#block-block-11 span.call,
+#block-block-11 span.email{
+  padding-left:40px;
+  background-size:40px 40px;
 }

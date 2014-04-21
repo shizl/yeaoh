@@ -73,14 +73,14 @@
 				 </div>
                         			<div class="protfolio">
 			   <?php if($page['home_column3']): ?>
-			     <div class="pro_content"><?php print render($page['home_column3']) ;?></div>
+			     <div class="pro_content clearfix"><?php print render($page['home_column3']) ;?></div>
 			   <?php endif ; ?> 	   
 			</div>
 			</div>
 
 			<div class="footer_main">
 			  <?php if($page['foot_main']): ?>
-				<div class="foot_content">  <?php  print render ($page['foot_main']) ;?> </div>
+				<div class="foot_content clearfix">  <?php  print render ($page['foot_main']) ;?> </div>
 			   <?php endif ; ?>	
 			</div>
 			
