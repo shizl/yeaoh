@@ -1,7 +1,10 @@
 
 div.view-banner img{
 	width: auto;
-	height: 450px;
+	height: 455px;
+}
+div.view-banner .banner_background_color{
+  margin-top:-5px;
 }
 div.view-banner div.views-content-counter{
 	width: 30px;
@@ -25,6 +28,7 @@ div.view-banner div.views-slideshow-controls-bottom{
 }
 #views_slideshow_cycle_teaser_section_banner-block{
   margin: 0 auto;
+  margin-top:5px;
 }
 #big_bg_image{
 	width: 100%;
@@ -87,7 +91,7 @@ div.ser_content .view-content .views-row .views-field p{
 	line-height: 1.8;
 }
 .pro_content #block-views-happycustomer-block-1{
-	width: 400px;
+	width: 280px;
 	float: left;
 }
 #block-views-front-blog-block{
@@ -159,13 +163,13 @@ padding-left: 190px;
   width:200px;
 }
 #block-webform-client-block-145{
-	width: 230px;
+	width: 295px;
   float:right;
 }
 
 .getdirections_form input.form-text,
 #block-webform-client-block-145 input.form-text{
-  width:218px;
+  width:283px;
 }
 #block-webform-client-block-145 #edit-actions{
   float:right;
@@ -175,9 +179,9 @@ padding-left: 190px;
 }
 
 #getdirections-direction-form{
-width: 230px;
+width: 295px;
 position: absolute;
-margin-left: 200px;
+margin-left: 300px;
 }
 
 #getdirections_directions div.adp{
@@ -206,7 +210,7 @@ border: 1px solid #ccc;
 }
 #edit-actions input,
 #getdirections_btn input{
-background-color: #FF6D40;
+background-color: #FFA132;
 text-transform: uppercase;
 font-weight: 600;
 border: 1px solid rgba(0, 0, 0, 0.25);
@@ -251,4 +255,48 @@ margin:0;
 #block-block-11 span.email{
   padding-left:40px;
   background-size:40px 40px;
+}
+
+
+
+
+
+#block-views-tertimonials-and-blog-block .view-content{
+  float:right;
+  width:750px;
+background: url(images/testimonials-bg.jpg);
+//background: none repeat scroll 0% 0% #FF8400;
+  }
+ #block-views-tertimonials-and-blog-block .views-field-field-user-image{
+float:right;
+margin:0;
+
+}
+ #block-views-tertimonials-and-blog-block .views-field-field-user-image img{
+  width:150px;
+  height:auto;
+  margin-bottom:-4px;
+opacity: 0.5;
+}
+ #block-views-tertimonials-and-blog-block .views-field-body{
+position: absolute;
+right:750px;
+height:320px;
+font-size:16px;
+padding:20px;
+background: none repeat scroll 0% 0% #FF8400;
+}
+
+ #block-views-tertimonials-and-blog-block .views-field-field-company-name{
+position: absolute;
+top:299px;
+height:60px;
+width:735px;
+background-color: #1E1E1E;
+color: #FFF;
+line-height:60px;
+padding-left:15px;
+}
+#block-views-tertimonials-and-blog-block .item-list ul{
+display:none;
 }
