@@ -90,7 +90,7 @@
      jQuery(this).attr("href","/");
 });
  jQuery("#main-menu .root_menu li:last a").click(function(){
-     jQuery(this).attr("href","/contact");
+     jQuery(this).attr("href","/contact-us");
 });
 </script>
 
