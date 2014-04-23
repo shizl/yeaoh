@@ -1,4 +1,4 @@
-body{margin:0;font-size:13px;font-family:"Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif;line-height:1.38461em;padding:0;width:100%;height:100%;}
+body{margin:0;font-size:15px;font-family:"Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif;line-height:1.38461em;padding:0;width:100%;height:100%;}
 a{text-decoration:none;color:#0099FF;outline:none;}
 a:hover{text-decoration:none;color:#ffa132;}
 img hr{border:none;}
@@ -12,7 +12,7 @@ img hr{border:none;}
 #page_top{width:100%;min-height:105px;background:url("images/top_bg.png");}
 #page_top a{color:#FFF;text-decoration:none;}
 #edit-submitted-body .textarea{resize:none;}
-.header{width:950px;margin:0px auto 0px auto;height:105px;}
+.header{width:1200px;margin:0px auto 0px auto;height:105px;}
 .header #logo-wrapper,.header #main-menu{float:left;height:60px;}
 .header #logo-wrapper{width:300px;}
 #logo-wrapper .logo{margin-top:-30px;margin-left:-40px;}
@@ -23,14 +23,14 @@ img hr{border:none;}
 .child_menu li{text-align:left;width:200px;float:left;margin-left:10px;display:inline-table;}
 .child_menu li hr{width:190px;margin:5px;height:8px;background:url('images/title_line.jpg');border:0px;}
 #edit-submitted-body{resize:none;}
-.child_menu li a:hover{padding-left:10px;width:190px;background:#ffa132;display:inline-block;border-radius:5px;}
+.child_menu li a:hover{padding-left:10px;width:210px;background:#ffa132;display:inline-block;border-radius:5px;}
 .menu_des{width:100%;background:url('images/child_menu_bg.jpg');display:none;}
 .menu_des .menu_box{margin:0px auto;width:950px;overflow:hidden;}
 .menu_des .menu_box .all_menu{width:10000px;height:auto;}
-.menu_2{margin:10px auto;float:left;width:950px;}
+.menu_2{margin:10px auto;float:left;width:1000px;}
 .menu_3{margin-left:-50px;}
 .menu_2 li a{padding-left:10px;width:190px;font-size:16px;height:30px !important;line-height:30px !important;display:inline-block;}
-.menu_3 li,.menu_3 li a{padding-left:10px;width:190px;text-transform:none;height:20px !important;line-height:20px !important;font-weight:normal;font-size:12px;margin:3px 0px 0px 0px;}
+.menu_3 li,.menu_3 li a{padding-left:10px;width:210px;text-transform:none;height:20px !important;line-height:20px !important;font-weight:normal;font-size:15px;margin:3px 0px 0px 0px;}
 .header #main-menu li.active{background:url('images/head_hover.png') bottom repeat-x;}
 .header .more_language{width:100%;height:26px;margin-top:10px;margin-bottom:5px;display:inline-block;text-align:right;color:#FFF;}
 .head_bottom_bg{width:100%;height:17px;margin-bottom:-17px;background:url('images/head_bottom_bg.png') center no-repeat;}
@@ -46,7 +46,13 @@ img hr{border:none;}
 .flexslider{box-shadow:none;background:none;border-left:none;border-right:none;border-radius:0;margin:0px;}
 
 #block-block-3 .content{font-family:'Didact Gothic', serif;font-size:16px;line-height:1.3em;color:#fff;width:480px;height:200px;overflow:hidden;text-overflow:ellipsis;}
-.aboutus_developer{background:#000000;width:100%;height:360px;clear:both;overflow:hidden;}
+.aboutus_developer{
+background:#000000;
+width:100%;
+height:490px;
+overflow:hidden;
+padding:50px 0;
+}
 
 .aboutus_developer .col_cotnent{width:1200px;margin:0 auto;}
 #block-block-3{width:480px;height:216px;float:left;padding-bottom:10px;}
@@ -106,7 +112,7 @@ img hr{border:none;}
 .vertical-tabs .view-content .views-row .views-field-body{display:none;}
 .vertical-tabs .view-content .views-row-1 .views-field-body{display:block;}
 #block-block-6 #service_header{margin-top:40px;margin-bottom:30px;}
-#block-block-6 #service_header .title{font-family:'Fjalla One', sans-serif;font-weight:600;font-size:25px;color:#FFA132;line-height:30px;}
+#block-block-6 #service_header .title{font-family:'Fjalla One', sans-serif;font-weight:600;font-size:30px;color:#FFA132;line-height:30px;}
 #block-views-todayinsight-block{width:280px;float:right;}
 #block-views-todayinsight-block h2{background:url(images/today.png) no-repeat 0 0;height:46px;margin:0px;text-indent:-9999px;}
 #block-block-7 p{font-size:12px;font-style:italic;}

@@ -57,17 +57,18 @@
 				<div class="float_qq"><?php print render($page['float_qq']);?></div>
 			 </div><!-- end big_bg_image -->
 			  
-                <?php  if($page['home_column1']):  ?>
-<div class="aboutus_developer">
-		           <div class="col_cotnent"> <?php  print render($page['home_column1']) ;?></div>
-			</div>
-	             <?php  endif ; ?>	
+
 
 			<div class="service clearfix">
 			   <?php if($page['home_column2']): ?>
 			     <div class="ser_content"><?php print render($page['home_column2']) ;?></div>
 			   <?php endif ; ?> 
-			</div>		
+			</div>	
+                <?php  if($page['home_column1']):  ?>
+<div class="aboutus_developer clearfix">
+		           <div class="col_cotnent"> <?php  print render($page['home_column1']) ;?></div>
+			</div>
+	             <?php  endif ; ?>	
 			<div class="protfolio">
 			   <?php if($page['home_column3']): ?>
 			     <div class="pro_content clearfix"><?php print render($page['home_column3']) ;?></div>

@@ -28,7 +28,7 @@ div.view-banner div.views-slideshow-controls-bottom{
 }
 #views_slideshow_cycle_teaser_section_banner-block{
   margin: 0 auto;
-  margin-top:5px;
+  margin-top:3px;
 }
 #big_bg_image{
 	width: 100%;
@@ -281,18 +281,21 @@ opacity: 0.5;
  #block-views-tertimonials-and-blog-block .views-field-body{
 position: absolute;
 margin-left:-450px;
-height:340px;
-font-size:20px;
+height:360px;
+font-size:23px;
 padding:20px;
 padding-top:0;
 background: none repeat scroll 0% 0% #FF8400;
-font-family: 'museo-sans',sans-serif;
+font-family:serif;
 font-weight: 300;
 font-style: italic;
 line-height: 1.4;
 color:#FFF;
 width:410px;
 overflow:hidden;
+background-image: url(images/quote-mark.png);
+background-repeat: no-repeat;
+background-position: 5px 10px;
 }
 #block-views-tertimonials-and-blog-block .views-field-field-company-name .field-content{
 background: url(images/service-text2.png) no-repeat 0 center;
@@ -300,16 +303,16 @@ background-size: 15px 20px;
 padding-left: 20px;
 }
 #block-views-tertimonials-and-blog-block .views-field-field-company-name .field-content span{
-  color:#1e1e1e;
+  color:#797979;
 }
 #block-views-tertimonials-and-blog-block .views-field-field-company-name{
 position: absolute;
-margin-top:299px;
-height:60px;
+margin-top:300px;
+height:80px;
 width:750px;
 background-color: #111;
 color: #FFF;
-line-height:60px;
+line-height:80px;
 text-transform: capitalize;
 font-size:20px;
 }
@@ -318,4 +321,11 @@ background: url(images/testimonials-bg.jpg);
 }
 #block-views-tertimonials-and-blog-block .item-list ul{
 display:none;
+}
+
+#block-views-tertimonials-and-blog-block .view-header{
+text-align:center;
+color:#FFF;
+margin-bottom:60px;
+font-size:20px;
 }
