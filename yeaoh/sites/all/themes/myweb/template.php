@@ -155,6 +155,146 @@ function myweb_field__taxonomy_term_reference($variables) {
   return $output;
 }
 
+
+
+function myweb_getdirections_direction_form($variables) {
+  $form = $variables['form'];
+  // if you want to do fancy things with the form, do it here ;-)
+  $getdirections_defaults = getdirections_defaults();
+  $getdirections_misc = getdirections_misc_defaults();
+  if (isset($form['mto'])) {
+    $form['mto']['#prefix'] = '<div class="container-inline getdirections_display">';
+    $form['mto']['#suffix'] = '</div>';
+  }
+  if (isset($form['mfrom'])) {
+    $form['mfrom']['#prefix'] = '<div class="container-inline getdirections_display">';
+    $form['mfrom']['#suffix'] = '</div>';
+  }
+  if (isset($form['travelmode'])) {
+    $form['travelmode']['#prefix'] = '<div class="container-inline getdirections_display">';
+    $form['travelmode']['#suffix'] = '</div>';
+  }
+  if (isset($form['travelextras'])) {
+    $form['travelextras']['#prefix'] = '<div class="container-inline getdirections_display">';
+    $form['travelextras']['#suffix'] = '</div>';
+  }
+  if (! $getdirections_defaults['advanced_autocomplete']) {
+    if ($getdirections_misc['geolocation_enable'] && getdirections_is_mobile()) {
+      if ($getdirections_misc['geolocation_option'] == 1) {
+        // html5 geolocation
+        $geolocation_button = '<input type="button" value="' . t('Find Location') . '" title="' . t('Get the latitude and longitude for your current position from the browser') . '" id="getdirections_geolocation_button_from" class="form-submit" />';
+        $geolocation_button .= '<span id="getdirections_geolocation_status_from" ></span>';
+        $form['from']['#field_suffix'] = '&nbsp;&nbsp;&nbsp;' . $geolocation_button;
+      }
+      elseif ($getdirections_misc['geolocation_option'] == 2 && module_exists('smart_ip')) {
+        // smart ip
+        $geolocation_button = '<input type="button" value="' . t('Locate by Smart IP') . '" title="' . t('Get the latitude and longitude for your current position from Smart IP') . '" id="getdirections_geolocation_button_from" class="form-submit" />';
+        $geolocation_button .= '<span id="getdirections_geolocation_status_from" ></span>';
+        $form['from']['#field_suffix'] = '&nbsp;&nbsp;&nbsp;' . $geolocation_button;
+      }
+      elseif ($getdirections_misc['geolocation_option'] == 3 && module_exists('ip_geoloc')) {
+        // ip_geoloc
+        $geolocation_button = '<input type="button" value="' . t('Locate by IP Geolocation') . '" title="' . t('Get the latitude and longitude for your current position from IP Geolocation') . '" id="getdirections_geolocation_button_from" class="form-submit" />';
+        $geolocation_button .= '<span id="getdirections_geolocation_status_from" ></span>';
+        $form['from']['#field_suffix'] = '&nbsp;&nbsp;&nbsp;' . $geolocation_button;
+      }
+    }
+  }
+  if (getdirections_is_advanced()) {
+    $desc = t('Fill in the form below.<br />You can also click on the map and move the marker.');
+    if (isset($form['country_from'])) {
+      $desc = t('Select a country first, then type in a town.<br />You can also click on the map and move the marker.');
+      $form['country_from']['#prefix'] = '<div id="getdirections_start"><div class="container-inline getdirections_display">';
+      $form['country_from']['#suffix'] = '</div>';
+    }
+    if (isset($form['from'])
+      && $form['from']['#type'] == 'textfield'
+      && (module_exists('location') || module_exists('getlocations_fields'))
+      && ! $getdirections_defaults['advanced_autocomplete']
+      && isset($form['country_from'])
+    ) {
+      $form['from']['#suffix'] = '</div>';
+    }
+    if (isset($form['country_to'])) {
+      $form['country_to']['#prefix'] = '<div id="getdirections_end"><div class="container-inline getdirections_display">';
+      $form['country_to']['#suffix'] = '</div>';
+    }
+    if (isset($form['to'])
+      && $form['to']['#type'] == 'textfield'
+      && (module_exists('location') || module_exists('getlocations_fields'))
+      && ! $getdirections_defaults['advanced_autocomplete']
+      && isset($form['country_to'])
+    ) {
+      $form['to']['#suffix'] = '</div>';
+    }
+    if ($getdirections_defaults['advanced_autocomplete'] && $getdirections_defaults['waypoints'] > 0 && $getdirections_defaults['advanced_autocomplete_via'] && ! $getdirections_defaults['advanced_alternate'] ) {
+      for ($ct = 1; $ct <= $getdirections_defaults['waypoints']; $ct++) {
+      if ($ct == 1) {
+          $form['via_autocomplete_' . $ct]['#prefix'] = '<div id="autocomplete_via_wrapper"><div class="container-inline getdirections_display">';
+          $form['via_autocomplete_' . $ct]['#suffix'] = '</div>';
+        }
+        elseif ($ct == $getdirections_defaults['waypoints']) {
+          $form['via_autocomplete_' . $ct]['#prefix'] = '<div class="container-inline getdirections_display">';
+          $form['via_autocomplete_' . $ct]['#suffix'] = '</div></div>';
+        }
+        else {
+          $form['via_autocomplete_' . $ct]['#prefix'] = '<div class="container-inline getdirections_display">';
+          $form['via_autocomplete_' . $ct]['#suffix'] = '</div>';
+        }
+      }
+    }
+  }
+  else {
+    if (isset($form['country_from'])) {
+      $form['country_from']['#prefix'] = '<div class="container-inline getdirections_display">';
+      $form['country_from']['#suffix'] = '</div>';
+    }
+    if (isset($form['country_to'])) {
+      $form['country_to']['#prefix'] = '<div class="container-inline getdirections_display">';
+      $form['country_to']['#suffix'] = '</div>';
+    }
+    $desc = t('<h2>Get <span>Directions</span></h2>');
+  }
+
+  if (isset($form['trafficinfo'])) {
+    $form['trafficinfo']['#prefix'] = '<div id="getdirections_trafficinfo">';
+    $form['trafficinfo']['#suffix'] = '</div>';
+  }
+  if (isset($form['bicycleinfo'])) {
+    $form['bicycleinfo']['#prefix'] = '<div id="getdirections_bicycleinfo">';
+    $form['bicycleinfo']['#suffix'] = '</div>';
+  }
+  if (isset($form['transitinfo'])) {
+    $form['transitinfo']['#prefix'] = '<div id="getdirections_transitinfo">';
+    $form['transitinfo']['#suffix'] = '</div>';
+  }
+
+  if (isset($form['panoramio'])) {
+    $form['panoramio']['#prefix'] = '<div id="getdirections_panoramio">';
+    $form['panoramio']['#suffix'] = '</div>';
+  }
+  if (isset($form['switchfromto'])) {
+    $form['switchfromto']['#prefix'] = '<div id="getdirections_switchfromto">';
+    $form['switchfromto']['#suffix'] = '</div>';
+  }
+  if (isset($form['next'])) {
+    $form['next']['#prefix'] = '<div id="getdirections_nextbtn">';
+    $form['next']['#suffix'] = '</div>';
+  }
+
+  if (isset($form['submit'])) {
+    $form['submit']['#prefix'] = '<div id="getdirections_btn">';
+    $form['submit']['#suffix'] = '</div>';
+  }
+  $output = '<p class="description">' . $desc . '</p>';
+  $output .= drupal_render_children($form);
+  return $output;
+}
+
+
+
+
+
 /**
  * Implement theme_getdirections_show().
  */

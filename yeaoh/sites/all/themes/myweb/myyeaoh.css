@@ -160,7 +160,7 @@ padding-left: 190px;
 }
 #block-block-11{
 	float: left;
-  width:200px;
+  width:290px;
 }
 #block-webform-client-block-145{
 	width: 295px;
@@ -183,17 +183,19 @@ width: 295px;
 position: absolute;
 margin-left: 300px;
 }
-
+#getdirections-direction-form h2 span{
+color:#F00;
+}
 #getdirections_directions div.adp{
 //position: absolute;
 height:200px;
 overflow:auto;
-width:670px;
+width:900px;
 background:#FFF;
 //margin-top:30px;
 }
 #getdirections_directions {
-width: 669px;
+width: 905px;
 padding:0;
 }
 .form-item input{
