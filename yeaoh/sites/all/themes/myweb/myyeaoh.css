@@ -352,8 +352,11 @@ width: 341px;
 .float_qq #block-yeaohpm-yeaohpm-project-request{
 	padding: 65px 15px 15px;
 	background-color: #474747;
-	z-index: -100;
+	z-index: 0;
 	border-radius: 3px;
+}
+#block-block-21{
+  z-index:1;
 }
 .float_qq .quick_quote,
 .float_qq .quick_quote2{
