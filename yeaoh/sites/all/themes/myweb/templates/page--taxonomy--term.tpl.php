@@ -3,7 +3,6 @@
 	  
 	   <div id="page_top"><!-- start page_top -->
 			<div class="header">
-                                <div class="float_qq"><?php print render($page['float_qq']);?></div>
 				<div id="toplink"><!-- stat toplink-->
 				   <?php if($page['top_link']): ?>
 					  <?php  print render ($page['top_link']) ;?>
@@ -98,6 +97,11 @@
 		
    </div><!--center end -->
 </div><!-- end page_wrapper-->
+
+<?php if($page['float_qq']): ?>
+<div class="float_qq"><?php print render($page['float_qq']);?></div>
+<?php endif ; ?>
+
 <script text="text/javascript">
  jQuery("#main-menu .root_menu li:first a").click(function(){
      jQuery(this).attr("href","/");

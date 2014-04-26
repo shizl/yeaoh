@@ -1,0 +1,5 @@
+name = yeaohpm
+description = ubercart order comment user add in view comment
+dependencies[] = placeholder
+package = Ubercart - extra
+core = 7.x

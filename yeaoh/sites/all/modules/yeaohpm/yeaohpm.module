@@ -1,0 +1,170 @@
+<?php
+/**
+ * @hook_menu
+ **/
+function yeaohpm_menu() {
+  $items['admin/config/workflow/pm_setting'] = array(
+      'title' => t('Project Request Setting'),
+      'page callback' => 'drupal_get_form',
+      'page arguments' => array('yeaohpm_settings'),
+      'access callback' => TRUE,
+      'type' => MENU_NORMAL_ITEM,
+      'file' => 'yeaohpm.admin.inc',
+      );
+
+  return $items;
+}
+
+function _yeaohpm_get_token(){
+  $token = variable_get('yeaohpm_setting');
+  return $token;
+}
+function yeaohpm_get_apiurl(){
+  $api_url = variable_get('yeaohpm_api_url');
+  return $api_url;
+}
+
+function yeaohpm_block_info() {
+  $blocks['yeaohpm_project_request'] = array(
+      'info' => t('Yeaoh Project Request'),
+      'status' => TRUE,
+      'region' => 'sidebar_first',
+      'weight' => 0,
+      'visibility' => 1,
+      );
+  return $blocks;
+}
+
+function yeaohpm_block_view($delta = '') {
+  switch ($delta) {
+    case 'yeaohpm_project_request':
+      $block['subject'] = t('Pending Comments');
+      $block['content'] = yeaohpm_block_contents($delta);
+      return $block;
+      break;
+  }
+}
+function yeaohpm_block_contents($delta) {
+  switch ($delta) {
+    case 'yeaohpm_project_request':
+      return drupal_get_form('yeaohpm_project_request');
+  }
+  break;
+}
+
+function yeaohpm_project_request($form, &$form_state) {
+  $form['by_name'] = array(
+      '#type'=>'textfield',
+      '#title' =>'token',
+      '#placeholder' => t('Your Name'),
+      '#required' => TRUE,
+      '#title_display' =>'invisible',
+      );
+  $form['by_email'] = array(
+      '#type'=>'textfield',
+      '#required' => TRUE,
+      '#title' =>'token',
+      '#placeholder' => t('Name@example.com'),
+      '#title_display' =>'invisible',
+      '#element_validate' => array('MODULE_email_element_validate'),
+      );
+  $form['by_company_name'] = array(
+      '#type'=>'textfield',
+      '#title' =>'token',
+      '#placeholder' => t('Your Company Name'),
+      '#required' => TRUE,
+      '#title_display' =>'invisible',
+      );
+  $form['by_company_address'] = array(
+      '#type'=>'textfield',
+      '#title' =>'token',
+      '#placeholder' => t('Your Company Address'),
+      '#title_display' =>'invisible',
+      );
+  $form['name'] = array(
+      '#type'=>'textfield',
+      '#title' =>'name',
+      '#title_display' =>'invisible',
+      '#required' => TRUE,
+      '#placeholder' => t('Project Name'),
+      );
+  $form['body'] = array(
+      '#type'=>'textarea',
+      '#title' =>'token',
+      '#placeholder' => t('Project Description'),
+      '#title_display' =>'invisible',
+      '#required' => TRUE,
+      );
+  $form['submit'] = array(
+      '#type'=>'submit',
+      '#value' => t('Submit'),
+      );
+
+  return $form;
+}
+
+function MODULE_email_element_validate($element, &$form_state, $form) {
+  if (!valid_email_address($element['#value'])) {
+    form_error($element, t('Please enter a valid email address.'));
+  }
+}
+
+
+function yeaohpm_project_request_submit($form,&$form_state) {
+  //定义各种值
+  $apiurl = yeaohpm_get_apiurl();
+  $token = _yeaohpm_get_token();
+  $command = 'projects/requests/add';
+  $client_type = 'new_client';
+  $project_request_name = $form_state['values']['name'];
+  $project_request_body = $form_state['values']['body'];
+  $new_client_created_by_name = $form_state['values']['by_name'];
+  $new_client_created_by_email = $form_state['values']['by_email'];
+  $new_client_created_by_company_name = $form_state['values']['by_company_name'];
+  $new_client_created_by_company_address = $form_state['values']['by_company_address'];
+  $submitted = 'submitted';
+  $api = $apiurl."?path_info=".$command."&auth_api_token=".$token;
+
+  //定义CURL
+  $ch = curl_init();
+  curl_setopt($ch, CURLOPT_URL, $api);
+  curl_setopt($ch, CURLOPT_HEADER, 0);
+  curl_setopt($ch, CURLOPT_POST, 1);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE); 
+  curl_setopt($ch, CURLOPT_POSTFIELDS, array(
+        'client_type' => 'new_client',
+        'project_request[name]' => $project_request_name,
+        'project_request[body]' => $project_request_body,
+        'new_client[created_by_name]' => $new_client_created_by_name,
+        'new_client[created_by_email]' => $new_client_created_by_email,
+        'new_client[created_by_company_name]' => $new_client_created_by_company_name ,
+        'new_client[created_by_company_address]' => $new_client_created_by_company_address,
+        'submitted' => 'submitted',
+        ));
+  $result  = curl_exec($ch);
+  curl_close($ch);
+
+  //获取返回的信息
+  $xml = new SimpleXMLElement($result);
+  $request_id = $xml->id[0];
+  $request_url = $xml->urls->public[0];
+
+  //存入数据库
+  $table = 'yeaohpm_project_request';
+  $record = new stdClass();
+  db_insert($table)
+    ->fields(array(
+          'client_type' => 'new_client',
+          'project_name' => $project_request_name,
+          'create_by_email' => $new_client_created_by_email,
+          'request_id' => $request_id,
+          'request_project_url' => $request_url,
+          ))
+    ->execute();
+  //跳转到谢谢页面
+
+  $thanks = variable_get('yeaohpm_request_thanks');
+  drupal_goto($thanks,array('query' => array('url' => $request_url)));
+}
+
+

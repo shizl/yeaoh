@@ -200,7 +200,7 @@ padding:0;
 }
 .form-item input{
 padding: 0.5em 1em;
-border: 1px solid rgb(229, 229, 229) !important;
+border: 1px solid rgb(229, 229, 229);
 //margin-bottom: 1.5em;
 border-radius: initial;
 box-shadow: initial; 
@@ -331,3 +331,48 @@ color:#FFF;
 margin-bottom:60px;
 font-size:20px;
 }
+.float_qq{
+	position: fixed;
+	top: 100px;
+	right: 0px;
+	background-color: #474747;
+	border-radius: 4px;
+	z-index: 500;
+}
+.float_qq .form-item input{
+	width: 100%;
+}
+.float_qq .form-item{
+	margin-top: 0;
+width: 330px;
+}
+.float_qq .form-item .form-textarea-wrapper{
+width: 341px;
+}
+.float_qq #block-yeaohpm-yeaohpm-project-request{
+	padding: 65px 15px 15px;
+	background-color: #123;
+	z-index: -100;
+	border-radius: 3px;
+}
+.float_qq .quick_quote,
+.float_qq .quick_quote2{
+//position: absolute;
+	height: 50px;
+	display:block;
+	}
+.float_qq .quick_quote{
+width: 149px;
+background: url(images/contact.png) no-repeat;
+margin-left: -149px;
+z-index: -100;
+position: absolute;
+}
+.float_qq .quick_quote2{
+		width: 374px;
+ background:url(images/open_qq.png) no-repeat;
+}
+.float_qq .quick_quote2,
+	.float_qq .quick_quote{
+		float: left;
+	}

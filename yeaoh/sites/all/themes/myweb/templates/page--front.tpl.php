@@ -54,7 +54,7 @@
 			 <div id="big_bg_image"><!-- start big_bg_image -->
 			    
 		  		<div class="banner_content"><?php print render($page['home_banner']) ;?></div>
-				<div class="float_qq"><?php print render($page['float_qq']);?></div>
+				
 			 </div><!-- end big_bg_image -->
 			  
 
@@ -94,6 +94,9 @@
 		
    </div><!--center end -->
 </div><!-- end page_wrapper-->
+ <?php if($page['float_qq']): ?>
+<div class="float_qq"><?php print render($page['float_qq']);?></div>
+   <?php endif ; ?>
 <script text="text/javascript">
  jQuery("#main-menu .root_menu li:first a").click(function(){
      jQuery(this).attr("href","/");

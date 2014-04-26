@@ -6,9 +6,6 @@ stylesheets[all][] = style.css
 stylesheets[all][] = myyeaoh.css
 
 scripts[] = js/js.js
-scripts[] = js/getdirections.js
-scripts[] = js/banner_background.js
-scripts[] = js/tertimonials_blog.js
 
 regions[superfish_menu] = superfish menu 
 regions[top_link] = top link

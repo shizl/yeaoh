@@ -1,247 +1,234 @@
-<?php
+<div id="page_wrapper"><!-- start page_wrapper -->
+  <div id="center"><!-- start cneter -->
+	  
+	   <div id="page_top"><!-- start page_top -->
+			<div class="header">
+				<div id="toplink"><!-- stat toplink-->
+				   <?php if($page['top_link']): ?>
+					  <?php  print render ($page['top_link']) ;?>
+				   <?php endif ; ?>
+				 </div><!-- end toplink-->
+				<?php if ($logo): ?> 
+				<!-- start logo wrapper -->
+				<div id="logo-wrapper">
+					<div class="logo">
+						<a href="<?php print $base_path ?>" title="<?php print t('Home') ?>"><img src="<?php print $logo ?>" alt="<?php print t('Home') ?>" /></a>
+					</div>
+				</div><!-- end logo wrapper -->
+				<?php endif; ?>
 
-/**
- * @file
- * Bartik's theme implementation to display a single Drupal page.
- *
- * The doctype, html, head and body tags are not in this template. Instead they
- * can be found in the html.tpl.php template normally located in the
- * modules/system directory.
- *
- * Available variables:
- *
- * General utility variables:
- * - $base_path: The base URL path of the Drupal installation. At the very
- *   least, this will always default to /.
- * - $directory: The directory the template is located in, e.g. modules/system
- *   or themes/bartik.
- * - $is_front: TRUE if the current page is the front page.
- * - $logged_in: TRUE if the user is registered and signed in.
- * - $is_admin: TRUE if the user has permission to access administration pages.
- *
- * Site identity:
- * - $front_page: The URL of the front page. Use this instead of $base_path,
- *   when linking to the front page. This includes the language domain or
- *   prefix.
- * - $logo: The path to the logo image, as defined in theme configuration.
- * - $site_name: The name of the site, empty when display has been disabled
- *   in theme settings.
- * - $site_slogan: The slogan of the site, empty when display has been disabled
- *   in theme settings.
- * - $hide_site_name: TRUE if the site name has been toggled off on the theme
- *   settings page. If hidden, the "element-invisible" class is added to make
- *   the site name visually hidden, but still accessible.
- * - $hide_site_slogan: TRUE if the site slogan has been toggled off on the
- *   theme settings page. If hidden, the "element-invisible" class is added to
- *   make the site slogan visually hidden, but still accessible.
- *
- * Navigation:
- * - $main_menu (array): An array containing the Main menu links for the
- *   site, if they have been configured.
- * - $secondary_menu (array): An array containing the Secondary menu links for
- *   the site, if they have been configured.
- * - $breadcrumb: The breadcrumb trail for the current page.
- *
- * Page content (in order of occurrence in the default page.tpl.php):
- * - $title_prefix (array): An array containing additional output populated by
- *   modules, intended to be displayed in front of the main title tag that
- *   appears in the template.
- * - $title: The page title, for use in the actual HTML content.
- * - $title_suffix (array): An array containing additional output populated by
- *   modules, intended to be displayed after the main title tag that appears in
- *   the template.
- * - $messages: HTML for status and error messages. Should be displayed
- *   prominently.
- * - $tabs (array): Tabs linking to any sub-pages beneath the current page
- *   (e.g., the view and edit tabs when displaying a node).
- * - $action_links (array): Actions local to the page, such as 'Add menu' on the
- *   menu administration interface.
- * - $feed_icons: A string of all feed icons for the current page.
- * - $node: The node object, if there is an automatically-loaded node
- *   associated with the page, and the node ID is the second argument
- *   in the page's path (e.g. node/12345 and node/12345/revisions, but not
- *   comment/reply/12345).
- *
- * Regions:
- * - $page['header']: Items for the header region.
- * - $page['featured']: Items for the featured region.
- * - $page['highlighted']: Items for the highlighted content region.
- * - $page['help']: Dynamic help text, mostly for admin pages.
- * - $page['content']: The main content of the current page.
- * - $page['sidebar_first']: Items for the first sidebar.
- * - $page['triptych_first']: Items for the first triptych.
- * - $page['triptych_middle']: Items for the middle triptych.
- * - $page['triptych_last']: Items for the last triptych.
- * - $page['footer_firstcolumn']: Items for the first footer column.
- * - $page['footer_secondcolumn']: Items for the second footer column.
- * - $page['footer_thirdcolumn']: Items for the third footer column.
- * - $page['footer_fourthcolumn']: Items for the fourth footer column.
- * - $page['footer']: Items for the footer region.
- *
- * @see template_preprocess()
- * @see template_preprocess_page()
- * @see template_process()
- * @see bartik_process_page()
- * @see html.tpl.php
- */
-?>
-<div id="page-wrapper"><div id="page">
+				<div id="main-menu"><!-- start main_menu -->
+				<?php if ($main_menu ): ?>
+<?php 
+						function show_menu($mlid=0,$lid=0,$mname='root_menu'){
+							$rootmenu=db_query("SELECT `mlid`,`link_path`,`link_title`,'options' FROM `menu_links` WHERE `menu_name`='main-menu' AND `plid` ='$mlid' AND `language`='".(!empty($_REQUEST['language'])?$_REQUEST['language']:'en')."' ORDER BY `weight` ASC");
+							$menus='';
+							++$lid;
+							$aggmentq= $mname=="child_menu" ? '':$_GET['q'];
+							$root_menu="";
+							$m=1;
+							foreach($rootmenu as $menu){ 
+								
+									if($lid>=2){
+									   
+									    if($menu->link_path=='<front>'){
+									        $url = '/';
+									    }else{
+									       if(strstr($menu->link_path,'http://')){
+									        $url =$menu->link_path;
+									       }else{
+									    $url = '/'.drupal_get_path_alias($menu->link_path);
+									       }
+									    } 
+									
+									 $menus.='<li><a href="'.$url.'"> '.($lid > 2 ? '>> ':'').$menu->link_title.'</a>'.($lid == 2 ? '<hr />':'').show_menu($menu->mlid,$lid,'child_menu').'</li>';
+									}else{
+										$root_menu.='<li class="'.($aggmentq == $menu->link_path || ($aggmentq=='node' && $menu->link_path=="<front>") ? 'active':'').'"><a href="javascript:show_box('.$m.')"> '.$menu->link_title.'</a></li>';
+										$menus.=show_menu($menu->mlid,$lid,'child_menu');
+										++$m;
+									}
+								
+							}
+							return ($lid==1 ? '<ul class="'.$mname.' menu_'.$lid.'">'.$root_menu.'</ul>':'').($menus<>'' ? ( $lid==1 ? '</div></div><div class="menu_des"><div class="menu_box"><div class="all_menu">'.$menus.'</div></div></div>':'<ul class="'.$mname.' menu_'.$lid.'">'.$menus.'</ul>'):'');
+						}
+						echo show_menu();
+						
+						?>
+					 
+				 <?php endif; ?>
+				 </div><!-- main menu end -->
+			</div>
+			<div class="head_bottom_bg"></div> </div> <!-- page top end-->
+	   <!-- start centermain -->
+                        <div id="main_content">
+			     <div class="main_content">
+			       <?php  if($tabs): ?>
+				  <div class="tabs"><?php  print render($tabs) ;?></div>
+				<?php endif ;?> 
+				<div class="s-cotnent"> <?php print render($page['content']); ?></div>
+				<?php  if($page['left']): ?>
+				  <?php  print render($page['left']) ; ?>
+				<?php endif ;?>
+				 </div>
+                        			<div class="protfolio">
+			   <?php if($page['home_column3']): ?>
+			     <div class="pro_content clearfix"><?php print render($page['home_column3']) ;?></div>
+			   <?php endif ; ?> 	   
+			</div>
+			</div>
 
-  <div id="header" class="<?php print $secondary_menu ? 'with-secondary-menu': 'without-secondary-menu'; ?>"><div class="section clearfix">
+			<div class="footer_main">
+			  <?php if($page['foot_main']): ?>
+				<div class="foot_content clearfix">  <?php  print render ($page['foot_main']) ;?> </div>
+			   <?php endif ; ?>	
+			</div>
+			
+		</div><!-- end contermain -->
 
-    <?php if ($logo): ?>
-      <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
-        <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-      </a>
-    <?php endif; ?>
+		<!-- start footer -->
+		<div id="footer">
+			<div class="footer-bottom">
+			   <?php if($page['footer']): ?>
+				  <?php  print render ($page['footer']) ;?>
+			   <?php endif ; ?></div>
+			</div>
+		</div>
+		<!--footer end -->
+		
+   </div><!--center end -->
+</div><!-- end page_wrapper-->
 
-    <?php if ($site_name || $site_slogan): ?>
-      <div id="name-and-slogan"<?php if ($hide_site_name && $hide_site_slogan) { print ' class="element-invisible"'; } ?>>
+<?php if($page['float_qq']): ?>
+<div class="float_qq"><?php print render($page['float_qq']);?></div>
+<?php endif ; ?>
 
-        <?php if ($site_name): ?>
-          <?php if ($title): ?>
-            <div id="site-name"<?php if ($hide_site_name) { print ' class="element-invisible"'; } ?>>
-              <strong>
-                <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
-              </strong>
-            </div>
-          <?php else: /* Use h1 when the content title is empty */ ?>
-            <h1 id="site-name"<?php if ($hide_site_name) { print ' class="element-invisible"'; } ?>>
-              <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
-            </h1>
-          <?php endif; ?>
-        <?php endif; ?>
 
-        <?php if ($site_slogan): ?>
-          <div id="site-slogan"<?php if ($hide_site_slogan) { print ' class="element-invisible"'; } ?>>
-            <?php print $site_slogan; ?>
-          </div>
-        <?php endif; ?>
 
-      </div> <!-- /#name-and-slogan -->
-    <?php endif; ?>
+<script text="text/javascript">
+ jQuery("#main-menu .root_menu li:first a").click(function(){
+     jQuery(this).attr("href","/");
+});
+ jQuery("#main-menu .root_menu li:last a").click(function(){
+     jQuery(this).attr("href","/contact-us");
+});
+</script>
 
-    <?php print render($page['header']); ?>
+				<script language="javascript"><!--
+				var m=0;
+function show_box(sid){//manin menu show 
+	if(jQuery('.menu_des').css('display')=='none'){
+		jQuery('.all_menu').css('margin-left',(1-sid)*990);
+	}else{
+		jQuery('.all_menu').animate({marginLeft: (1-sid)*990}, 500);
+	}
+	if(m==sid){
+		jQuery('.menu_des').slideUp();
+		m=0;
+	}else{
+		m=sid;
+		jQuery('.menu_des').slideDown();
+	}
+	
+}
+jQuery('.root_menu li').click(function(){
+	jQuery('.root_menu li').removeClass('active');
+	jQuery(this).addClass('active');
 
-    <?php if ($main_menu): ?>
-      <div id="main-menu" class="navigation">
-        <?php print theme('links__system_main_menu', array(
-          'links' => $main_menu,
-          'attributes' => array(
-            'id' => 'main-menu-links',
-            'class' => array('links', 'clearfix'),
-          ),
-          'heading' => array(
-            'text' => t('Main menu'),
-            'level' => 'h2',
-            'class' => array('element-invisible'),
-          ),
-        )); ?>
-      </div> <!-- /#main-menu -->
-    <?php endif; ?>
+});
+function setLeaveMouse(){
+   jQuery("#page_top .menu_des").slideUp(500);
+   jQuery('.root_menu li').removeClass('active');
+}
+jQuery('#page_top').mouseleave(function(){
+   setTimeout(setLeaveMouse,1000);
+   
+});
 
-    <?php if ($secondary_menu): ?>
-      <div id="secondary-menu" class="navigation">
-        <?php print theme('links__system_secondary_menu', array(
-          'links' => $secondary_menu,
-          'attributes' => array(
-            'id' => 'secondary-menu-links',
-            'class' => array('links', 'inline', 'clearfix'),
-          ),
-          'heading' => array(
-            'text' => t('Secondary menu'),
-            'level' => 'h2',
-            'class' => array('element-invisible'),
-          ),
-        )); ?>
-      </div> <!-- /#secondary-menu -->
-    <?php endif; ?>
+jQuery("#edit-submitted-you-full-name").val("Your full name");
+jQuery("#edit-submitted-you-email").val("name@example.com");
+jQuery("#edit-submitted-body").val("Your question");
+jQuery(".webform-client-form .form-text").css({"padding-left":"5px","color":"#999"});
+jQuery(".webform-client-form textarea").css({"padding-left":"5px","color":"#999"});
+jQuery("#edit-submitted-you-full-name").focus(function(){
+jQuery(this).css("color","#000");
+if(jQuery(this).val() == "Your full name") jQuery(this).val("");
+});
+jQuery("#edit-submitted-you-email").focus(function(){
+jQuery(this).css("color","#000");
+if(jQuery(this).val() == "name@example.com") jQuery(this).val("");
+});
+jQuery("#edit-submitted-body").focus(function(){
+jQuery(this).css("color","#000");
+if(jQuery(this).val() == "Your question") jQuery(this).val("");
+});
+jQuery("#edit-submitted-you-full-name").blur(function(){
+if(jQuery(this).val() == "") {jQuery(this).val("Your full name");jQuery(this).css("color","#999");}
+});
+jQuery("#edit-submitted-you-email").blur(function(){
+if(jQuery(this).val() == "") {jQuery(this).val("name@example.com");jQuery(this).css("color","#999 !imp");}
+});
+jQuery("#edit-submitted-body").blur(function(){
+if(jQuery(this).val() == ""){ jQuery(this).val("Your question");jQuery(this).css("color","#999");}
+});
 
-  </div></div> <!-- /.section, /#header -->
+jQuery(".webform-client-form .form-submit").click(function(){
+var chmail=/^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+var chvarchar=/[a-zA-Z0-9]+$/;
 
-  <?php if ($messages): ?>
-    <div id="messages"><div class="section clearfix">
-      <?php print $messages; ?>
-    </div></div> <!-- /.section, /#messages -->
-  <?php endif; ?>
+var fname=jQuery("#edit-submitted-you-full-name").val();
+var femail=jQuery("#edit-submitted-you-email").val();
+var fbody=jQuery("#edit-submitted-body").val();
+if(!chvarchar.test(fname) || fname=="Your full name" ){
+alert("Please input your full name.");
+return false;
+}
 
-  <?php if ($page['featured']): ?>
-    <div id="featured"><div class="section clearfix">
-      <?php print render($page['featured']); ?>
-    </div></div> <!-- /.section, /#featured -->
-  <?php endif; ?>
+if(!chmail.test(femail) || femail=="name@example.com" ){
+alert("Please input correctly email.");
+return false;
+}
+if(!chvarchar.test(fbody) || fbody=="Your question" ){
+alert("Please input your question.");
+return false;
+}
+});
+jQuery("#block-locale-language .content").append('<div id="language_arrow"><a><img src="sites/all/themes/yeaoh_website/images/flag_english.png"/><span>English</span></a></div>');
+jQuery("#language_arrow").click(function(){
+     jQuery(".language-switcher-locale-session").animate({height:"0"},500);
+});
+jQuery(document).click(function(){
+    if(jQuery(".language-switcher-locale-session").css("height")=="0px")
+     {
+        jQuery(".language-switcher-locale-session").animate({height:"0"},500);
+     }
+})
+var str_url=window.location.href;
+var start_num=str_url.indexOf("?language=zh-hans");
+if(start_num>0)
+{
+   jQuery("#language_arrow img").attr("src","sites/all/themes/yeaoh_website/images/zh-hans.png");
+   jQuery("#language_arrow span").html("中文简体");
+}
+jQuery(".zh-hans a").attr("href","/?language=zh-hans");
+-->
+</script>
+<script>
 
-  <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+//fancybox 
 
-    <?php if ($breadcrumb): ?>
-      <div id="breadcrumb"><?php print $breadcrumb; ?></div>
-    <?php endif; ?>
+jQuery('.fancybox').html('View Screenshot');
 
-    <?php if ($page['sidebar_first']): ?>
-      <div id="sidebar-first" class="column sidebar"><div class="section">
-        <?php print render($page['sidebar_first']); ?>
-      </div></div> <!-- /.section, /#sidebar-first -->
-    <?php endif; ?>
+jQuery('.view-example .view-grouping-content').mouseover(function(){
 
-    <div id="content" class="column"><div class="section">
-      <?php if ($page['highlighted']): ?><div id="highlighted"><?php print render($page['highlighted']); ?></div><?php endif; ?>
-      <a id="main-content"></a>
-      <?php print render($title_prefix); ?>
-      <?php if ($title): ?>
-        <h1 class="title" id="page-title">
-          <?php print $title; ?>
-        </h1>
-      <?php endif; ?>
-      <?php print render($title_suffix); ?>
-      <?php if ($tabs): ?>
-        <div class="tabs">
-          <?php print render($tabs); ?>
-        </div>
-      <?php endif; ?>
-      <?php print render($page['help']); ?>
-      <?php if ($action_links): ?>
-        <ul class="action-links">
-          <?php print render($action_links); ?>
-        </ul>
-      <?php endif; ?>
-      <?php print render($page['content']); ?>
-      <?php print $feed_icons; ?>
+ jQuery(this).css({'opacity':'100'});
+ jQuery(this).parent().css({'box-shadow':'0 0 3px #555555'});
 
-    </div></div> <!-- /.section, /#content -->
+});
+jQuery('.view-example .view-grouping-content').mouseout(function(){
 
-    <?php if ($page['sidebar_second']): ?>
-      <div id="sidebar-second" class="column sidebar"><div class="section">
-        <?php print render($page['sidebar_second']); ?>
-      </div></div> <!-- /.section, /#sidebar-second -->
-    <?php endif; ?>
+ jQuery(this).css({'opacity':'0'});
+ jQuery(this).parent().css({'box-shadow':'none'});
 
-  </div></div> <!-- /#main, /#main-wrapper -->
+});
 
-  <?php if ($page['triptych_first'] || $page['triptych_middle'] || $page['triptych_last']): ?>
-    <div id="triptych-wrapper"><div id="triptych" class="clearfix">
-      <?php print render($page['triptych_first']); ?>
-      <?php print render($page['triptych_middle']); ?>
-      <?php print render($page['triptych_last']); ?>
-    </div></div> <!-- /#triptych, /#triptych-wrapper -->
-  <?php endif; ?>
-
-  <div id="footer-wrapper"><div class="section">
-
-    <?php if ($page['footer_firstcolumn'] || $page['footer_secondcolumn'] || $page['footer_thirdcolumn'] || $page['footer_fourthcolumn']): ?>
-      <div id="footer-columns" class="clearfix">
-        <?php print render($page['footer_firstcolumn']); ?>
-        <?php print render($page['footer_secondcolumn']); ?>
-        <?php print render($page['footer_thirdcolumn']); ?>
-        <?php print render($page['footer_fourthcolumn']); ?>
-      </div> <!-- /#footer-columns -->
-    <?php endif; ?>
-
-    <?php if ($page['footer']): ?>
-      <div id="footer" class="clearfix">
-        <?php print render($page['footer']); ?>
-      </div> <!-- /#footer -->
-    <?php endif; ?>
-
-  </div></div> <!-- /.section, /#footer-wrapper -->
-
-</div></div> <!-- /#page, /#page-wrapper -->
+</script>	

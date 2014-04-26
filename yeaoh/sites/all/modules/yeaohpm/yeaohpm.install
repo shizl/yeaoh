@@ -1,0 +1,51 @@
+<?php
+function yeaohpm_uninstall(){
+  db_delete('menu_links')
+    ->condition('module','yeaohpm_project_request')
+    ->execute();
+  menu_cache_clear_all();
+}
+function yeaohpm_schema() {
+  $schema['yeaohpm_project_request'] = array(
+      'description' => 'This is Yeaoh PM project request info',
+      'fields' => array(
+        'client_type' => array(
+          'description' => 'Client type',
+          'type' => 'varchar',
+          'length' => '255',
+          'not null' => TRUE,
+          ),
+        'project_name' => array(
+          'description' => 'Client request project name',
+          'type' => 'varchar',
+          'length' => '255',
+          'not null' => TRUE,
+          ),
+        'create_by_email' => array(
+          'description' => 'Client Email',
+          'type' => 'varchar',
+          'length' => '255',
+          'not null' => TRUE,
+          ),
+        'request_id' => array(
+          'description' => 'request id',
+          'type' => 'int',
+          'not null' => TRUE,
+          ),
+        'request_project_url' => array(
+            'description' => 'PM system request url',
+            'type' => 'varchar',
+            'length' => '255',
+            'not null' => TRUE,
+            ),
+        ),
+        'primary key' => array('request_id'),
+        'indexes' => array(
+            'request_id' => array('request_id'),
+            ),
+        );
+  return $schema;
+
+}
+
+
