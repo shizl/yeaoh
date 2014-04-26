@@ -202,7 +202,7 @@ padding:0;
 padding: 0.5em 1em;
 border: 1px solid rgb(229, 229, 229);
 //margin-bottom: 1.5em;
-border-radius: initial;
+border-radius: 3px;
 box-shadow: initial; 
 padding: 5px;
 font-size: 13px;
@@ -351,7 +351,7 @@ width: 341px;
 }
 .float_qq #block-yeaohpm-yeaohpm-project-request{
 	padding: 65px 15px 15px;
-	background-color: #123;
+	background-color: #474747;
 	z-index: -100;
 	border-radius: 3px;
 }
