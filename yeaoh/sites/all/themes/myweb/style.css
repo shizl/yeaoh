@@ -39,7 +39,7 @@ float:right;
 #footer{width:100%;margin:0;background:#EEECEC;}
 #footer .footer-main{width:950px;height:290px;margin:5px auto 0px auto;}
 .footer-bottom{width:100%;height:40px;background:url('images/head_bg.jpg');color:#eee;}
-.footer-bottom .region-footer{width:950px;margin:0 auto;}
+.footer-bottom .region-footer{width:1200px;margin:0 auto;}
 .footer-bottom .region-footer .block{float:left;width:50%;text-align:center;}
 .footer-bottom #block-block-2 p{margin-top:10px;margin-bottom:10px;}
 .footer-bottom a{color:#FFF;text-decoration:none;}

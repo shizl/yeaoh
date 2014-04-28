@@ -162,9 +162,8 @@ function yeaohpm_project_request_submit($form,&$form_state) {
           ))
     ->execute();
   //跳转到谢谢页面
-
   $thanks = variable_get('yeaohpm_request_thanks');
-  drupal_goto($thanks,array('query' => array('url' => $request_url)));
+  drupal_goto($thanks,array('query' => array('path_info' => substr($request_url,42))));
 }
 
 

@@ -72,7 +72,8 @@ div.ser_content .view-content{
 	text-align: center;
 }
 div.ser_content .view-content .views-row{
-	width: 280px;
+	width: 370px;
+	height: 400px;
 	margin: 20px 0px;
 	display: inline-block;
 	background: none repeat scroll 0% 0% #EDEDED;
