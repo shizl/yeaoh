@@ -34,12 +34,13 @@ div.view-banner div.views-slideshow-controls-bottom{
 	width: 100%;
 	margin: 0 auto
 }
-
+.views-slideshow-cycle-main-frame-row-item {
+display:block;
+}
 div.ser_content div.views-row{
 	text-align: center;
 }
 div.ser_content div.views-row div span a{
-
 background: none repeat scroll 0% 0% #FF8400;
 border-bottom: 3px solid #F06D00;
 border-width: 0px 0px 3px;
@@ -64,6 +65,42 @@ div.ser_content div.views-row span a:hover{
 border-color: #FF7E12;
 font-size: 22px;
 }
+
+div.ser_content div.views-row .detail span a{
+background: none repeat scroll 0% 0% #FFf;
+border-bottom:initial;
+border-width: 0;
+border-style: none none solid;
+border-color: -moz-use-text-color -moz-use-text-color #888;
+-moz-border-top-colors: none;
+-moz-border-right-colors: none;
+-moz-border-bottom-colors: none;
+-moz-border-left-colors: none;
+border-image: none;
+color: #000;
+cursor: pointer;
+display: inline-block;
+font-size: 22px;
+line-height: 14px;
+padding: 13px 10px 11px;
+text-align: center;
+font-weight: bold;
+text-decoration: none;
+}
+div.ser_content div.views-row .detail span a:hover{
+	background: none repeat scroll 0% 0% #FFA133;
+border-color: #FF7E12;
+font-size: 22px;
+}
+div.ser_content div.views-row .detail{
+	position:absolute;
+	bottom: 45px;
+	width: 370px;
+}
+div.ser_content div.views-row .detail span{
+
+}
+
 .view-service-category .views-row .views-field-name {
 font-size: 35px;
 line-height: 35px;
@@ -335,7 +372,7 @@ font-size:20px;
 .float_qq{
 	position: fixed;
 	top: 100px;
-	right: 0px;
+	right: -374px;
 	background-color: #474747;
 	border-radius: 4px;
 	z-index: 500;
