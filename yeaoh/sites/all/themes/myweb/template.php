@@ -122,6 +122,13 @@ function myweb_preprocess_block(&$variables) {
   if ($variables['block']->region == 'header') {
     $variables['title_attributes_array']['class'][] = 'element-invisible';
   }
+  if ($variables['block']->subject == 'Send Message'){
+    $variables['block']->subject = 'Send <span>Message</span>';
+  }
+  if ($variables['block']->subject == 'Our Location'){
+    $variables['block']->subject = 'Our <span>Location</span>';
+  }
+ // print_r($variables);
 }
 
 /**

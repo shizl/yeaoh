@@ -221,7 +221,7 @@ width: 295px;
 position: absolute;
 margin-left: 300px;
 }
-#getdirections-direction-form h2 span{
+.page-getdirections-location-to-147 h2 span{
 color:#F00;
 }
 #getdirections_directions div.adp{
@@ -296,7 +296,16 @@ margin:0;
   padding-left:40px;
   background-size:40px 40px;
 }
-
+.captcha img{
+    width:90px;
+margin-top: 20px;
+margin-left: 120px;
+position: absolute;
+    height:auto;
+}
+.captcha #edit-captcha-response{
+width:100px;
+}
 
 
 
