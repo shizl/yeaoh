@@ -90,12 +90,16 @@ border-color: #FF7E12;
 font-size: 22px;
 }
 div.ser_content div.views-row .detail{
-	position:absolute;
-	bottom: 45px;
+//	position:absolute;
+//	bottom: 45px;
 	width: 370px;
 }
 div.ser_content div.views-row .detail span{
 
+}
+.views-field.views-field-field-detail{
+position:absolute;
+bottom:-220px;
 }
 
 .view-service-category .views-row .views-field-name {
@@ -123,7 +127,7 @@ div.ser_content .view-content .views-row .views-field{
 	margin: 20px 0px;
 }
 div.ser_content .view-content .views-row .views-field p{
-	line-height: 1.8;
+	line-height: 2em;
 }
 .pro_content #block-views-happycustomer-block-1{
 	width: 280px;
@@ -247,7 +251,8 @@ border: 1px solid #ccc;
 }
 #edit-actions input,
 #getdirections_btn input{
-background-color: #FFA132;
+margin-top:21px;
+  background-color: #FFA132;
 text-transform: uppercase;
 font-weight: 600;
 border: 1px solid rgba(0, 0, 0, 0.25);
@@ -386,6 +391,10 @@ font-size:20px;
 .float_qq .form-item input{
 	width: 100%;
 }
+
+.float_qq .form-item input:focus{
+border:1px solid #ffa132;
+}
 .float_qq .form-item{
 	margin-top: 0;
 width: 330px;
@@ -423,3 +432,12 @@ position: absolute;
 	.float_qq .quick_quote{
 		float: left;
 	}
+
+
+
+#getdirections_btn{
+margin-top:55px;
+}
+#block-yeaohpm-yeaohpm-project-request .form-item-captcha-response{
+color:#fff;
+}
