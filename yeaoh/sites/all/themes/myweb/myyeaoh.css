@@ -477,6 +477,7 @@ height:221px;
 overflow:hidden;
 background:url(images/cases-ipad.png) no-repeat;
 background-size:100%;
+margin-top:105px;
 }
 .view-example-block .show-center img{
 width:100%;
@@ -507,6 +508,7 @@ width:92px;
 overflow:hidden;
 background:url(images/cases-phone.png) no-repeat;
 background-size:100%;
+margin-top:125px;
 }
 .view-example-block .show-right .right-box{
 width:82px;
