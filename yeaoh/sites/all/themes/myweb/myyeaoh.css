@@ -97,15 +97,24 @@ div.ser_content div.views-row .detail{
 div.ser_content div.views-row .detail span{
 
 }
-.views-field.views-field-field-detail{
-  position:absolute;
-  bottom:-220px;
-}
 
 .view-service-category .views-row .views-field-name {
   font-size: 35px;
   line-height: 35px;
 }
+.view-service-category .views-field-name{
+height:70px;
+}
+
+.view-service-category .views-field-name-1{
+
+}
+.view-service-category .views-field-description{
+height:130px;
+}
+.view-service-category .views-field-detail{
+}
+
 div.ser_content .view-content{
   text-align: center;
 }
