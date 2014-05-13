@@ -11,8 +11,25 @@ function yeaohpm_menu() {
       'type' => MENU_NORMAL_ITEM,
       'file' => 'yeaohpm.admin.inc',
       );
+  $items['thanks'] = array(
+      'title' => t('thanks'),
+      'page callback' => 'yeaohpm_project_thanks',
+      'access callback' => TRUE,
+      'type' => MENU_CALLBACK,
+      );
 
   return $items;
+}
+
+function yeaohpm_project_thanks() {
+  
+if (isset($_GET['path_info'])) {
+$url = $_GET['path_info'];
+$info = "Thank you for submitting project request.Note:<br/>Make sure to bookmark this URL so you can track your request's progress:<br/>";
+$url = "http://project.yeaoh.com/public/index.php?".$url;
+return $info."<a href='$url'>".$url."</a>";
+}
+drupal_goto('node');
 }
 
 function _yeaohpm_get_token(){
@@ -146,10 +163,11 @@ function yeaohpm_project_request_submit($form,&$form_state) {
 
   //获取返回的信息
   $xml = new SimpleXMLElement($result);
-  $request_id = $xml->id[0];
+  //$request_id = $xml->id[0];
   $request_url = $xml->urls->public[0];
 
   //存入数据库
+  /*
   $table = 'yeaohpm_project_request';
   $record = new stdClass();
   db_insert($table)
@@ -161,9 +179,9 @@ function yeaohpm_project_request_submit($form,&$form_state) {
           'request_project_url' => $request_url,
           ))
     ->execute();
+   */
   //跳转到谢谢页面
-  $thanks = variable_get('yeaohpm_request_thanks');
-  drupal_goto($thanks,array('query' => array('path_info' => substr($request_url,42))));
+  drupal_goto('thanks',array('query' => array('path_info' => substr($request_url,42))));
 }
 
 

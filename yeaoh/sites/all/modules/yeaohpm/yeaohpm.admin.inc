@@ -10,11 +10,6 @@ function yeaohpm_settings($form,$form_state) {
       '#title' =>'API Url',
       '#default_value'=>variable_get('yeaohpm_api_url'),
       );
-  $form['yeaohpm_request_thanks'] = array(
-      '#type'=>'textfield',
-      '#title' =>'Thanks page',
-      '#default_value'=>variable_get('yeaohpm_request_thanks'),
-      );
   return system_settings_form($form);
 }
 
