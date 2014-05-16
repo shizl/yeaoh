@@ -83,13 +83,6 @@
 		</div><!-- end contermain -->
 
     <!-- start footer -->
-<?php
-global $base_url;
-  $thanks = variable_get('yeaohpm_request_thanks');
-print  $thanksurl = $base_url."/".drupal_get_path_alias($thanks);
-           // print $base_path.drupal_get_path_alias($thanks);
-
-?>
 		<div id="footer">
 			<div class="footer-bottom">
 			   <?php if($page['footer']): ?>

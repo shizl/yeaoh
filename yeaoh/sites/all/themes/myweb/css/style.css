@@ -1,4 +1,6 @@
-body{margin:0;font-size:13px;font-family:"Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif;line-height:1.38461em;padding:0;width:100%;height:100%;}
+body{margin:0;font-size:13px;
+font-family: 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;
+line-height:1.38461em;padding:0;width:100%;height:100%;}
 a{text-decoration:none;color:#0099FF;outline:none;}
 a:hover{text-decoration:none;color:#ffa132;}
 img hr{border:none;}
@@ -45,13 +47,13 @@ img hr{border:none;}
 #block-menu-menu-footer-menu h2{display:none}
 .flexslider{box-shadow:none;background:none;border-left:none;border-right:none;border-radius:0;margin:0px;}
 .flex-control-nav{bottom:15px;}
-#block-block-3 .content{font-family:'Didact Gothic', serif;font-size:16px;line-height:1.3em;color:#fff;width:480px;height:200px;overflow:hidden;text-overflow:ellipsis;}
+#block-block-3 .content{font-size:16px;line-height:1.3em;color:#fff;width:480px;height:200px;overflow:hidden;text-overflow:ellipsis;}
 .aboutus_developer{background:#ed8e1d;width:100%;height:236px;clear:both;overflow:hidden;}
 .aboutus_developer .col_cotnent{width:960px;margin:0 auto;}
 #block-views-service-category-block .content{width:960px;overflow:hidden;height:200px;}
 #block-block-3{width:480px;height:216px;float:left;padding-bottom:10px;}
 #block-block-3 h2{color:#fff;background:url(images/about_title.png) no-repeat 0 0;width:472px;height:39px;text-indent:-9999px;margin-top:5px;margin-bottom:0px;}
-#block-block-3 .content{font-family:'Didact Gothic', serif;font-size:16px;line-height:1.3em;color:#fff;}
+#block-block-3 .content{font-size:16px;line-height:1.3em;color:#fff;}
 #block-block-3 .content p{margin-top:0px;}
 #block-views-home-developer-block{width:465px;height:216px;float:right;padding-bottom:10px;padding-top:10px;}
 #main_content .main_content{width:960px;margin:0 auto;padding:15px 0px 15px 0px;clear:both;overflow:hidden;}
@@ -194,9 +196,9 @@ position:absolute;top:-10px;height:50px;width:200px;background:url("images/langu
 .view-example .view-grouping-content h3{display:none;}
 .view-example .view-content .views-row .views-field-title{color:#FFFFFF;font-size:18px;margin:15px 0 0;padding:10px 0 5px;position:relative;text-align:center;text-shadow:0 1px 1px #000000;font-family:"ProximaNovaThin","Helvetica Neue",Helvetica,Arial,sans-serif;}
 .view-example .view-content .views-row .views-field-body{color:#FFFFFF;font-size:13px;line-height:22px;padding:10px 20px 5px;position:relative;text-align:center;text-shadow:0 1px 1px #000000;}
-.view-example .view-content .views-row .views-field-field-ex-images a{background:#ececec;background-color:#c6c6c6;background:-moz-linear-gradient(center bottom , #C6C6C6 0%, #ECECEC 100%) repeat scroll 0 0 #C6C6C6;box-shadow:0 0 1px #000000;color:#404040;cursor:pointer;display:inline-block;font-family:"ProximaNovaSemiBold","Helvetica Neue",Helvetica,Arial,sans-serif !important;font-size:11px;font-weight:700;line-height:16px;margin:0 0 10px;padding:6px 10px;position:relative;text-align:center;text-decoration:none;text-shadow:0 1px 1px #FFFFFF;text-transform:uppercase;width:130px;border-radius:2px 2px 2px 2px;}
+.view-example .view-content .views-row .views-field-field-ex-images a{background:#ececec;background-color:#c6c6c6;background:-moz-linear-gradient(center bottom , #C6C6C6 0%, #ECECEC 100%) repeat scroll 0 0 #C6C6C6;box-shadow:0 0 1px #000000;color:#404040;cursor:pointer;display:inline-block;font-size:11px;font-weight:700;line-height:16px;margin:0 0 10px;padding:6px 10px;position:relative;text-align:center;text-decoration:none;text-shadow:0 1px 1px #FFFFFF;text-transform:uppercase;width:130px;border-radius:2px 2px 2px 2px;}
 .view-example .view-content .views-row .views-field-field-ex-images a:hover{color:#000;}
-.view-example .view-content .views-row .views-field-field-ex-link a{background:#ececec;background-color:#c6c6c6;background:-moz-linear-gradient(center bottom , #C6C6C6 0%, #ECECEC 100%) repeat scroll 0 0 #C6C6C6;box-shadow:0 0 1px #000000;color:#404040;cursor:pointer;display:inline-block;font-family:"ProximaNovaSemiBold","Helvetica Neue",Helvetica,Arial,sans-serif !important;font-size:11px;font-weight:700;line-height:16px;margin:0 0 10px;padding:6px 10px;position:relative;text-align:center;text-decoration:none;text-shadow:0 1px 1px #FFFFFF;text-transform:uppercase;width:130px;border-radius:2px 2px 2px 2px;}
+.view-example .view-content .views-row .views-field-field-ex-link a{background:#ececec;background-color:#c6c6c6;background:-moz-linear-gradient(center bottom , #C6C6C6 0%, #ECECEC 100%) repeat scroll 0 0 #C6C6C6;box-shadow:0 0 1px #000000;color:#404040;cursor:pointer;display:inline-block;font-size:11px;font-weight:700;line-height:16px;margin:0 0 10px;padding:6px 10px;position:relative;text-align:center;text-decoration:none;text-shadow:0 1px 1px #FFFFFF;text-transform:uppercase;width:130px;border-radius:2px 2px 2px 2px;}
 .view-example .view-content .views-row .views-field-field-ex-link a:hover{color:#000;}
 #contact_middle{background:url("images/contact_middle.jpg") repeat-y scroll 0 0 transparent;border-bottom:1px solid #ECECEC;border-top:1px solid #ECECEC;box-shadow:0 0 20px rgba(0, 0, 0, 0.5);float:left;margin:10px 0;width:6%;height:452px;}
 #contact_infomation{width:290px;float:left;margin-top:10px;border-bottom:1px solid #ECECEC;border-left:1px solid #ECECEC;border-radius:10px 0 0 10px;border-top:1px solid #ECECEC;box-shadow:0 0 20px rgba(0, 0, 0, 0.5);height:452px;margin-left:20px;}
