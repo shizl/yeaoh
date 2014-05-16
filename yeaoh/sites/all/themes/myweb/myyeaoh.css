@@ -62,7 +62,9 @@ div.ser_content div.views-row span a:hover{
   border-color: #FF7E12;
   font-size: 22px;
 }
-
+.banner_background_color{
+width:100%;
+}
 div.ser_content div.views-row .detail span a{
   background: none repeat scroll 0% 0% #FFf;
   border-bottom:initial;
@@ -452,7 +454,6 @@ div.ser_content .view-content .views-row .views-field p{
 }
 #block-views-example-block-block h2{
 font-size:72px;
-
 color: #FF7E12;
 }
 .view-example-block .example-show{
@@ -519,3 +520,13 @@ overflow:hidden;
 margin:30px 0 0 5px;
 }
 
+.float_qq #edit-submit{
+background: none repeat scroll 0 0 #FFA132;
+border: medium none;
+color: #FFFFFF;
+font-size: 14px;
+margin: 0;
+padding: 5px 15px;
+border-radius: 10px;
+text-align: center;
+}
