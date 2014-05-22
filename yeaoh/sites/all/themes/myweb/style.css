@@ -39,12 +39,13 @@ float:right;
 .header #main-menu li.active{background:url('images/head_hover.png') bottom repeat-x;}
 .header .more_language{width:100%;height:26px;margin-top:10px;margin-bottom:5px;display:inline-block;text-align:right;color:#FFF;}
 .head_bottom_bg{width:100%;height:17px;margin-bottom:-17px;background:url('images/head_bottom_bg.png') center no-repeat;}
-#footer{width:100%;margin:0;background:#EEECEC;}
+#footer{width:100%;margin:0;background:#EEECEC;
+margin-top:10px;}
 #footer .footer-main{width:950px;height:290px;margin:5px auto 0px auto;}
-.footer-bottom{width:100%;height:40px;background:url('images/head_bg.jpg');color:#eee;}
-.footer-bottom .region-footer{width:1200px;margin:0 auto;}
-.footer-bottom .region-footer .block{float:left;width:50%;text-align:center;}
-.footer-bottom #block-block-2 p{margin-top:10px;margin-bottom:10px;}
+.footer-bottom{background:url('images/head_bg.jpg');color:#eee;}
+.footer-bottom .region-footer{
+display: flex;
+width:1200px;margin:0 auto;}
 .footer-bottom a{color:#FFF;text-decoration:none;}
 .footer-bottom li{float:left;margin-left:10px;list-style:none !important;}
 #block-menu-menu-footer-menu h2{display:none}
