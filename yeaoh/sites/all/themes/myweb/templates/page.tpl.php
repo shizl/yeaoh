@@ -47,7 +47,7 @@
 										$menus.=show_menu($menu->mlid,$lid,'child_menu');
 										++$m;
 									}
-								
+
 							}
 							return ($lid==1 ? '<ul class="'.$mname.' menu_'.$lid.'">'.$root_menu.'</ul>':'').($menus<>'' ? ( $lid==1 ? '</div></div><div class="menu_des"><div class="menu_box"><div class="all_menu">'.$menus.'</div></div></div>':'<ul class="'.$mname.' menu_'.$lid.'">'.$menus.'</ul>'):'');
 						}
@@ -62,10 +62,19 @@
 	   <!-- start centermain -->
                         <div id="main_content">
 			     <div class="main_content">
-			       <?php  if($tabs): ?>
+
+      <?php if ($title): ?>
+        <h1 class="title" id="page-title">
+          <?php print $title; ?>
+        </h1>
+      <?php endif; ?>
+  <?php  if($tabs): ?>
 				  <div class="tabs"><?php  print render($tabs) ;?></div>
 				<?php endif ;?> 
-				<div class="s-cotnent"> <?php print render($page['content']); ?></div>
+        <div class="s-cotnent">
+
+
+ <?php print render($page['content']); ?></div>
 				<?php  if($page['left']): ?>
 				  <?php  print render($page['left']) ; ?>
 				<?php endif ;?>

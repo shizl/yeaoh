@@ -1,7 +1,7 @@
 body{margin:0;font-size:15px;
 
 font-family: 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;
-line-height:1.38461em;padding:0;width:100%;height:100%;}
+line-height:2em;padding:0;width:100%;height:100%;}
 a{text-decoration:none;color:#0099FF;outline:none;}
 a:hover{text-decoration:none;color:#ffa132;}
 img hr{border:none;}
@@ -147,8 +147,6 @@ font-size:16px;line-height:1.3em;color:#fff;}
 .view-banner #views_slideshow_controls_text_next_banner-block a{background:url(images/banner_nex.png) no-repeat 0 0;width:54px;height:56px;text-align:center;display:block;position:absolute;top:30px;right:0px;text-indent:-9999px;float:right;}
 .view-banner #views_slideshow_controls_text_banner-block{margin-top:200px;position:absolute;width:1080px;z-index:100;}
 #about_content{}
-#about_content .about_header{text-align:center;font-weight:bold;font-size:20px;padding-top:20px;}
-#about_content p{text-indent:2em;padding-left:8px;padding-right:8px;font-size:12px;line-height:20px;}
 #quick_quote{z-index:1010;position:fixed;right:0px;top:150px;}
 #quick_quote .quick_quote_header{height:40px;text-align:right;height:40px;position:absolute;right:-5px;}
 #quick_quote .quick_quote_header img{width:149;height:50px;}
@@ -197,7 +195,10 @@ position:absolute;top:-10px;height:50px;width:200px;background:url("images/langu
 #edit-submit{background:url(/sites/all/themes/easepoints/images/buttons.png) repeat-x scroll 0 0 #FFFFFF;border-color:#E4E4E4 #D2D2D2 #B4B4B4;border-image:none;border-radius:15px 15px 15px 15px;border-style:solid;border-width:1px;color:#3A3A3A;cursor:pointer;font-size:0.929em;font-weight:normal;margin-bottom:1em;margin-right:0.6em;padding:4px 17px;text-align:center;}
 .service_arrow #arrow_next{margin-top:-21px;margin-left:20px;}
 .view-example .view-content{overflow:hidden;}
-.view-example .view-header .title{color:#FFA132;font-family:'Fjalla One',sans-serif;font-size:25px;font-weight:600;line-height:30px;}
+#main_content h1,
+.view-example .view-header .title{
+color:#FFA132;
+font-family:'Fjalla One',sans-serif;font-size:25px;font-weight:600;line-height:30px;}
 .view-example .view-content .view-grouping{background:none repeat scroll 0 0 #FFFFFF;border:1px solid #ccc;cursor:default;float:left;height:290px;width:365px;margin:0px 13px 20px 0px;overflow:hidden;position:relative;text-align:center;padding:10px;}
 .view-example .view-content .view-grouping-content{background-color:rgba(0, 0, 0, 0.85);opacity:0;transition:all 0.2s ease-in-out 0s;height:290px;left:0;overflow:hidden;position:absolute;top:0;width:365px;margin-left:10px;margin-top:10px;}
 .view-example .view-grouping-content h3{display:none;}
