@@ -7,7 +7,8 @@ function yeaohpm_menu() {
       'title' => t('Project Request Setting'),
       'page callback' => 'drupal_get_form',
       'page arguments' => array('yeaohpm_settings'),
-      'access callback' => TRUE,
+      'access callback' => 'user_access',
+      'access arguments' => array('administer yeaohpm'),
       'type' => MENU_NORMAL_ITEM,
       'file' => 'yeaohpm.admin.inc',
       );

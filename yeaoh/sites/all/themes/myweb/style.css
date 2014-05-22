@@ -81,7 +81,7 @@ font-size:16px;line-height:1.3em;color:#fff;}
 #block-views-home-developer-block .views-field-name span{position:absolute;left:30px;top:120px;}
 #big_bg_image{background:#f5f5f5;width:100%;}
 #big_bg_image .banner_content{}
-.views-slideshow-controls-bottom{margin-left:150px;padding-top:30px;width:71px;}
+.views-slideshow-controls-bottom{//margin-left:150px;padding-top:30px;//width:71px;}
 .views-slideshow-controls-bottom #views_slideshow_controls_text_pause_home_developer-block{display:none;}
 .views-slideshow-controls-bottom #views_slideshow_controls_text_previous_home_developer-block{background:url(images/testimional_previous.png) no-repeat 0 0;width:32px;height:22px;display:block;text-indent:-9999px;float:left;}
 .views-slideshow-controls-bottom #views_slideshow_controls_text_next_home_developer-block{background:url(images/testimonial_next.png) no-repeat 0 0;width:32px;height:22px;display:block;text-indent:-9999px;float:right;}
