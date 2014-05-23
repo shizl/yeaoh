@@ -4,47 +4,47 @@
 
 function location_province_list_cn() {
   return array(
-    '11' => "北京",
-    '12' => "天津",
-    '13' => "河北",
-    '14' => "山西",
-    '15' => "内蒙古",
-    '21' => "辽宁",
-    '22' => "吉林",
-    '23' => "黑龙江",
-    '31' => "上海",
-    '32' => "江苏",
-    '33' => "浙江",
-    '34' => "安徽",
-    '35' => "福建",
-    '36' => "江西",
-    '37' => "山东",
-    '41' => "河南",
-    '42' => "湖北",
-    '43' => "湖南",
-    '44' => "广东",
-    '45' => "广西",
-    '46' => "海南",
-    '51' => "四川",
-    '52' => "贵州",
-    '53' => "云南",
-    '54' => "西藏",
-    '61' => "陕西",
-    '62' => "甘肃",
-    '63' => "青海",
-    '64' => "宁夏",
-    '65' => "新疆",
-    '71' => "台湾",
-    '91' => "香港",
-    '92' => "澳门",
-    '97' => "重庆",
+    '11' => t("Beijing"),
+    '12' => t("Tianjin"),
+    '13' => t("Hebei"),
+    '14' => t("Shanxi"),
+    '15' => t("Nei Mongol"),
+    '21' => t("Liaoning"),
+    '22' => t("Jilin"),
+    '23' => t("Heilongjiang"),
+    '31' => t("Shanghai"),
+    '32' => t("Jiangsu"),
+    '33' => t("Zhejiang"),
+    '34' => t("Anhui"),
+    '35' => t("Fujian"),
+    '36' => t("Jiangxi"),
+    '37' => t("Shandong"),
+    '41' => t("Henan"),
+    '42' => t("Hubei"),
+    '43' => t("Hunan"),
+    '44' => t("Guangdong"),
+    '45' => t("Guangxi"),
+    '46' => t("Hainan"),
+    '51' => t("Sichuan"),
+    '52' => t("Guizhou"),
+    '53' => t("Yunnan"),
+    '54' => t("Xizang (Tibet)"),
+    '61' => t("Shaanxi"),
+    '62' => t("Gansu"),
+    '63' => t("Qinghai"),
+    '64' => t("Ningxia"),
+    '65' => t("Xinjiang"),
+    '71' => t("Chinese Taipei"),
+    '91' => t("Xianggang"),
+    '92' => t("Aomen"),
+    '97' => t("Chongqing"),
   );
 }
 
 function location_map_link_cn_providers() {
   return array(
     'google' => array(
-      'name' => 'Google Maps',
+      'name' => t('Google Maps'),
       'url' => 'http://maps.google.com.hk',
       'tos' => 'http://www.google.com.hk/help/terms_maps.html',
     ),
@@ -65,7 +65,7 @@ function location_map_link_cn_google($location = array()) {
   }
 
   if (count($query_params)) {
-    return ('http://maps.google.com.hk?q='. urlencode(implode(', ', $query_params)));
+    return ('http://maps.google.com.hk?q=' . urlencode(implode(', ', $query_params)));
   }
   else {
     return NULL;
