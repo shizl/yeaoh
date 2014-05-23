@@ -127,12 +127,9 @@ font-size:16px;line-height:1.3em;color:#fff;}
 #block-block-6 #service_header{margin-top:40px;margin-bottom:30px;}
 #block-block-6 #service_header .title{font-family:'Fjalla One', sans-serif;font-weight:600;font-size:30px;color:#FFA132;line-height:30px;}
 #block-views-todayinsight-block{width:280px;float:right;}
-#block-views-todayinsight-block h2{background:url(images/today.png) no-repeat 0 0;height:46px;margin:0px;text-indent:-9999px;}
 #block-block-7 p{font-size:12px;font-style:italic;}
 #block-views-todayinsight-block .views-field-field-auter-name p{text-align:right;color:#FFA132;}
 #block-views-happycustomer-block{width:280px;float:right;}
-#block-views-happycustomer-block h2{background:url(images/happy.png) no-repeat 0 0;height:46px;margin:0px;text-indent:-9999px;}
-#block-views-happycustomer-block .views-field-body{background:url(images/happy_bg.png) no-repeat 0 0;width:260px;height:140px;padding:10px;}
 #block-views-happycustomer-block .views-field-field-user-image{margin-top:-35px;float:right;padding-left:190px;}
 #block-views-happycustomer-block .user .username span{font-size:12px;color:#333;}
 #block-views-happycustomer-block .views-field-title{float:right;margin-right:90px;}
