@@ -100,21 +100,24 @@ div.ser_content div.views-row .detail span{
 
 }
 
-.view-service-category .views-row .views-field-name {
+.ser_content .views-row .views-field-name-1,
+.ser_content .views-row .views-field-name {
   font-size: 35px;
   line-height: 35px;
 }
-.view-service-category .views-field-name{
+
+.ser_content .views-row .views-field-name-1,
+.ser_content .views-field-name{
   height:70px;
 }
 
-.view-service-category .views-field-name-1{
+.ser_content .views-field-name-1{
 
 }
-.view-service-category .views-field-description{
+.ser_content .views-field-description{
   height:130px;
 }
-.view-service-category .views-field-detail{
+.ser_content .views-field-detail{
 }
 
 div.ser_content .view-content{
