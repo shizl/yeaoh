@@ -25,7 +25,7 @@ function i18n_node_add_page() {
     if ($type) {
       // We just need to translate the description, the title is translated by the menu system
       // The string will be filtered (xss_admin) on the theme layer
-      $item['description'] = i18n_node_translate_type($type, 'description', $item['description']);
+      $item['description'] = i18n_node_translate_type($type, 'description', $item['description'], array('sanitize' => FALSE));
     }
   }
   return theme('node_add_list', array('content' => $content));
@@ -248,7 +248,7 @@ function i18n_node_autocomplete($type, $language, $string = '') {
  */
 function i18n_node_nid2autocomplete($nid) {
   if ($node = node_load($nid)) {
-    return check_plain($node->title) . ' [nid:' . $nid . ']';
+    return $node->title . ' [nid:' . $nid . ']';
   }
   else {
     return t('Not found');

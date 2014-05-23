@@ -12,7 +12,7 @@
        * has no support for the HTML5 placeholder attribute
        */
       if (!supports_input_placeholder()) {
-        $('form.webform-hints input.webform-hints-field').DefaultValue();
+        $('form.webform-hints').find('.webform-hints-field').DefaultValue();
       }
     }
   };

@@ -125,37 +125,36 @@ function webform_hints_form_alter(&$form, &$form_state, $form_id) {
  *   The string appended to the end of a required element's hint.
  */
 function webform_hints_add_title(&$element, $required_label) {
-  // Perform a recursive call on fieldset form items.
+  // Perform a recursive call on container (fieldset, etc.) form items.
+  foreach (element_children($element) as $key) {
+    webform_hints_add_title($element[$key], $required_label);
+  }
+
+  // Regular form items.
   if (isset($element['#type'])) {
-    if ($element['#type'] == 'fieldset') {
-      foreach (element_children($element) as $key) {
-        webform_hints_add_title($element[$key], $required_label);
-      }
+    // Element isn't required.
+    if (empty($element['#required'])) {
+      $required_label = '';
     }
-    // Regular form items.
-    else {
-      // Element isn't required.
-      if (empty($element['#required'])) {
-        $required_label = '';
+    // Define the field types to act on.
+    $fieldtypes = array('textfield', 'textarea', 'webform_email', 'email', 'webform_number');
+    if (in_array($element['#type'], $fieldtypes)) {
+      // Add attributes and classes to the element.
+      $element['#attributes']['title'] = $element['#title'] . $required_label;
+      $element['#attributes']['class'] = array('webform-hints-field');
+      if (!isset($element['#attributes']['placeholder'])) {
+        $element['#attributes']['placeholder'] = $element['#title'] . $required_label;
       }
-      // Define the field types to act on.
-      $fieldtypes = array('textfield', 'textarea', 'webform_email', 'email', 'webform_number');
-      if (in_array($element['#type'], $fieldtypes)) {
-        // Add attributes and classes to the element.
-        $element['#attributes']['title'] = $element['#title'] . $required_label;
+      if (variable_get('webform_hints_legacy_support', FALSE)) {
         $element['#attributes']['label'] = $element['#title'] . $required_label;
-        $element['#attributes']['class'] = array('webform-hints-field');
-        if (!isset($element['#attributes']['placeholder'])) {
-          $element['#attributes']['placeholder'] = $element['#title'] . $required_label;
-        }
-        // Hide the label while keeping it available to screen readers.
-        $element['#title_display'] = 'invisible';
       }
-      elseif ($element['#type'] == 'select') {
-        // Single value select lists.
-        $element['#empty_option'] = '- ' . $element['#title'] . $required_label . ' -';
-        $element['#title_display'] = 'invisible';
-      }
+      // Hide the label while keeping it available to screen readers.
+      $element['#title_display'] = 'invisible';
+    }
+    elseif ($element['#type'] == 'select') {
+      // Single value select lists.
+      $element['#empty_option'] = '- ' . $element['#title'] . $required_label . ' -';
+      $element['#title_display'] = 'invisible';
     }
   }
 }

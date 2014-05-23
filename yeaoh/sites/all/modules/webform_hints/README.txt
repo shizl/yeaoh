@@ -31,6 +31,8 @@ Copy this to a new directory named 'form-defaults' within your
 "sites/all/libraries" (or equivalent) directory. Complete structure should be
 the following:
 -- sites/all/libraries/form-defaults/jquery.form-defaults.min.js
+
+Warning: This will store the hint in the label attribute, which is invalid HTML.
 *** End <= IE 9/Legacy Support ***
 ----------------------------------
 
