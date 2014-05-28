@@ -128,7 +128,7 @@ function myweb_preprocess_block(&$variables) {
   if ($variables['block']->subject == 'Our Location'){
     $variables['block']->subject = 'Our <span>Location</span>';
   }
-  if ($variables['block']->subject == 'EXAMPLES OF OUR WORK'){
+  if ($variables['block']->region == 'home_column3'){
     $variables['block']->subject = '<span class="title_css left"></span>EXAMPLES OF OUR WORK<span class="title_css right"></span>';
   }
   if ($variables['block']->region == 'left') {

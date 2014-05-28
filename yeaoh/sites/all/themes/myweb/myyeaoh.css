@@ -37,7 +37,7 @@ div.view-banner div.views-slideshow-controls-bottom{
 div.ser_content div.views-row{
   text-align: center;
 }
-div.ser_content div.views-row div span a{
+div.ser_content div.views-row .views-field-name span a{
   background: none repeat scroll 0% 0% #FF8400;
   border-bottom: 3px solid #F06D00;
   border-width: 0px 0px 3px;
@@ -57,7 +57,7 @@ div.ser_content div.views-row div span a{
   text-align: center;
   text-decoration: none;
 }
-div.ser_content div.views-row span a:hover{
+div.ser_content div.views-row .views-field-name span a:hover{
   background: none repeat scroll 0% 0% #FFA133;
   border-color: #FF7E12;
   font-size: 22px;
@@ -65,39 +65,10 @@ div.ser_content div.views-row span a:hover{
 .banner_background_color{
   width:100%;
 }
-div.ser_content div.views-row .detail span a{
-  background: none repeat scroll 0% 0% #FFf;
-  border-bottom:initial;
-  border-width: 0;
-  border-style: none none solid;
-  border-color: -moz-use-text-color -moz-use-text-color #888;
-  -moz-border-top-colors: none;
-  -moz-border-right-colors: none;
-  -moz-border-bottom-colors: none;
-  -moz-border-left-colors: none;
-  border-image: none;
-  color: #000;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 22px;
-  line-height: 14px;
-  padding: 13px 10px 11px;
-  text-align: center;
-  font-weight: bold;
-  text-decoration: none;
-}
-div.ser_content div.views-row .detail span a:hover{
-  background: none repeat scroll 0% 0% #FFA133;
-  border-color: #FF7E12;
-  font-size: 22px;
-}
 div.ser_content div.views-row .detail{
   //	position:absolute;
   //	bottom: 45px;
   width: 370px;
-}
-div.ser_content div.views-row .detail span{
-
 }
 
 .ser_content .views-row .views-field-name-1,
@@ -676,7 +647,10 @@ background: url("images/title_decoration.png") top left no-repeat;
 #views_slideshow_cycle_main_example_block-block_1{
 background:#fff;
 }
-#block-views-example-block-block-1 h2{
+.protfolio{
+padding-bottom:30px;
+}
+.protfolio h2{
 text-align: center;
 text-transform: uppercase;
 font-weight: bold;
@@ -864,22 +838,33 @@ text-transform: uppercase;
 padding: 0 0 0 25px;
 overflow: hidden;
 }
+
+.detail .detail-item{
+margin:0 5px;
+}
+.detail .detail-item,
 .my-btn {
 display: inline-block;
 }
+.detail .detail-item,
 .my-btn.bordered {
   padding:0 8px;
 background: none;
 border: 1px solid #cccccc;
 color: #999999;
 }
+.detail .detail-item a,
 .my-btn.bordered a{
 color: #CCC;
 font-weight:bold;
 }
+
+.detail .detail-item:hover,
 .my-btn.bordered:hover{
 border: 1px solid #ffa132;
 }
+
+.detail .detail-item:hover a,
 .my-btn.bordered:hover a{
 color:#ffa132;
 }
