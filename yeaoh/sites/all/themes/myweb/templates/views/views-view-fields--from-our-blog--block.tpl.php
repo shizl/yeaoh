@@ -14,7 +14,7 @@
                                 </div>
                                 <h3><?php print $fields['title']->content;?></h3>
 <?php print $fields['body']->content;?>
-<?php print $fields['title_1']->content;?>
+<div class="my-btn bordered btn-small"> <?php print $fields['title_1']->content;?></div>
 </div>
                         </div>
                     </div>

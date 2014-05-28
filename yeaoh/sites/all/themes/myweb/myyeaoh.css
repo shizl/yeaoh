@@ -834,3 +834,70 @@ float:right;
     width: 100%;
 height: auto;
   }
+.icon-left {
+-webkit-box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.1);
+-moz-box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.1);
+box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.1);
+width: 60px;
+height: 60px;
+background: #40aae6;
+text-align: center;
+color: #FFF;
+font-weight: 700;
+float: left;
+overflow: hidden;
+}
+
+.blog-wrap .icon-left span {
+padding: 12px 0 0 0;
+display: block;
+line-height: 20px;
+font-size: 22px;
+}
+.blog-wrap .icon-left span span {
+padding: 0;
+font-size: 13px;
+text-transform: uppercase;
+}
+
+.blog-text {
+padding: 0 0 0 25px;
+overflow: hidden;
+}
+.my-btn {
+display: inline-block;
+}
+.my-btn.bordered {
+  padding:8px;
+background: none;
+border: 1px solid #cccccc;
+color: #999999;
+}
+.my-btn.bordered a{
+color: #CCC;
+font-weight:bold;
+}
+.my-btn.bordered:hover{
+border: 1px solid #ffa132;
+}
+.my-btn.bordered:hover a{
+color:#ffa132;
+}
+.meta span.username{
+margin-right:10px;
+}
+.fa.fa-user {
+background: url(images/user.png) center center;
+height: 17px;
+width: 17px;
+display: inline-block;
+background-size: 100%;
+margin-right:5px;
+}
+.fa.fa-comment {
+background: url(images/chat.png) center center;
+height: 17px;
+width: 17px;
+display: inline-block;
+background-size: 100%;
+}
