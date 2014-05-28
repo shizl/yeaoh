@@ -901,3 +901,6 @@ width: 17px;
 display: inline-block;
 background-size: 100%;
 }
+#block-block-2 .content{
+text-align:right;
+}
