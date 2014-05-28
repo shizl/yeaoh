@@ -2,7 +2,7 @@
                       <div class="shadow-wrap">
                           <div class="item-thumbs">
 
-<?php print $fields['field_cover']->content;?>
+<?php print $fields['field_cover2']->content;?>
 
 </div>
                             <div class="icon-left">
