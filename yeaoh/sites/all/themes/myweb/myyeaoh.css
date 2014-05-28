@@ -340,7 +340,7 @@ div.ser_content .view-content .views-row .views-field p{
 #block-views-tertimonials-and-blog-block .views-field-field-user-image img{
   width:150px;
   height:auto;
-  margin-bottom:-4px;
+  margin-bottom:-8px;
   opacity: 0.5;
 }
 #block-views-tertimonials-and-blog-block .views-field-body{
@@ -805,5 +805,99 @@ color:#555555;
 color: #0f70bb;
 }
 
+.shadow-wrap {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #D1D1D1;
+    box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.07);
+    padding: 20px;
+  }
+.col-sm-6 {
+    width: 570px;
+    float: left;
+}
+.views-row-2 .col-sm-6{
 
+float:right;
+}
+.item-thumbs {
+    cursor: pointer;
+    margin-bottom: 30px;
+    overflow: hidden;
+    position: relative;
+    height:233px;
+    width:528px;
+}
+.item-thumbs img {
+    display: block;
+    position: relative;
+    transition: transform 0.4s ease-out 0s;
+    width: 100%;
+height: auto;
+  }
+.icon-left {
+-webkit-box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.1);
+-moz-box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.1);
+box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.1);
+width: 60px;
+height: 60px;
+background: #40aae6;
+text-align: center;
+color: #FFF;
+font-weight: 700;
+float: left;
+overflow: hidden;
+}
 
+.blog-wrap .icon-left span {
+padding: 12px 0 0 0;
+display: block;
+line-height: 20px;
+font-size: 22px;
+}
+.blog-wrap .icon-left span span {
+padding: 0;
+font-size: 13px;
+text-transform: uppercase;
+}
+
+.blog-text {
+padding: 0 0 0 25px;
+overflow: hidden;
+}
+.my-btn {
+display: inline-block;
+}
+.my-btn.bordered {
+  padding:8px;
+background: none;
+border: 1px solid #cccccc;
+color: #999999;
+}
+.my-btn.bordered a{
+color: #CCC;
+font-weight:bold;
+}
+.my-btn.bordered:hover{
+border: 1px solid #ffa132;
+}
+.my-btn.bordered:hover a{
+color:#ffa132;
+}
+.meta span.username{
+margin-right:10px;
+}
+.fa.fa-user {
+background: url(images/user.png) center center;
+height: 17px;
+width: 17px;
+display: inline-block;
+background-size: 100%;
+margin-right:5px;
+}
+.fa.fa-comment {
+background: url(images/chat.png) center center;
+height: 17px;
+width: 17px;
+display: inline-block;
+background-size: 100%;
+}
