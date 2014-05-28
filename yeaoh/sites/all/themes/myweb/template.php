@@ -141,7 +141,7 @@ function myweb_preprocess_block(&$variables) {
  * Implements theme_menu_tree().
  */
 function myweb_menu_tree($variables) {
-  return '<ul class="menu clearfix">' . $variables['tree'] . '</ul>';
+  return '<ul class="menu">' . $variables['tree'] . '</ul>';
 }
 
 /**
