@@ -1,0 +1,22 @@
+name = yeaoh_website
+description = For all of you printing needs .
+screenshot = screenshot.png
+engine = phptemplate
+stylesheets[all][] = style.css
+
+
+regions[superfish_menu] = superfish menu 
+regions[top_link] = top link
+regions[page_top] = Page top
+regions[main_column]= Main Column
+regions[content]= Content
+regions[left]= Left
+regions[home_banner]= Home banner
+regions[float_qq]=Float Quick
+regions[home_column1]= Home Column1
+regions[home_column2] =  Home Column2
+regions[home_column3] =  Home Column3
+regions[foot_main] = Footer main
+regions[footer] = Footer
+core = "7.x"
+project = "yeaoh_website"
