@@ -840,7 +840,7 @@ height: auto;
 box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.1);
 width: 60px;
 height: 60px;
-background: #40aae6;
+background: #ffa132;
 text-align: center;
 color: #FFF;
 font-weight: 700;
@@ -868,7 +868,7 @@ overflow: hidden;
 display: inline-block;
 }
 .my-btn.bordered {
-  padding:8px;
+  padding:0 8px;
 background: none;
 border: 1px solid #cccccc;
 color: #999999;
