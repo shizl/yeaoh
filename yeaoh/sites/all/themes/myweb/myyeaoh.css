@@ -889,3 +889,11 @@ background-size: 100%;
 #block-block-2 .content{
 text-align:right;
 }
+.webform-client-form label{
+color:#ffa132;
+}
+
+.webform-client-form label.option{
+color:#000;
+}
+
