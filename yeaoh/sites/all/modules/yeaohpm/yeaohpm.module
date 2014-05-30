@@ -167,21 +167,6 @@ function yeaohpm_project_request_submit($form,&$form_state) {
   //$request_id = $xml->id[0];
   $request_url = $xml->urls->public[0];
 
-  //存入数据库
-  /*
-  $table = 'yeaohpm_project_request';
-  $record = new stdClass();
-  db_insert($table)
-    ->fields(array(
-          'client_type' => 'new_client',
-          'project_name' => $project_request_name,
-          'create_by_email' => $new_client_created_by_email,
-          'request_id' => $request_id,
-          'request_project_url' => $request_url,
-          ))
-    ->execute();
-   */
-  //跳转到谢谢页面
   drupal_goto('thanks',array('query' => array('path_info' => substr($request_url,42))));
 }
 
