@@ -191,10 +191,6 @@ alert("Please input your full name.");
 return false;
 }
 
-if(!chmail.test(femail) || femail=="name@example.com" ){
-alert("Please input correctly email.");
-return false;
-}
 if(!chvarchar.test(fbody) || fbody=="Your question" ){
 alert("Please input your question.");
 return false;
