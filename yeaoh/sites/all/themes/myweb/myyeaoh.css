@@ -591,11 +591,11 @@ display:none;
 #block-views-example-block-block-1 .active .views-field-title .views-content-title{ 
 background: rgba(0, 0, 0, 0.39);
 color:#FFF;
-height: 134px;
+height: 140px;
 width: 270px;
-padding-top:139px;
+padding-top:100px;
 display: block;
-margin-top:-283px;
+margin-top:-250px;
 position: absolute;
 font-size:22px;
 font-weight:bold;
