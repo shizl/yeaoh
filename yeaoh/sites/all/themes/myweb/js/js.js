@@ -1,6 +1,6 @@
 jQuery(document).ready(function(){
     terimonials_blog();
-    banner_background();
+   // banner_background();
     quick_quote();
     });
 
