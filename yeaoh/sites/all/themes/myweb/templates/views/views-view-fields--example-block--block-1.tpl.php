@@ -6,12 +6,11 @@
 <div class="rightSlide">
 
 
-<div class="title">Urban Studio</div>
+<div class="title"><?php print $fields['title']->content;?></div>
 
 
 <div class="brief">
-
-<p>Urban Studio are a New Plymouth based Real Estate company. </p>
+<?php print $fields['body_1']->content;?>
 <h3>Features of Website:</h3>
 <?php print $fields['body']->content;?>
 <p></p>
