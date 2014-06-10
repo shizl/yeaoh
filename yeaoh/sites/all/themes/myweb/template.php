@@ -143,7 +143,10 @@ function myweb_preprocess_block(&$variables) {
 function myweb_menu_tree($variables) {
   return '<ul class="menu">' . $variables['tree'] . '</ul>';
 }
+function myweb_menu_tree___main_menu($variables) {
 
+print_r($variables);
+}
 /**
  * Implements theme_field__field_type().
  */
