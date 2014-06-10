@@ -1,4 +1,3 @@
-22222222222222222222222222
 <div id="page_wrapper"><!-- start page_wrapper -->
   <div id="center"><!-- start cneter -->
 <script language="javascript">
