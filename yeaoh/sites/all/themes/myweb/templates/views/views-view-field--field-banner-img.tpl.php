@@ -22,7 +22,8 @@
  * the view is modified.
  */
 ?>
-<?php/*
+<?php
+/*
 $str = $output;
 $headers = explode('<img src="',$str);
 $headere = explode('" width=',$headers['1']);
