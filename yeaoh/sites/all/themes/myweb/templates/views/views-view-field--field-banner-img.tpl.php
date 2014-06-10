@@ -22,7 +22,7 @@
  * the view is modified.
  */
 ?>
-<?php
+<?php/*
 $str = $output;
 $headers = explode('<img src="',$str);
 $headere = explode('" width=',$headers['1']);
@@ -31,7 +31,8 @@ $im = ImageCreateFromjpeg($image_url);
 $rgb = ImageColorAt($im, 300, 100);
 $rgb16 = dechex($rgb);
 $color = '#'.$rgb16;
-print "<div class='banner_background_color' style='background-color:".$color."'>";
+ */
+//print "<div class='banner_background_color' style='background-color:".$color."'>";
 print $output;
-print "</div>";
+//print "</div>";
 ?>
