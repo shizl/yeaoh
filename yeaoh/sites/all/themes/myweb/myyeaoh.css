@@ -5,6 +5,9 @@ div.view-banner img{
   max-width:1300px;
   max-height:450px;
 }
+.view-banner .view-content{
+background-color:rgb(140, 140, 140);
+}
 div.view-banner div.views-content-counter{
   width: 30px;
   height: 1px;
