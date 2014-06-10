@@ -21,7 +21,7 @@ div.view-banner .views_slideshow_pager_field_item{
   display: inline-block;
 }
 div.view-banner .active div.views-content-counter{
-  background: none repeat scroll 0% 0% #70AC00;
+  background: none repeat scroll 0% 0% #000;
 }
 div.view-banner div.views-slideshow-controls-bottom{
   margin: 0;
