@@ -146,6 +146,9 @@ function myweb_menu_tree($variables) {
 function myweb_menu_tree__menu_taxonomy_examples_menu($variables) {
   return '<div class="tabs custom_category"><ul class="tabs primary">'.$variables['tree'].'</ul></div>';
 }
+function myweb_menu_tree__menu_taxonomy_service_menu($variables) {
+  return '<div class="tabs custom_category"><ul class="tabs primary">'.$variables['tree'].'</ul></div>';
+}
 /**
  * Implements theme_field__field_type().
  */
