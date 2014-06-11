@@ -143,9 +143,8 @@ function myweb_preprocess_block(&$variables) {
 function myweb_menu_tree($variables) {
   return '<ul class="menu">' . $variables['tree'] . '</ul>';
 }
-function myweb_menu_tree___main_menu($variables) {
-
-print_r($variables);
+function myweb_menu_tree__menu_taxonomy_examples_menu($variables) {
+  return '<div class="tabs custom_category"><ul class="tabs primary">'.$variables['tree'].'</ul></div>';
 }
 /**
  * Implements theme_field__field_type().
