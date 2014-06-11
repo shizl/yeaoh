@@ -114,7 +114,7 @@ jQuery(document).ready(function(){
               tnid =22;
             }else if(queryString=="service/optimization-services/Facebook-SEM"){
               tnid =25;
-            }else if(queryString=="service/optimization-services/Sina-Weibo-SEM"){
+            }else if(queryString=="service/optimization-services/sina-werbo-sem"){
               tnid =11;
             }else if(queryString=="service/mobile-solutions/Website-Mobile-Version"){
               tnid =37;
