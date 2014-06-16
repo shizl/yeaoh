@@ -10,7 +10,7 @@ img hr{border:none;}
 .tabs ul.primary{background:url("images/tabs-border.png") repeat-x scroll left bottom transparent;border:medium none;margin:0;overflow:hidden;padding:0 3px;}
 .tabs ul.primary li{display:block;float:left;margin:0 5px 0 0;vertical-align:bottom;}
 .tabs ul.primary li a{background-color:#ffa132;border-top-left-radius:6px;border-top-right-radius:6px;color:#fff;display:block;float:left;height:1.8em;line-height:1.9;margin:0;padding:0 10px 3px;border:1px solid #ffa132;font-weight:500;border-bottom:none;}
-.tabs ul.primary li.active a{background-color:#fff;color:#000;border:1px solid #ccc;border-bottom:none;}
+.tabs ul.primary li.active-trail a{background-color:#fff;color:#000;border:1px solid #ccc;border-bottom:none;}
 .tabs ul.primary li a:hover{color:#000;}
 #page_top{min-width:1230px;min-height:105px;background:url("images/top_bg.png");}
 #page_top a{color:#FFF;text-decoration:none;}
