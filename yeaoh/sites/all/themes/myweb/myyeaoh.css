@@ -37,11 +37,11 @@ background:#F2F2F2;
 div.view-banner img{
   width: 100%;
   height: auto;
-  min-width:1300px;
+  min-width:1200px;
 }
 .view-banner .view-content #views_slideshow_cycle_main_banner-block{
-  background-color:rgb(140, 140, 140);
   height:auto;
+  min-width:1200px;
 }
 div.view-banner div.views-content-counter{
   width: 30px;
@@ -50,6 +50,16 @@ div.view-banner div.views-content-counter{
   margin: 10px 10px;
   overflow: hidden;
   background: none repeat scroll 0% 0% #DADADA;
+}
+.view-banner #views_slideshow_controls_text_banner-block {
+min-width:1200px;
+}
+#footer,
+#centermain{
+min-width:1230px;
+}
+.view-banner{
+min-width:1200px;
 }
 div.view-banner .views_slideshow_pager_field_item{
   display: inline-block;
@@ -62,6 +72,7 @@ div.view-banner div.views-slideshow-controls-bottom{
   padding: 0;
   width:	inherit;
   text-align: center;
+min-width:1200px;
 }
 #views_slideshow_cycle_teaser_section_banner-block{
   margin: 0 auto;
