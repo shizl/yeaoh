@@ -35,7 +35,22 @@ function myweb_process_html(&$variables) {
     _color_html_alter($variables);
   }
 }
+function myweb_preprocess_region(&$vars) {
+  if ($vars['region'] == 'sidebar_second'){
+  array_push($vars['classes_array'], 'region-left');
+//print_r($vars);
+  }
+}
 
+function myweb_preprocess_page(&$vars, $hook) {
+
+
+  if (isset($vars['node']->type)) {
+    // If the content type's machine name is "my_machine_name" the file
+    // name will be "page--my-machine-name.tpl.php".
+    $vars['theme_hook_suggestions'][] = 'page__node__' . $vars['node']->type;
+  }
+}
 /**
  * Override or insert variables into the page template.
  */
@@ -111,7 +126,8 @@ function myweb_process_maintenance_page(&$variables) {
 function myweb_preprocess_node(&$variables) {
   if ($variables['view_mode'] == 'full' && node_is_page($variables['node'])) {
     $variables['classes_array'][] = 'node-full';
-  }
+}
+
 }
 
 /**
@@ -147,6 +163,9 @@ function myweb_menu_tree__menu_taxonomy_examples_menu($variables) {
   return '<div class="tabs custom_category"><ul class="tabs primary">'.$variables['tree'].'</ul></div>';
 }
 function myweb_menu_tree__menu_taxonomy_service_menu($variables) {
+  
+  
+  
   return '<div class="tabs custom_category"><ul class="tabs primary">'.$variables['tree'].'</ul></div>';
 }
 /**

@@ -1,3 +1,16 @@
+111111111111111111111111111
+
+
+<?php
+/*
+$path = 'taxonomy/term/3';
+menu_set_active_item($path);
+ */
+
+
+?>
+
+
 <div id="page_wrapper"><!-- start page_wrapper -->
   <div id="center"><!-- start cneter -->
 	  

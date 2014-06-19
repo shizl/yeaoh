@@ -66,10 +66,31 @@
 			   <?php endif ; ?> 
                         <div id="main_content">
 			     <div class="main_content">
-				<div class="s-cotnent"> <?php print render($page['content']); ?></div>
+        <div class="s-cotnent"> 
+<?php print render($page['content']); ?>
+<?php
+            $tid = arg(2);
+            $view = views_get_view('taxonomy_term');
+            $view->set_display('block_1');
+            $view->set_arguments(array($tid));
+            $view->pre_execute();
+            $view->execute();
+            print $view->render();
+            
+            ?>
+
+</div>
 				<?php  if($page['left']): ?>
 				  <?php  print render($page['left']) ; ?>
-				<?php endif ;?>
+        <?php endif ;?>
+            <?php if($page['sidebar_first']):?>
+            <?php print render($page['sidebar_first']);?>
+            <?php endif;?>
+            <?php if($page['sidebar_second']):?>
+            <?php print render($page['sidebar_second']);?>
+            <?php endif;?>
+
+
 				 </div>
                         <div class="protfolio">
 			   <?php if($page['home_column3']): ?>
@@ -212,4 +233,25 @@ if(start_num>0)
 
 jQuery(".en a").attr("href","/?language=en");
 -->
-</script>	
+</script>
+
+<script>
+
+//fancybox 
+
+jQuery('.fancybox').html('View Screenshot');
+
+jQuery('.view-example .view-grouping-content').mouseover(function(){
+
+ jQuery(this).css({'opacity':'100'});
+ jQuery(this).parent().css({'box-shadow':'0 0 3px #555555'});
+
+});
+jQuery('.view-example .view-grouping-content').mouseout(function(){
+
+ jQuery(this).css({'opacity':'0'});
+ jQuery(this).parent().css({'box-shadow':'none'});
+
+});
+
+</script>
