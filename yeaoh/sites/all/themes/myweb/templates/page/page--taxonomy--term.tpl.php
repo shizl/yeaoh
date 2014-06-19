@@ -80,12 +80,6 @@
             ?>
 
 </div>
-				<?php  if($page['left']): ?>
-				  <?php  print render($page['left']) ; ?>
-        <?php endif ;?>
-            <?php if($page['sidebar_first']):?>
-            <?php print render($page['sidebar_first']);?>
-            <?php endif;?>
             <?php if($page['sidebar_second']):?>
             <?php print render($page['sidebar_second']);?>
             <?php endif;?>

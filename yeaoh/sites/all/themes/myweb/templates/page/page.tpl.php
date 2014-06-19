@@ -92,8 +92,8 @@ echo show_menu();
           <div class="tabs"><?php  print render($tabs) ;?></div>
         <?php endif ;?> 
         <div class="s-cotnent"> <?php print render($page['content']); ?></div>
-        <?php  if($page['left']): ?>
-          <?php  print render($page['left']) ; ?>
+        <?php  if($page['sidebar_second']): ?>
+          <?php  print render($page['sidebar_second']) ; ?>
         <?php endif ;?>
          </div>
                                     <div class="protfolio">

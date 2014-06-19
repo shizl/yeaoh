@@ -1,16 +1,3 @@
-111111111111111111111111111
-
-
-<?php
-/*
-$path = 'taxonomy/term/3';
-menu_set_active_item($path);
- */
-
-
-?>
-
-
 <div id="page_wrapper"><!-- start page_wrapper -->
   <div id="center"><!-- start cneter -->
 	  
@@ -80,8 +67,8 @@ menu_set_active_item($path);
                         <div id="main_content">
 			     <div class="main_content">
 				<div class="s-cotnent"> <?php print render($page['content']); ?></div>
-				<?php  if($page['left']): ?>
-				  <?php  print render($page['left']) ; ?>
+				<?php  if($page['sidebar_second']): ?>
+				  <?php  print render($page['sidebar_second']) ; ?>
 				<?php endif ;?>
 				 </div>
                         <div class="protfolio">

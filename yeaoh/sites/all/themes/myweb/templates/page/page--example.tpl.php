@@ -68,8 +68,8 @@
                         <div id="main_content">
 			     <div class="main_content">
 				<div class="s-cotnent"> <?php print render($page['content']); ?></div>
-				<?php  if($page['left']): ?>
-				  <?php  print render($page['left']) ; ?>
+				<?php  if($page['sidebar_second']): ?>
+				  <?php  print render($page['sidebar_second']) ; ?>
 				<?php endif ;?>
 				 </div>
                         <div class="protfolio">
