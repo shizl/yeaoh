@@ -24,7 +24,7 @@ display: block;
 .view-taxonomy-term .views-slideshow-pager-field-item.active{
 background: #FFF;
 }
-.s-cotnent .block {
+.page-taxonomy-term .s-cotnent .block {
 float: left;
 border: 1px solid #CCCCCC;
 margin: 10px 0;
