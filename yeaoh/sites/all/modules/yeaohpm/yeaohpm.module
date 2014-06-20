@@ -24,8 +24,10 @@ function yeaohpm_menu() {
 
 function yeaohpm_project_thanks() {
   
-if (isset($_GET['path_info'])) {
-$url = $_GET['path_info'];
+//print_r($_SESSION['query']);
+
+if (isset($_SESSION['query'])) {
+$url = $_SESSION['query'];
 $info = "Thank you for submitting project request.Note:<br/>Make sure to bookmark this URL so you can track your request's progress:<br/>";
 $url = "http://project.yeaoh.com/public/index.php?".$url;
 return $info."<a href='$url'>".$url."</a>";
@@ -71,6 +73,7 @@ function yeaohpm_block_contents($delta) {
 }
 
 function yeaohpm_project_request($form, &$form_state) {
+//$form['#action']='thanks';
   $form['by_name'] = array(
       '#type'=>'textfield',
       '#title' =>'token',
@@ -113,6 +116,13 @@ function yeaohpm_project_request($form, &$form_state) {
       '#title_display' =>'invisible',
       '#required' => TRUE,
       );
+
+  $form['query'] = array(
+      '#type'=>'hidden',
+      '#default_value' =>'',
+      );
+
+
   $form['submit'] = array(
       '#type'=>'submit',
       '#value' => t('Submit'),
@@ -166,8 +176,16 @@ function yeaohpm_project_request_submit($form,&$form_state) {
   $xml = new SimpleXMLElement($result);
   //$request_id = $xml->id[0];
   $request_url = $xml->urls->public[0];
+  
+  $form_state['values']['query'] = substr($request_url,42);
+  
+    $_SESSION['query'] = substr($request_url,42);
 
-  drupal_goto('thanks',array('query' => array('path_info' => substr($request_url,42))));
+    $form_state['redirect']= 'thanks';
+  //drupal_goto('thanks',array('query' => array('path_info' => substr($request_url,42))));
+
+
+
 }
 
 
