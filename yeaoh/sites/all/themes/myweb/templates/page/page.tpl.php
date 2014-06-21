@@ -1,24 +1,5 @@
 <div id="page_wrapper"><!-- start page_wrapper -->
   <div id="center"><!-- start cneter -->
-<script language="javascript">
-var m=0;
-function show_box(sid){
-  //manin menu show 
-  if(jQuery('.menu_des').css('display')=='none'){
-    jQuery('.all_menu').css('margin-left',(1-sid)*990);
-  }else{
-    jQuery('.all_menu').animate({marginLeft: (1-sid)*990}, 500);
-  }
-  if(m==sid){
-    jQuery('.menu_des').slideUp();
-    m=0;
-  }else{
-    m=sid;
-    jQuery('.menu_des').slideDown();
-  }
-
-}
-</script>
      <div id="page_top"><!-- start page_top -->
       <div class="header">
         <div id="toplink"><!-- stat toplink-->
@@ -34,47 +15,13 @@ function show_box(sid){
           </div>
         </div><!-- end logo wrapper -->
         <?php endif; ?>
+      <div id="main-menu" class="navigation main-menu-box">
 
-        <div id="main-menu"><!-- start main_menu -->
-        <?php if ($main_menu ): ?>
-<?php 
-function show_menu($mlid=0,$lid=0,$mname='root_menu'){
-  $rootmenu=db_query("SELECT `mlid`,`link_path`,`link_title`,'options' FROM `menu_links` WHERE `menu_name`='main-menu' AND `plid` ='$mlid' AND `language`='".(!empty($_REQUEST['language'])?$_REQUEST['language']:'en')."' ORDER BY `weight` ASC");
-  $menus='';
-  ++$lid;
-  $aggmentq= $mname=="child_menu" ? '':$_GET['q'];
-  $root_menu="";
-  $m=1;
-  foreach($rootmenu as $menu){ 
+      <?php $menu = menu_tree('main-menu');
+print render($menu);?>
+      </div> <!-- /#main-menu -->
 
-    if($lid>=2){
 
-      if($menu->link_path=='<front>'){
-        $url = '/';
-      }else{
-        if(strstr($menu->link_path,'http://')){
-          $url =$menu->link_path;
-        }else{
-          $url = '/'.drupal_get_path_alias($menu->link_path);
-        }
-      } 
-
-      $menus.='<li><a href="'.$url.'"> '.($lid > 2 ? '>> ':'').$menu->link_title.'</a>'.($lid == 2 ? '<hr />':'').show_menu($menu->mlid,$lid,'child_menu').'</li>';
-    }else{
-      $root_menu.='<li class="'.($aggmentq == $menu->link_path || ($aggmentq=='node' && $menu->link_path=="<front>") ? 'active':'').'"><a href="javascript:show_box('.$m.')"> '.$menu->link_title.'</a></li>';
-      $menus.=show_menu($menu->mlid,$lid,'child_menu');
-      ++$m;
-    }
-
-  }
-  return ($lid==1 ? '<ul class="'.$mname.' menu_'.$lid.'">'.$root_menu.'</ul>':'').($menus<>'' ? ( $lid==1 ? '</div></div><div class="menu_des"><div class="menu_box"><div class="all_menu">'.$menus.'</div></div></div>':'<ul class="'.$mname.' menu_'.$lid.'">'.$menus.'</ul>'):'');
-}
-echo show_menu();
-
-?>
-
-         <?php endif; ?>
-         </div><!-- main menu end -->
       </div>
       <div class="head_bottom_bg"></div> </div> <!-- page top end-->
      <!-- start centermain -->

@@ -2,6 +2,7 @@ jQuery(document).ready(function(){
     terimonials_blog();
    // banner_background();
     quick_quote();
+    main_menu();
     });
 
 function terimonials_blog(){
@@ -88,4 +89,24 @@ function quick_quote(){
       jQuery(box).stop().animate({'right':'0'});
       });
 };
+function main_menu(){
+  var main_box = '#main-menu ul li';
+jQuery(main_box).mouseenter(function(){
+  //alert('asdfsafa');
 
+var ok = jQuery(this).find('ul.menu:first').find('li').hasClass('expanded');
+if(ok){
+jQuery(this).find('ul.menu:first').css({display:'block'});
+}
+//alert (ok);
+})
+jQuery(main_box).mouseleave(function(){
+var ok = jQuery(this).find('ul.menu:first').find('li').hasClass('expanded');
+if(ok){
+jQuery(this).find('ul.menu:first').css({display:'none'});
+}
+
+
+})
+
+};

@@ -16,29 +16,8 @@ img hr{border:none;}
 #page_top a{color:#FFF;text-decoration:none;}
 #edit-submitted-body .textarea{resize:none;}
 .header{width:1200px;padding:0 15px;;margin:0px auto 0px auto;height:105px;}
-.header #logo-wrapper,.header #main-menu{float:left;height:60px;}
-.header #logo-wrapper{width:300px;}
 #logo-wrapper .logo{margin-top:-30px;margin-left:-40px;}
 #logo-wrapper .logo img{margin-left:-300px;margin-top:-9px;}
-.header #main-menu{width:650px;
-float:right;
-}
-.root_menu li{min-width:120px;float:left;text-align:center;list-style:none;height:74px;line-height:75px;font-size:18px;font-weight:500;color:#FFF;text-align:center;}
-*+html.child_menu li hr{width:190px;height:0px;background:url('images/title_line.jpg');border:0px;}
-.child_menu li{text-align:left;width:200px;float:left;margin-left:10px;display:inline-table;}
-.child_menu li hr{width:190px;margin:5px;height:8px;background:url('images/title_line.jpg');border:0px;}
-#edit-submitted-body{resize:none;}
-.child_menu li a:hover{padding-left:10px;width:210px;background:#ffa132;display:inline-block;border-radius:5px;}
-.menu_des{width:100%;background:url('images/child_menu_bg.jpg');display:none;}
-.menu_des .menu_box{margin:0px auto;width:950px;overflow:hidden;}
-.menu_des .menu_box .all_menu{width:10000px;height:auto;}
-.menu_2{margin:10px auto;float:left;width:1000px;}
-.menu_3{margin-left:-50px;}
-.menu_2 li a{padding-left:10px;width:190px;font-size:16px;height:30px !important;line-height:30px !important;display:inline-block;}
-.menu_3 li,.menu_3 li a{padding-left:10px;width:210px;text-transform:none;height:20px !important;line-height:20px !important;font-weight:normal;font-size:15px;margin:3px 0px 0px 0px;}
-.header #main-menu li.active{background:url('images/head_hover.png') bottom repeat-x;}
-.header .more_language{min-width:1230px;height:26px;margin-top:10px;margin-bottom:5px;display:inline-block;text-align:right;color:#FFF;}
-.head_bottom_bg{width:100%;height:17px;margin-bottom:-17px;background:url('images/head_bottom_bg.png') center no-repeat;}
 #footer{width:100%;margin:0;background:#EEECEC;}
 #footer .footer-main{width:950px;height:290px;margin:5px auto 0px auto;}
 .footer-bottom{background:url('images/head_bg.jpg');color:#eee;}
