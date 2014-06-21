@@ -12,11 +12,11 @@ img hr{border:none;}
 .tabs ul.primary li a{background-color:#ffa132;border-top-left-radius:6px;border-top-right-radius:6px;color:#fff;display:block;float:left;height:1.8em;line-height:1.9;margin:0;padding:0 10px 3px;border:1px solid #ffa132;font-weight:500;border-bottom:none;}
 .tabs ul.primary li.active-trail a{background-color:#fff;color:#000;border:1px solid #ccc;border-bottom:none;}
 .tabs ul.primary li a:hover{color:#000;}
-#page_top{min-width:1230px;min-height:105px;background:url("images/top_bg.png");}
+#page_top{background:url("images/top_bg.png");}
 #page_top a{color:#FFF;text-decoration:none;}
 #edit-submitted-body .textarea{resize:none;}
 .header{width:1200px;padding:0 15px;;margin:0px auto 0px auto;height:105px;}
-#logo-wrapper .logo{margin-top:-30px;margin-left:-40px;}
+#logo-wrapper .logo{margin-top:-40px;margin-left:-40px;}
 #logo-wrapper .logo img{margin-left:-300px;margin-top:-9px;}
 #footer{width:100%;margin:0;background:#EEECEC;}
 #footer .footer-main{width:950px;height:290px;margin:5px auto 0px auto;}
