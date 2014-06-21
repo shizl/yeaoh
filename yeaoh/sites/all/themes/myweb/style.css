@@ -13,7 +13,7 @@ img hr{border:none;}
 .tabs ul.primary li.active-trail a{background-color:#fff;color:#000;border:1px solid #ccc;border-bottom:none;}
 .tabs ul.primary li a:hover{color:#000;}
 #page_top{background:url("images/top_bg.png");}
-#page_top a{color:#FFF;text-decoration:none;}
+#page_top a{text-decoration:none;}
 #edit-submitted-body .textarea{resize:none;}
 .header{width:1200px;padding:0 15px;;margin:0px auto 0px auto;height:105px;}
 #logo-wrapper .logo{margin-top:-40px;margin-left:-40px;}
