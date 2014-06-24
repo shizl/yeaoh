@@ -12,22 +12,26 @@ float:left;
 width: 1200px;
 padding: 0 15px;
 margin: 0px auto 0px auto;
-height: 73px;
+height: 106px;
 }
 #logo-wrapper{
 width:300px;
-max-height:19px;
+max-height:42px;
 
 float:left;
 }
 #logo-wrapper .logo img {
 margin-left: -300px;
-margin-top: -27px;
+margin-top: 3px;
 }
-
+body{
+min-width:1230px;
+}
 #main-menu{
 clear:both;
 float:right;
+margin-top:-40px;
+margin-right: 100px;
 }
 #main-menu *{
 margin:0;
@@ -53,20 +57,22 @@ border-radius: 5px;
 
 #main-menu ul li ul{
 display:none;
+position:relative;
 position:absolute;
-width: 70%;
-right: 0;
+width: 100%;
+min-width:1200px;
+left: 0px;
 z-index: 456;
 background: #123;
 padding:15px;
 background: url('images/child_menu_bg.jpg');
 border-radius:3px;
+text-align:right;
 }
-#main-menu ul li ul li{
-float:left;
-}
+#main-menu ul li ul li{}
 #main-menu ul li ul li.expanded{
   border-left: 1px solid;
+  text-align:left;
 }
 #main-menu ul li ul li.expanded:first-child{
 border:none;
@@ -76,6 +82,8 @@ display:block;
 position:static;
 width: inherit;
 padding:0;
+text-align:left;
+min-width: inherit;
 }
 #main-menu ul li ul li ul li{
 display:block;
@@ -91,9 +99,68 @@ border-radius: 4px;
 background: #ffa132;
 }
 
-
-
-
+#main-menu-list{
+background: url('images/child_menu_bg.jpg');
+overflow:hidden;
+}
+#main-menu-list *{
+margin:0;
+padding:0;
+display:inline-block;
+color:#FFF;
+}
+#main-menu-list div{
+position: relative;
+display: inline;
+float:left;
+}
+#main-menu-list div.main-menu-content{
+//right: -550px;
+}
+#main-menu-list div.main-menu-prev{
+position:absolute;
+}
+#main-menu-list div.main-menu-next{
+position:absolute;
+}
+#main-menu-list div ul{
+//padding:15px;
+}
+#main-menu-list ul li.expanded{
+//  border-left: 1px solid;
+  text-align:left;
+padding: 15px;
+float:left;
+}
+#main-menu-list ul li.expanded:first-child{
+border:none;
+}
+#main-menu-list ul li.expanded span{
+font-size:16px;
+line-height: 40px;
+}
+#main-menu-list ul li ul{
+display:block;
+position:static;
+width: inherit;
+padding:0;
+text-align:left;
+min-width: inherit;
+border-radius: 5px;
+}
+#main-menu-list ul li ul li{
+display:block;
+float:none;
+}
+#main-menu-list ul li ul li a{
+font-size:16px;
+padding: 0 10px;
+width: 180px;
+border-radius: 4px;
+}
+#main-menu-list ul li ul li a:hover{
+background: #ffa132;
+}
 
 
 
@@ -437,7 +504,7 @@ div.ser_content .view-content .views-row .views-field p{
 }
 .captcha img{
   width:90px;
-  margin-top: 20px;
+  margin-top: 30px;
   margin-left: 120px;
   position: absolute;
   height:auto;
