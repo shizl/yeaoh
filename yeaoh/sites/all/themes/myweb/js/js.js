@@ -145,7 +145,7 @@ function main_menu_content(){
     }
   })
   jQuery(main_list_box).mouseleave(function(){
-     // jQuery(this).stop().animate({height:'0'});
+      jQuery(this).stop().animate({height:'0'});
   })
 };
 function main_menu_animate(){
