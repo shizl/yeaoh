@@ -104,17 +104,18 @@ function main_menu_content(){
   var main_list_box = '#main-menu-list';
   var main_list_box_ul = '#main-menu-list div';
   jQuery(main_item).click(function(){
-    var ok = jQuery(this).find('ul.menu:first').find('li').hasClass('expanded');
 
+    var content = jQuery('div.main-menu-content',main_list_box).hasClass('main-menu-content');
+    var ok = jQuery(this).find('ul.menu:first').find('li').hasClass('expanded');
     if(ok){
-      jQuery(main_list_box).stop().animate({height:'175px'});
       var temp = jQuery(this).find('ul.menu').html(); 
       jQuery(main_list_box).html('<div class="main-menu-content"><ul>'+temp+'</ul></div>');
-
+      jQuery(main_list_box).stop().animate({height:'175px'});
+      jQuery(main_list_box).find('ul').css({display:'block'});
       var width = jQuery('div.main-menu-content',main_list_box).width();
       var dw = jQuery(main_menu_list_box).width();
-      jQuery('div.main-menu-content',main_list_box).stop().animate({left:dw-width});
-      jQuery(main_list_box).find('ul').css({display:'block'});
+      var dww = dw - width;
+      jQuery('div.main-menu-content',main_list_box).css({left:dww});
       jQuery(this).find('ul.menu').addClass('active');
       var prev = jQuery(this).prevAll().find('ul.menu').hasClass('active');
       var next = jQuery(this).nextAll().find('ul.menu').hasClass('active');
@@ -146,12 +147,20 @@ function main_menu_content(){
 
         jQuery(main_list_box).find('ul').css({display:'block'});
       }
+      var prev = jQuery('div.main-menu-prev',main_list_box).hasClass('main-menu-prev');
+      var next = jQuery('div.main-menu-next',main_list_box).hasClass('main-menu-next');
+      if (!(prev || next) && content){
+        jQuery(main_list_box).stop().animate({height:'0px'});
+        jQuery(main_item).find('ul.menu').removeClass('active');
+        jQuery(main_list_box).html('');
+      }
+
       jQuery(this).siblings().find('ul.menu').css({display:'none'});
       jQuery(this).siblings().find('ul.menu').removeClass('active');
     }
   })
   jQuery(main_list_box).mouseleave(function(){
-   // jQuery(this).stop().animate({height:'0'});
+    // jQuery(this).stop().animate({height:'0'});
   })
 };
 function main_menu_animate(){

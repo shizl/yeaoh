@@ -156,7 +156,7 @@ width: inherit;
 padding:0;
 text-align:left;
 min-width: inherit;
-padding-top: 5px;
+padding-top: 10px;
 background: url('images/title_line.jpg') top repeat-x;
 }
 #main-menu-list ul li ul li{
