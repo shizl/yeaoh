@@ -105,6 +105,7 @@ function main_menu_content(){
   var main_list_box_ul = '#main-menu-list div';
   jQuery(main_item).click(function(){
     var ok = jQuery(this).find('ul.menu:first').find('li').hasClass('expanded');
+
     if(ok){
       jQuery(main_list_box).stop().animate({height:'175px'});
       var temp = jQuery(this).find('ul.menu').html(); 
@@ -150,7 +151,7 @@ function main_menu_content(){
     }
   })
   jQuery(main_list_box).mouseleave(function(){
-    jQuery(this).stop().animate({height:'0'});
+   // jQuery(this).stop().animate({height:'0'});
   })
 };
 function main_menu_animate(){
