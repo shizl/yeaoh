@@ -29,9 +29,10 @@ min-width:1230px;
 }
 #main-menu{
 clear:both;
-float:right;
+width:1200px;
+margin:0 auto;
 margin-top:-40px;
-margin-right: 100px;
+text-align:right;
 }
 #main-menu *{
 margin:0;
@@ -98,10 +99,17 @@ border-radius: 4px;
 #main-menu ul li ul li ul li a:hover{
 background: #ffa132;
 }
-
-#main-menu-list{
+#main-menu-box{
+min-width:1230px;
+width:100%;
+}
+#main-menu-list-box{
 background: url('images/child_menu_bg.jpg');
+}
+#main-menu-list{
 overflow:hidden;
+width: 1200px;
+margin: 0 auto;
 }
 #main-menu-list *{
 margin:0;
@@ -138,6 +146,7 @@ border:none;
 #main-menu-list ul li.expanded span{
 font-size:16px;
 line-height: 40px;
+padding: 0 10px;
 }
 #main-menu-list ul li ul{
 display:block;
@@ -146,7 +155,8 @@ width: inherit;
 padding:0;
 text-align:left;
 min-width: inherit;
-border-radius: 5px;
+border-top: 1px solid #D1D1D1;
+padding-top: 5px;
 }
 #main-menu-list ul li ul li{
 display:block;
@@ -183,11 +193,11 @@ padding:10px;
 }
 
 .view-taxonomy-term .views-slideshow-pager-field-item .views-content-title{
-
 background: url(images/service-text.png) no-repeat right;
 display: block;
-
-
+}
+.view-taxonomy-term .views-slideshow-pager-field-item .views-content-title:hover{
+color:#FFA132;
 }
 .view-taxonomy-term .views-slideshow-pager-field-item.active{
 background: #FFF;
@@ -205,11 +215,12 @@ background:#F2F2F2;
 div.view-banner img{
   width: 100%;
   height: auto;
-  min-width:1200px;
+//  min-width:1200px;
 }
 .view-banner .view-content #views_slideshow_cycle_main_banner-block{
   height:auto;
   min-width:1200px;
+width: 100%;
 }
 div.view-banner div.views-content-counter{
   width: 30px;

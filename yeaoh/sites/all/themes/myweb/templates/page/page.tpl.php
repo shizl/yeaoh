@@ -15,15 +15,14 @@
           </div>
         </div><!-- end logo wrapper -->
         <?php endif; ?>
-      <div id="main-menu" class="navigation main-menu-box">
-
-      <?php $menu = menu_tree('main-menu');
-print render($menu);?>
-      </div> <!-- /#main-menu -->
-
-
       </div>
-      <div class="head_bottom_bg"></div> </div> <!-- page top end-->
+      <div id="main-menu-box">
+        <div id="main-menu" class="navigation">
+          <?php $menu = menu_tree('main-menu');
+          print render($menu);?>
+        </div> <!-- /#main-menu -->
+        <div id="main-menu-list-box"><div id="main-menu-list" class="clearfix"></div></div>
+      </div>
      <!-- start centermain -->
 
                         <div id="main_content">

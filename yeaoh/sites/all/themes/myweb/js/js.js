@@ -4,8 +4,13 @@ jQuery(document).ready(function(){
   quick_quote();
   main_menu_animate();
   main_menu_content();
+  banner_width();
 });
+function banner_width(){
+  var width = jQuery(document).width();
+  jQuery('#views_slideshow_cycle_main_banner-block img').css({width:width});
 
+};
 function terimonials_blog(){
   var box = '#block-views-tertimonials-and-blog-block .view-content .views-row';
   var bbox = '#block-views-tertimonials-and-blog-block .view-content';
@@ -95,6 +100,7 @@ function main_menu_content(){
   var main_menu_box = 'div.main-menu-box';
   var main_box = '#main-menu ul:first';
   var main_item = '#main-menu ul li';
+  var main_menu_list_box = '#main-menu-list';
   var main_list_box = '#main-menu-list';
   var main_list_box_ul = '#main-menu-list div';
   jQuery(main_item).click(function(){
@@ -103,49 +109,48 @@ function main_menu_content(){
       jQuery(main_list_box).stop().animate({height:'175px'});
       var temp = jQuery(this).find('ul.menu').html(); 
       jQuery(main_list_box).html('<div class="main-menu-content"><ul>'+temp+'</ul></div>');
-      
-      var width = jQuery('div.main-menu-content',main_list_box).width();
-      var dw = jQuery(document).width();
-      jQuery('div.main-menu-content',main_list_box).stop().animate({left:dw-width});
 
+      var width = jQuery('div.main-menu-content',main_list_box).width();
+      var dw = jQuery(main_menu_list_box).width();
+      jQuery('div.main-menu-content',main_list_box).stop().animate({left:dw-width});
       jQuery(main_list_box).find('ul').css({display:'block'});
       jQuery(this).find('ul.menu').addClass('active');
       var prev = jQuery(this).prevAll().find('ul.menu').hasClass('active');
       var next = jQuery(this).nextAll().find('ul.menu').hasClass('active');
       if (prev){
-      var prev_content = jQuery(this).prevAll().find('ul.menu').html();
-      jQuery(this).prevAll().find('ul.menu').removeClass('active');
-      jQuery('<div class="main-menu-prev"><ul>'+prev_content+'</ul></div>').insertBefore(main_list_box_ul)
+        var prev_content = jQuery(this).prevAll().find('ul.menu').html();
+        jQuery(this).prevAll().find('ul.menu').removeClass('active');
+        jQuery('<div class="main-menu-prev"><ul>'+prev_content+'</ul></div>').insertBefore(main_list_box_ul);
 
-      jQuery('div.main-menu-prev',main_list_box).css({display:'none'});
-      jQuery('div.main-menu-content',main_list_box).css({left:'0px'});
-  //    jQuery('div.main-menu-prev',main_list_box).stop().animate({left:'-1376px'});
-      var width = jQuery('div.main-menu-content',main_list_box).width();
-      var dw = jQuery(document).width();
-      jQuery('div.main-menu-content',main_list_box).stop().animate({left:dw-width});
+        jQuery('div.main-menu-prev',main_list_box).css({display:'none'});
+        jQuery('div.main-menu-content',main_list_box).css({left:'1000px'});
+        //    jQuery('div.main-menu-prev',main_list_box).stop().animate({left:'-1376px'});
+        var width = jQuery('div.main-menu-content',main_list_box).width();
+        var dw = jQuery(main_menu_list_box).width();
+        jQuery('div.main-menu-content',main_list_box).stop().animate({left:dw-width});
 
-      jQuery(main_list_box).find('ul').css({display:'block'});
+        jQuery(main_list_box).find('ul').css({display:'block'});
       }
       if (next){
-      var next_content = jQuery(this).nextAll().find('ul.menu').html();
-      jQuery(this).nextAll().find('ul.menu').removeClass('active');
-      jQuery('<div class="main-menu-next"><ul>'+next_content+'</ul></div>').insertAfter(main_list_box_ul)
+        var next_content = jQuery(this).nextAll().find('ul.menu').html();
+        jQuery(this).nextAll().find('ul.menu').removeClass('active');
+        jQuery('<div class="main-menu-next"><ul>'+next_content+'</ul></div>').insertAfter(main_list_box_ul);
 
-      jQuery('div.main-menu-next',main_list_box).css({display:'none'});
-      jQuery('div.main-menu-content',main_list_box).css({left:'0px'});
-//      jQuery('div.main-menu-next',main_list_box).stop().animate({left:'0px'});
-      var width = jQuery('div.main-menu-content',main_list_box).width();
-      var dw = jQuery(document).width();
-      jQuery('div.main-menu-content',main_list_box).stop().animate({left:dw-width});
+        jQuery('div.main-menu-next',main_list_box).css({display:'none'});
+        jQuery('div.main-menu-content',main_list_box).css({left:'0px'});
+        //      jQuery('div.main-menu-next',main_list_box).stop().animate({left:'0px'});
+        var width = jQuery('div.main-menu-content',main_list_box).width();
+        var dw = jQuery(main_menu_list_box).width();
+        jQuery('div.main-menu-content',main_list_box).stop().animate({left:dw-width});
 
-      jQuery(main_list_box).find('ul').css({display:'block'});
+        jQuery(main_list_box).find('ul').css({display:'block'});
       }
       jQuery(this).siblings().find('ul.menu').css({display:'none'});
       jQuery(this).siblings().find('ul.menu').removeClass('active');
     }
   })
   jQuery(main_list_box).mouseleave(function(){
-      jQuery(this).stop().animate({height:'0'});
+    //jQuery(this).stop().animate({height:'0'});
   })
 };
 function main_menu_animate(){
