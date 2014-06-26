@@ -147,7 +147,7 @@ function myweb_preprocess_block(&$variables) {
   if ($variables['block']->region == 'home_column3'){
     $variables['block']->subject = '<span class="title_css left"></span>'.$variables['block']->subject.'<span class="title_css right"></span>';
   }
-  if ($variables['block']->region == 'left') {
+  if ($variables['block']->region == 'sidebar_second') {
   $variables['block']->subject = '<span class="title">'.$variables['block']->subject.'</span>';
   }
  // print_r($variables);

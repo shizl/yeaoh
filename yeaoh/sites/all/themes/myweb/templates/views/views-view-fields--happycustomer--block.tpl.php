@@ -24,9 +24,10 @@
  * @ingroup views_templates
  */
 ?>
+<div class="clearfix">
 <?php print $fields['body']->content;?>
 
 <div id='block-views-todayinsight-block'> <div class='views-field-field-auter-name'><p>
 <?php print $fields['title']->content;?>
  - <?php print $fields['field_company_name']->content;?>
-</p></div></div>
+</p></div></div></div>
