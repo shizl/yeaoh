@@ -31,9 +31,9 @@ min-width:1230px;
 clear:both;
 width:1200px;
 margin:0 auto;
-margin-top:-40px;
+margin-top:-50px;
 text-align:right;
-margin-right:150px;
+padding-right:150px;
 }
 #main-menu *{
 margin:0;
@@ -107,6 +107,7 @@ width:100%;
 }
 #main-menu-list-box{
 background: url('images/child_menu_bg.jpg');
+margin-top:15px;
 }
 #main-menu-list{
 overflow:hidden;
