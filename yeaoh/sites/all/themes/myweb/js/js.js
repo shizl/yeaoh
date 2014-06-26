@@ -159,11 +159,13 @@ function main_menu_content(){
       jQuery(this).siblings().find('ul.menu').removeClass('active');
     }
   })
+  
   jQuery(main_list_box).mouseleave(function(){
         jQuery(main_list_box).stop().animate({height:'0px'});
         jQuery(main_item).find('ul.menu').removeClass('active');
         jQuery(main_list_box).html('');
   })
+  
 };
 function main_menu_animate(){
 
