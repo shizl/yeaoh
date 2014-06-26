@@ -2,7 +2,6 @@ jQuery(document).ready(function(){
   terimonials_blog();
   // banner_background();
   quick_quote();
-  main_menu_animate();
   main_menu_content();
   banner_width();
 });
@@ -116,12 +115,17 @@ function main_menu_content(){
       var dw = jQuery(main_menu_list_box).width();
       var dww = dw - width;
       jQuery('div.main-menu-content',main_list_box).css({left:dww});
+
       jQuery(this).find('ul.menu').addClass('active');
+      jQuery(this).find('span.nolink').addClass('active');
+
       var prev = jQuery(this).prevAll().find('ul.menu').hasClass('active');
       var next = jQuery(this).nextAll().find('ul.menu').hasClass('active');
       if (prev){
         var prev_content = jQuery(this).prevAll().find('ul.menu').html();
         jQuery(this).prevAll().find('ul.menu').removeClass('active');
+        jQuery(this).prevAll().find('span.nolink').removeClass('active');
+
         jQuery('<div class="main-menu-prev"><ul>'+prev_content+'</ul></div>').insertBefore(main_list_box_ul);
 
         jQuery('div.main-menu-prev',main_list_box).css({display:'none'});
@@ -136,6 +140,8 @@ function main_menu_content(){
       if (next){
         var next_content = jQuery(this).nextAll().find('ul.menu').html();
         jQuery(this).nextAll().find('ul.menu').removeClass('active');
+        jQuery(this).nextAll().find('span.nolink').removeClass('active');
+
         jQuery('<div class="main-menu-next"><ul>'+next_content+'</ul></div>').insertAfter(main_list_box_ul);
 
         jQuery('div.main-menu-next',main_list_box).css({display:'none'});
@@ -152,19 +158,19 @@ function main_menu_content(){
       if (!(prev || next) && content){
         jQuery(main_list_box).stop().animate({height:'0px'});
         jQuery(main_item).find('ul.menu').removeClass('active');
+        jQuery(main_item).find('span.nolink').removeClass('active');
         jQuery(main_list_box).html('');
       }
 
       jQuery(this).siblings().find('ul.menu').css({display:'none'});
       jQuery(this).siblings().find('ul.menu').removeClass('active');
+      jQuery(this).siblings().find('span.nolink').removeClass('active');
     }
   })
   jQuery(main_list_box).mouseleave(function(){
         jQuery(main_list_box).stop().animate({height:'0px'});
         jQuery(main_item).find('ul.menu').removeClass('active');
+        jQuery(main_item).siblings().find('span.nolink').removeClass('active');
         jQuery(main_list_box).html('');
   })
-};
-function main_menu_animate(){
-
 };
