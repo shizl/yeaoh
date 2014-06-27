@@ -1040,7 +1040,7 @@ margin-bottom:15px;
 .region-left .block-menu ul.menu li.leaf.active-trail{
 
 
-  list-style-image: url(images/sidenav_a.png);
+//  list-style-image: url(images/sidenav_a.png);
 }
 .region-left .block-menu ul li a{
   color:#555555;
