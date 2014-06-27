@@ -33,7 +33,6 @@ width:1200px;
 margin:0 auto;
 margin-top:-50px;
 text-align:right;
-padding-right:150px;
 //padding-bottom:10px;
 }
 #main-menu *{
@@ -965,7 +964,6 @@ div.ser_content .view-content .views-row .views-field p{
   border-color: #DAE0E5;
   border-style: solid;
   border-width: 0 4px 0 0;
-  width: 100%;
   display: block;
 }
 .title_css.region_left{
@@ -993,7 +991,7 @@ div.ser_content .view-content .views-row .views-field p{
 
 .region-left .block-menu h2 .title{
   background: #fff;
-  padding-right: 30px;
+  padding-left: 20px;
   text-transform:uppercase;
   color: #FFA132;
   font-family: 'Fjalla One',sans-serif;
@@ -1008,19 +1006,32 @@ div.ser_content .view-content .views-row .views-field p{
 .region-left .block-menu ul li{
   list-style-image: none;
   list-style-type: none;
+  padding:0;
+padding-top: 3px;
 }
+.region-left .block-menu ul li.expanded{
 
+border-top: 1px solid #DAE0E5;
+}
 .region-left .block-menu li.expanded ul.menu{
-  padding-left:20px;
-
+  padding-left:0px;
+  border-top:1px solid #DAE0E5;
+margin:10px 0;
+border-top: 1px solid #DAE0E5;
+margin: 3px 0;
 }
 .region-left .block-menu ul.menu li.leaf{
+border-bottom:1px solid #DAE0E5;
+margin:0;
+  //list-style-image: url(images/sidenav_d.png);
+}
 
-  list-style-image: url(images/sidenav_d.png);
+.region-left .block-menu ul.menu li.leaf.last{
+margin-bottom:15px;
 }
 .region-left .block-menu ul.menu li.leaf:hover{
 
-  list-style-image: url(images/sidenav_a.png);
+  //list-style-image: url(images/sidenav_a.png);
 }
 
 .region-left .block-menu ul.menu li.leaf:hover a{
@@ -1035,6 +1046,15 @@ div.ser_content .view-content .views-row .views-field p{
   color:#555555;
 }
 
+.region-left .block-menu ul li a:before{
+  content:url(images/sidenav_d.png);
+  padding-right:5px;
+}
+.region-left .block-menu ul.menu li.leaf:hover a:before,
+.region-left .block-menu ul li a.active:before{
+
+  content:url(images/sidenav_a.png);
+}
 .region-left .block-menu ul li a.active{
 
   color: #0f70bb;

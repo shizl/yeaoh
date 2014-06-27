@@ -6,9 +6,12 @@ jQuery(document).ready(function(){
   banner_width();
 });
 function banner_width(){
-  var width = jQuery(document).width();
+  var width = jQuery(window).width();
   jQuery('#views_slideshow_cycle_main_banner-block img').css({width:width});
-
+window.onresize = function(){
+  var width = jQuery(window).width();
+  jQuery('#views_slideshow_cycle_main_banner-block img').css({width:width});
+}
 };
 function terimonials_blog(){
   var box = '#block-views-tertimonials-and-blog-block .view-content .views-row';
