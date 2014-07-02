@@ -7,13 +7,23 @@ jQuery(document).ready(function(){
 });
 function banner_width(){
   var width = jQuery(window).width();
+  var slidebox = '.view-banner .views-slideshow-cycle-main-frame-row';
+var slideshowbox = '#views_slideshow_cycle_teaser_section_banner-block';
   jQuery('#views_slideshow_cycle_main_banner-block img').css({width:width});
-window.onresize = function(){
+jQuery(window).resize(function(){
   var width = jQuery(window).width();
+
   if(width > 1200){
+  jQuery(slidebox).css({width:width});
+  jQuery(slideshowbox).css({width:width});
   jQuery('#views_slideshow_cycle_main_banner-block img').css({width:width});
+  }else{
+    jQuery(slidebox).css({width:'1200px'});
+  jQuery(slideshowbox).css({width:'1200px'});
+  jQuery('#views_slideshow_cycle_main_banner-block img').css({width:'1200px'});
   }
-}
+});
+
 };
 function terimonials_blog(){
   var box = '#block-views-tertimonials-and-blog-block .view-content .views-row';
