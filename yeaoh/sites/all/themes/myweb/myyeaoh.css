@@ -225,7 +225,7 @@ background:#F2F2F2;
 div.view-banner img{
   width: 100%;
   height: auto;
-//  min-width:1200px;
+  min-width:1200px;
 }
 .view-banner .view-content #views_slideshow_cycle_main_banner-block{
   height:auto;
