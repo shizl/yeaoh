@@ -10,7 +10,9 @@ function banner_width(){
   jQuery('#views_slideshow_cycle_main_banner-block img').css({width:width});
 window.onresize = function(){
   var width = jQuery(window).width();
+  if(width > 1200){
   jQuery('#views_slideshow_cycle_main_banner-block img').css({width:width});
+  }
 }
 };
 function terimonials_blog(){
