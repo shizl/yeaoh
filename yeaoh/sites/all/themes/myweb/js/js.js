@@ -14,13 +14,20 @@ jQuery(window).resize(function(){
   var width = jQuery(window).width();
 
   if(width > 1200){
-  jQuery(slidebox).css({width:width});
-  jQuery(slideshowbox).css({width:width});
-  jQuery('#views_slideshow_cycle_main_banner-block img').css({width:width});
+  jQuery('#views_slideshow_cycle_main_banner-block img').width(width);
+//  var imgheight = jQuery('#views_slideshow_cycle_div_banner-block_0 img').height();
+ // alert(imgheight);
+  jQuery(slidebox).width(width);
+//  jQuery(slidebox).height(height+100);
+  jQuery(slideshowbox).width(width);
+
   }else{
-    jQuery(slidebox).css({width:'1200px'});
-  jQuery(slideshowbox).css({width:'1200px'});
-  jQuery('#views_slideshow_cycle_main_banner-block img').css({width:'1200px'});
+  jQuery('#views_slideshow_cycle_main_banner-block img').width('1200px');
+
+  //var imgheight = jQuery('#views_slideshow_cycle_div_banner-block_0 img').height();
+  jQuery(slidebox).width('1200px');
+jQuery(slideshowbox).width('1200px');
+
   }
 });
 
