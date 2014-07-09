@@ -24,9 +24,7 @@
  * @ingroup views_templates
  */
 ?>
-<a href="<?php print $fields['field_ex_link']->content;?>">
   <?php print $fields['field_banner_img']->content;?>
-</a>
 
 
 
