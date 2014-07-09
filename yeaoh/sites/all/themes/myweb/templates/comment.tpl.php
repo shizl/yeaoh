@@ -67,9 +67,11 @@
       <p class="commenter-name">
         <?php print $author; ?>
       </p>
+
       <p class="comment-time">
         <?php print $created; ?>
       </p>
+
       <p class="comment-permalink">
         <?php print $permalink; ?>
       </p>
@@ -89,17 +91,19 @@
 
     <div class="content"<?php print $content_attributes; ?>>
       <?php
-        // We hide the comments and links now so that we can render them later.
-        hide($content['links']);
-        print render($content);
+      // We hide the comments and links now so that we can render them later.
+      hide($content['links']);
+      print render($content);
       ?>
       <?php if ($signature): ?>
-      <div class="user-signature clearfix">
-        <?php print $signature; ?>
-      </div>
+        <div class="user-signature clearfix">
+          <?php print $signature; ?>
+        </div>
       <?php endif; ?>
-    </div> <!-- /.content -->
+    </div>
+    <!-- /.content -->
 
     <?php print render($content['links']); ?>
-  </div> <!-- /.comment-text -->
+  </div>
+  <!-- /.comment-text -->
 </div>
