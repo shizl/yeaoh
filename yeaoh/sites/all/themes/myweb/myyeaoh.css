@@ -205,6 +205,10 @@ margin:0;
 padding:10px;
 }
 
+.view-taxonomy-term .views-slideshow-pager-field-item .views-field-nid {
+    display: none;
+}
+
 .view-taxonomy-term .views-slideshow-pager-field-item .views-content-title{
 background: url(images/service-text.png) no-repeat right;
 display: block;

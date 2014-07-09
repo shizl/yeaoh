@@ -5,7 +5,21 @@ jQuery(document).ready(function () {
     main_menu_content();
     banner_width();
     banner_height();
+    service_choose();
 });
+function service_choose() {
+    var nid = getUrlParam('nid');
+    var nclass = '.nid' + '.' + nid;
+    var pager = '.views-slideshow-pager-field-item';
+    var npager = jQuery(nclass, pager).parents(pager);
+    jQuery(npager).trigger("click");
+}
+function getUrlParam(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+    var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+    if (r != null) return unescape(r[2]);
+    return null; //返回参数值
+}
 function banner_width() {
     var width = jQuery(window).width();
     var slidebox = '.view-banner .views-slideshow-cycle-main-frame-row';
