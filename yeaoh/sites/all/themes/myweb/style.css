@@ -595,7 +595,7 @@ img hr {
     float: left;
 }
 
-.views-field-body .column {
+.views-field-body {
     margin: 10px 0px 10px 0px;
     overflow: hidden;
 }
@@ -606,7 +606,7 @@ img hr {
     color: #ffa132;
 }
 
-.views-field-body .column .body {
+.views-field-body {
     float: left;
     font-size: 15px;
     line-height: 2em;
