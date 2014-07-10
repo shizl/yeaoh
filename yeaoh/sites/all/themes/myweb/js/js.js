@@ -27,29 +27,26 @@ function banner_width() {
     jQuery('#views_slideshow_cycle_main_banner-block img').css({width: width});
     jQuery(window).resize(function () {
         var width = jQuery(window).width();
-
         if (width > 1200) {
             jQuery('#views_slideshow_cycle_main_banner-block img').width(width);
-//  var imgheight = jQuery('#views_slideshow_cycle_div_banner-block_0 img').height();
-            // alert(imgheight);
             jQuery(slidebox).width(width);
-//  jQuery(slidebox).height(height+100);
             jQuery(slideshowbox).width(width);
-
         } else {
             jQuery('#views_slideshow_cycle_main_banner-block img').width('1200px');
-
-            //var imgheight = jQuery('#views_slideshow_cycle_div_banner-block_0 img').height();
             jQuery(slidebox).width('1200px');
             jQuery(slideshowbox).width('1200px');
-
         }
     });
+}
 
-};
 function banner_height() {
-
-
+    var slideboxm = '.view-banner .views-slideshow-cycle-main-frame-row';
+    var slidebox = '.view-banner .views-slideshow-cycle-main-frame';
+    jQuery(window).resize(function () {
+        imgh = jQuery('.views-slideshow-cycle-main-frame-row-item:visible', slidebox).css("height");
+        jQuery(slideboxm).height(imgh);
+        jQuery(slidebox).height(imgh);
+    });
 }
 function terimonials_blog() {
     var box = '#block-views-tertimonials-and-blog-block .view-content .views-row';
