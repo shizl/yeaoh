@@ -595,21 +595,19 @@ img hr {
     float: left;
 }
 
-.views-field-body {
-    margin: 10px 0px 10px 0px;
-    overflow: hidden;
-}
-
 .views-field-body h2 {
     font-size: 20px;
     font-weight: bold;
     color: #ffa132;
+    line-height: 50px;
 }
 
 .views-field-body {
     float: left;
     font-size: 15px;
     line-height: 2em;
+    margin: 10px 0px 10px 0px;
+    overflow: hidden;
 }
 
 .view-banner #views_slideshow_controls_text_pause_banner-block {
