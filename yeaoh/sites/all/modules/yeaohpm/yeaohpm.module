@@ -12,7 +12,7 @@ function yeaohpm_menu() {
       'type' => MENU_NORMAL_ITEM,
       'file' => 'yeaohpm.admin.inc',
       );
-  $items['thanks'] = array(
+  $items['thank-you'] = array(
       'title' => t('thanks'),
       'page callback' => 'yeaohpm_project_thanks',
       'access callback' => TRUE,
@@ -122,7 +122,6 @@ function yeaohpm_project_request($form, &$form_state) {
       '#default_value' =>'',
       );
 
-
   $form['submit'] = array(
       '#type'=>'submit',
       '#value' => t('Submit'),
@@ -181,7 +180,7 @@ function yeaohpm_project_request_submit($form,&$form_state) {
   
     $_SESSION['query'] = substr($request_url,42);
 
-    $form_state['redirect']= 'thanks';
+    $form_state['redirect']= 'thank-you';
   //drupal_goto('thanks',array('query' => array('path_info' => substr($request_url,42))));
 
 
