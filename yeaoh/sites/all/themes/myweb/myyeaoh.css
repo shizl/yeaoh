@@ -565,6 +565,7 @@ div.ser_content .view-content .views-row .views-field p{
 #block-views-tertimonials-and-blog-block .views-field-body{
   position: absolute;
   margin-left:-450px;
+  margin-top:0px;
   height:360px;
   font-size:23px;
   padding:20px;
@@ -800,6 +801,7 @@ div.ser_content .view-content .views-row .views-field p{
   width:1120px;
   margin:0 auto;
   padding:0 40px;
+  clear:both;
 }
 .screen .show{
   width: 473px;
