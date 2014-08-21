@@ -4,10 +4,10 @@ load 'deploy'
     # load 'deploy/assets'
 load 'config/deploy' # remove this line to skip loading any of the default tasks
 load 'config/drupal' # remove this line to skip loading any of the default tasks
-role :web, "23.92.25.18"   # Your HTTP server, Apache/etc
+role :web, "106.186.31.215"   # Your HTTP server, Apache/etc
 set :application, "yeaoh"
 set :branch,      "master"
-set :deploy_to,   "/var/www/yeaoh/"
+set :deploy_to,   "/var/www/yeaoh/yeaoh/yeaoh.com"
 
 set :user,        "root"
 set :use_sudo, false
