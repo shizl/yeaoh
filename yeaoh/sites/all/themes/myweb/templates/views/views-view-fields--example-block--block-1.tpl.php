@@ -18,7 +18,10 @@
 </div>
 
 <div class="link"><i class="fa fa-external-link-square"></i> <a href="<?php print $fields['field_ex_link']->content;?>" rel="nofollow" target="_blank">
-<?php print $fields['field_ex_link']->content;?>
+<?php 
+//print $fields['field_ex_link']->content;
+print t('View Website');
+?>
 </a></div>
 
 </div>
