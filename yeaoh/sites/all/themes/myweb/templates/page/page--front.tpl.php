@@ -32,6 +32,8 @@
           <div id="main-menu-list" class="clearfix"></div>
         </div>
       </div>
+
+   </div>
       <!-- start centermain -->
       <div id="centermain">
         <div id="big_bg_image"><!-- start big_bg_image -->

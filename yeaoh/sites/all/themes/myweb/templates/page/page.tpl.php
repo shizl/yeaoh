@@ -28,6 +28,7 @@
           <div id="main-menu-list" class="clearfix"></div>
         </div>
       </div>
+   </div>
       <!-- start centermain -->
 
       <div id="main_content">
