@@ -1638,5 +1638,7 @@ img hr {
 #contact_form .form-item select.error {
     border: 2px solid red;
 }
-
+.page-node-169 #page-title{
+display:none;
+}
 /*----------------------the style for contact us,by woogle,end.----------------------------------*/
