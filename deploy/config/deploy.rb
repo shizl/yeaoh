@@ -1,7 +1,7 @@
 #Repository variables-----------------------------
 set :scm,         :git
 #set :deploy_via, :remote_cache
-set :repository,  "https://yeaoh:yeaoh1@bitbucket.org/yeaoh/yeaoh.comen.git"
+set :repository,  "http://project:project1@git.yeaoh.net/internal/yeaohen.git"
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `subversion`, `mercurial`, `perforce`, `subversion` or `none`
 
 

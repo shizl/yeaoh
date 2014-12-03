@@ -184,7 +184,11 @@ background: #ffa132;
 #main-menu-list ul li ul li a:before{
 content:'>>  ';
 }
-
+.view-example-block .link a{
+margin-left:20px;
+color:#ffa132;
+font-style:italic;
+}
 
 
 
@@ -750,7 +754,7 @@ div.ser_content .view-content .views-row .views-field p{
 
 .view-example-block .link a{
 
-  color: #272822;
+  color: #ffa132;
   font-size: 22px;
   font-weight: bold;
 }
@@ -796,6 +800,9 @@ div.ser_content .view-content .views-row .views-field p{
   width: 440px;
   padding: 20px;
   color:#333;
+}
+.rightSlide .link a{
+color:#ffa132;
 }
 #views_slideshow_cycle_main_example_block-block_1 {
   width:1120px;

@@ -13,7 +13,7 @@ function yeaohpm_menu() {
       'file' => 'yeaohpm.admin.inc',
       );
   $items['thank-you'] = array(
-      'title' => t('thanks'),
+      'title' => t('Submission completed!'),
       'page callback' => 'yeaohpm_project_thanks',
       'access callback' => TRUE,
       'type' => MENU_CALLBACK,
@@ -28,7 +28,24 @@ function yeaohpm_project_thanks() {
 
 if (isset($_SESSION['query'])) {
 $url = $_SESSION['query'];
-$info = "Thank you for submitting project request.Note:<br/>Make sure to bookmark this URL so you can track your request's progress:<br/>";
+$info = "<!-- Google Code for Request Quote Conversion Page -->
+<script type='text/javascript'>
+/* <![CDATA[ */
+var google_conversion_id = 994667058;
+var google_conversion_language = 'en';
+var google_conversion_format = '3';
+var google_conversion_color = 'ffffff';
+var google_conversion_label = 'Qg-dCIH4qlcQstSl2gM';
+var google_remarketing_only = false;
+/* ]]> */
+</script>
+<script type='text/javascript' src='//www.googleadservices.com/pagead/conversion.js'>
+</script>
+<noscript>
+<div style='display:inline;'>
+<img height='1' width='1' style='border-style:none;' alt='' src='//www.googleadservices.com/pagead/conversion/994667058/?label=Qg-dCIH4qlcQstSl2gM&amp;guid=ON&amp;script=0'/>
+</div>
+</noscript>Thank you for submitting project request.<br/>Make sure to bookmark this URL so you can track your request's progress:<br/>";
 $url = "http://project.yeaoh.com/public/index.php?".$url;
 return $info."<a href='$url'>".$url."</a>";
 }
